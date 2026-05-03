@@ -44,6 +44,7 @@ export default function Dashboard() {
         notificationCount={notifications?.unread ?? 0}
         onNavigateHub={() => setActiveApp(null)}
         onOpenSettings={() => setShowSettings(true)}
+        onOpenApp={setActiveApp}
       />
 
       <main className="flex-1 flex flex-col h-full overflow-hidden relative">

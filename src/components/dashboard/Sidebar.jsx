@@ -12,7 +12,7 @@ const NAV_ITEMS = [
   { icon: Icons.Billing, label: 'Billing' },
 ];
 
-export default function Sidebar({ user, notificationCount, onNavigateHub, onOpenSettings }) {
+export default function Sidebar({ user, notificationCount, onNavigateHub, onOpenSettings, onOpenApp }) {
   return (
     <aside className="w-64 bg-[#060B19] flex flex-col h-full shrink-0 relative z-20 shadow-2xl">
       {/* Logo */}
@@ -45,9 +45,9 @@ export default function Sidebar({ user, notificationCount, onNavigateHub, onOpen
       <nav className="flex-1 px-4 space-y-1 overflow-y-auto">
         <NavLink icon={Icons.Hub} label="Hub" active onClick={onNavigateHub} />
         {NAV_ITEMS.map(({ icon, label }) => (
-          <NavLink key={label} icon={icon} label={label} />
+          <NavLink key={label} icon={icon} label={label} onClick={() => onOpenApp(label)} />
         ))}
-        <NavLink icon={Icons.Message} label="Messages" badge={notificationCount} />
+        <NavLink icon={Icons.Message} label="Messages" badge={notificationCount} onClick={() => onOpenApp('Messages')} />
         <NavLink icon={Icons.Settings} label="Settings" onClick={onOpenSettings} />
       </nav>
 
