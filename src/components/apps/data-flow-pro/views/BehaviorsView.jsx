@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ShieldAlert, Sparkles, Loader2 } from 'lucide-react';
-import { callGemini } from '../../../../lib/gemini';
+import { callGemini } from '@/lib/gemini';
 
 export default function BehaviorsView({ behaviors, setBehaviors, activeClient, isBCBA, showToast, apiKey }) {
   const [newBx, setNewBx] = useState({ name: '', opDef: '', type: 'frequency' });

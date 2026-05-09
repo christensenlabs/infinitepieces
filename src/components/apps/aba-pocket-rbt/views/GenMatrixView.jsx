@@ -1,5 +1,5 @@
 import React from 'react';
-import VoiceTextArea from '../../../ui/VoiceTextArea';
+import VoiceTextArea from '@/components/ui/VoiceTextArea';
 
 export default function GenMatrixView({ genForm, setGenForm, onGenerate }) {
   return (

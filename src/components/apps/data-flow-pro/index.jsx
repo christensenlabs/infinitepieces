@@ -8,8 +8,8 @@ import {
   FileSignature, FileCheck, UserCheck, Power,
   LayoutGrid
 } from 'lucide-react';
-import { useApiData } from '../../../hooks/useApiData';
-import { fetchDataFlowClients, fetchDataFlowPrograms, fetchDataFlowConfig } from '../../../api/apps';
+import { useApiData } from '@/hooks/useApiData';
+import { fetchDataFlowClients, fetchDataFlowPrograms, fetchDataFlowConfig } from '@/api/apps';
 
 import NavItem from './components/NavItem';
 import LoginScreen from './views/LoginScreen';

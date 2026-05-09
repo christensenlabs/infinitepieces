@@ -1,6 +1,6 @@
 import React from 'react';
 import { FileText } from 'lucide-react';
-import VoiceTextArea from '../../../ui/VoiceTextArea';
+import VoiceTextArea from '@/components/ui/VoiceTextArea';
 
 export default function ObjectiveNoteView({ obsNoteForm, setObsNoteForm, onGenerate }) {
   return (

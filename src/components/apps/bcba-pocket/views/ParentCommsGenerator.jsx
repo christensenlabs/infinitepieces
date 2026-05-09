@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Mail, Sparkles, Loader2, Save } from 'lucide-react';
-import { callGemini } from '../../../../lib/gemini';
-import { renderMarkdown } from '../../../../lib/renderMarkdown';
+import { callGemini } from '@/lib/gemini';
+import { renderMarkdown } from '@/lib/renderMarkdown';
 import InputField from '../components/InputField';
 import TextAreaField from '../components/TextAreaField';
 

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ListTodo, Sparkles, Loader2, Save } from 'lucide-react';
-import { callGemini } from '../../../../lib/gemini';
-import { renderMarkdown } from '../../../../lib/renderMarkdown';
+import { callGemini } from '@/lib/gemini';
+import { renderMarkdown } from '@/lib/renderMarkdown';
 import InputField from '../components/InputField';
 
 export default function TaskAnalysisGenerator({ apiKey, showToast, onCopy }) {

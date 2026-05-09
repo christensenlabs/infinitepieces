@@ -23,8 +23,8 @@ import {
   Hash,
   Maximize
 } from 'lucide-react';
-import { useApiData } from '../../../hooks/useApiData';
-import { fetchZoneMateCatalog, fetchZoneMateConfig } from '../../../api/apps';
+import { useApiData } from '@/hooks/useApiData';
+import { fetchZoneMateCatalog, fetchZoneMateConfig } from '@/api/apps';
 
 import ClassroomBackground from './components/ClassroomBackground';
 import BoyClassroomScene from './components/BoyClassroomScene';

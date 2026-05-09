@@ -1,5 +1,5 @@
 import { Database, Loader2, Download } from 'lucide-react';
-import { renderMarkdown } from '../../../../lib/renderMarkdown';
+import { renderMarkdown } from '@/lib/renderMarkdown';
 import InputField from '../components/InputField';
 
 export default function ProgramGenerator({ data, onChange, onGenerate, generated, isLoading, onCopy, onExport }) {

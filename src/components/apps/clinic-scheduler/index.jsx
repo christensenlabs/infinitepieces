@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Plus, Lock } from 'lucide-react';
-import { callGemini } from '../../../lib/gemini';
-import { useApiData } from '../../../hooks/useApiData';
-import { fetchSchedulerConfig } from '../../../api/apps';
+import { callGemini } from '@/lib/gemini';
+import { useApiData } from '@/hooks/useApiData';
+import { fetchSchedulerConfig } from '@/api/apps';
 import { getToday, formatDate } from './utils';
 
 import AdminLoginModal from './components/AdminLoginModal';

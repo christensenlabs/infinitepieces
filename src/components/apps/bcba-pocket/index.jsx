@@ -5,12 +5,12 @@ import {
   ListTodo, Bot, Database, Send,
   Edit3, Mail, UserCheck, BookOpen, Zap, X,
 } from 'lucide-react';
-import { callGemini } from '../../../lib/gemini';
-import { copyToClipboard } from '../../../lib/copyToClipboard';
-import { useApiData } from '../../../hooks/useApiData';
-import { useToasts } from '../../../hooks/useToasts';
-import { useApp } from '../../../context/AppContext';
-import { fetchBcbaClients } from '../../../api/apps';
+import { callGemini } from '@/lib/gemini';
+import { copyToClipboard } from '@/lib/copyToClipboard';
+import { useApiData } from '@/hooks/useApiData';
+import { useToasts } from '@/hooks/useToasts';
+import { useApp } from '@/context/AppContext';
+import { fetchBcbaClients } from '@/api/apps';
 
 import NavItem from './components/NavItem';
 import Dashboard from './views/Dashboard';

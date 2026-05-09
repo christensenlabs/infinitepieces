@@ -1,8 +1,8 @@
 import {
   Brain, Loader2, Sparkles, X
 } from 'lucide-react';
-import VoiceTextArea from '../../../ui/VoiceTextArea';
-import { renderMarkdown } from '../../../../lib/renderMarkdown';
+import VoiceTextArea from '@/components/ui/VoiceTextArea';
+import { renderMarkdown } from '@/lib/renderMarkdown';
 
 export default function StrategyCoach({
   client,

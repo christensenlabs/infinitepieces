@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FileSignature, Sparkles, Loader2, Clock, Save } from 'lucide-react';
-import { callGemini } from '../../../../lib/gemini';
+import { callGemini } from '@/lib/gemini';
 
 export default function SessionNotesView({ activeClient, sessionData, programs, sessionNotes, setSessionNotes, showToast, apiKey }) {
   const [draft, setDraft] = useState('');

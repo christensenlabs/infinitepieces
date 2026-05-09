@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { TrendingUp } from 'lucide-react';
-import { callGemini } from '../../../lib/gemini';
-import { renderMarkdown } from '../../../lib/renderMarkdown';
-import { useApiData } from '../../../hooks/useApiData';
-import { fetchSubPoolConfig } from '../../../api/apps';
+import { callGemini } from '@/lib/gemini';
+import { renderMarkdown } from '@/lib/renderMarkdown';
+import { useApiData } from '@/hooks/useApiData';
+import { fetchSubPoolConfig } from '@/api/apps';
 
 import RoleSwitcher from './components/RoleSwitcher';
 import MarketView from './views/MarketView';

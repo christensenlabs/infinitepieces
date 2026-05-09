@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { useApiData } from '../../../hooks/useApiData';
+import { useApiData } from '@/hooks/useApiData';
 import {
   fetchProgramTreePools,
   fetchProgramTreeFlagTypes,
@@ -7,7 +7,7 @@ import {
   fetchProgramTemplates,
   fetchAceCurriculum,
   fetchProgramTreeClients,
-} from '../../../api/apps';
+} from '@/api/apps';
 
 import {
   DEFAULT_POOLS,

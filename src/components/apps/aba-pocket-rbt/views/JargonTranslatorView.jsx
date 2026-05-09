@@ -1,6 +1,6 @@
 import React from 'react';
 import { Languages } from 'lucide-react';
-import VoiceTextArea from '../../../ui/VoiceTextArea';
+import VoiceTextArea from '@/components/ui/VoiceTextArea';
 
 export default function JargonTranslatorView({ jargonForm, setJargonForm, onGenerate }) {
   return (

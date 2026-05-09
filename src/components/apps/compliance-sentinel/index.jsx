@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { AlertTriangle, Loader2 } from 'lucide-react';
-import { useApiData } from '../../../hooks/useApiData';
-import { fetchComplianceConfig } from '../../../api/apps';
+import { useApiData } from '@/hooks/useApiData';
+import { fetchComplianceConfig } from '@/api/apps';
 import { cn, uid, nowStamp } from './utils';
 import Icon from './components/Icon';
 import Modal from './components/Modal';

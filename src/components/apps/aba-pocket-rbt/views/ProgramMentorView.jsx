@@ -1,7 +1,7 @@
 import React from 'react';
 import { UserCircle } from 'lucide-react';
-import VoiceTextArea from '../../../ui/VoiceTextArea';
-import VoiceInput from '../../../ui/VoiceInput';
+import VoiceTextArea from '@/components/ui/VoiceTextArea';
+import VoiceInput from '@/components/ui/VoiceInput';
 
 export default function ProgramMentorView({ mentorForm, setMentorForm, clientInterests, onGenerate }) {
   return (

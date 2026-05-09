@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Sparkles, Loader2 } from 'lucide-react';
-import { callGemini } from '../../../../lib/gemini';
-import { renderMarkdown } from '../../../../lib/renderMarkdown';
+import { callGemini } from '@/lib/gemini';
+import { renderMarkdown } from '@/lib/renderMarkdown';
 
 export default function ABCAnalyzer({ apiKey }) {
   const [abcData, setAbcData] = useState('');

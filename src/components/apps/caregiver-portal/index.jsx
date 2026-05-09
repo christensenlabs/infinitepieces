@@ -6,10 +6,10 @@ import {
   Calendar, Menu, MessageSquare, Target,
   X
 } from 'lucide-react';
-import { callGemini } from '../../../lib/gemini';
-import { useApiData } from '../../../hooks/useApiData';
-import { useApp } from '../../../context/AppContext';
-import { fetchCaregiverClients, fetchCaregiverLibrary, fetchCaregiverSessionConfig } from '../../../api/apps';
+import { callGemini } from '@/lib/gemini';
+import { useApiData } from '@/hooks/useApiData';
+import { useApp } from '@/context/AppContext';
+import { fetchCaregiverClients, fetchCaregiverLibrary, fetchCaregiverSessionConfig } from '@/api/apps';
 
 import NavButton from './components/NavButton';
 import Dashboard from './views/Dashboard';

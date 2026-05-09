@@ -7,9 +7,9 @@ import {
   Camera, Languages,
   Book, FileText, ListTodo, HeartHandshake, GraduationCap, Zap
 } from 'lucide-react';
-import { callGemini } from '../../../lib/gemini';
-import { useApiData } from '../../../hooks/useApiData';
-import { fetchRbtMentorClients, fetchRbtMentorPermissions } from '../../../api/apps';
+import { callGemini } from '@/lib/gemini';
+import { useApiData } from '@/hooks/useApiData';
+import { fetchRbtMentorClients, fetchRbtMentorPermissions } from '@/api/apps';
 
 import { infiniteClinicalCore, tabTitles, fullBehaviorTemplates } from './constants';
 

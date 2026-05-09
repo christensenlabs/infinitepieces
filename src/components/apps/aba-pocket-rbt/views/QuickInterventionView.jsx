@@ -1,6 +1,6 @@
 import React from 'react';
 import { Lightbulb } from 'lucide-react';
-import VoiceTextArea from '../../../ui/VoiceTextArea';
+import VoiceTextArea from '@/components/ui/VoiceTextArea';
 
 export default function QuickInterventionView({ quickIntForm, setQuickIntForm, onGenerate }) {
   return (

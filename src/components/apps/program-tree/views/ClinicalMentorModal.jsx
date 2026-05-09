@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { callGemini } from '../../../../lib/gemini';
+import { callGemini } from '@/lib/gemini';
 import I from '../components/Icon';
 import Button from '../components/Button';
 import Field from '../components/Field';

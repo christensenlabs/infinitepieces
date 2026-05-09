@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { UserCheck, CheckCircle2, Sparkles, Loader2, Target } from 'lucide-react';
-import { callGemini } from '../../../../lib/gemini';
-import { renderMarkdown } from '../../../../lib/renderMarkdown';
+import { callGemini } from '@/lib/gemini';
+import { renderMarkdown } from '@/lib/renderMarkdown';
 
 export default function AICoach({ apiKey, showToast }) {
   const [clinicalText, setClinicalText] = useState('');

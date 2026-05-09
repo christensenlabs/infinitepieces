@@ -1,6 +1,6 @@
 import React from 'react';
 import { CheckCircle2, RefreshCw, Copy, Save } from 'lucide-react';
-import { renderMarkdown } from '../../../../lib/renderMarkdown';
+import { renderMarkdown } from '@/lib/renderMarkdown';
 
 export default function ResultView({ generatedResult, permissions, role, setActiveTab, setGeneratedResult, copyToClipboard, saveToLibrary }) {
   return (

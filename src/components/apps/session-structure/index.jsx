@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { Loader2 } from 'lucide-react';
-import { callGemini } from '../../../lib/gemini';
-import { useApiData } from '../../../hooks/useApiData';
-import { fetchSessionStructureConfig } from '../../../api/apps';
+import { callGemini } from '@/lib/gemini';
+import { useApiData } from '@/hooks/useApiData';
+import { fetchSessionStructureConfig } from '@/api/apps';
 
 import Sidebar from './components/Sidebar';
 import Header from './components/Header';

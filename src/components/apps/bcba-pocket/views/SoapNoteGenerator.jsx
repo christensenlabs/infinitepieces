@@ -1,5 +1,5 @@
 import { Edit3, Sparkles, Loader2, Save } from 'lucide-react';
-import { renderMarkdown } from '../../../../lib/renderMarkdown';
+import { renderMarkdown } from '@/lib/renderMarkdown';
 import InputField from '../components/InputField';
 import TextAreaField from '../components/TextAreaField';
 

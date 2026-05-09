@@ -6,11 +6,11 @@ import {
   Target, PlusCircle, Lightbulb, BookOpen
 } from 'lucide-react';
 
-import { useApiData } from '../../../hooks/useApiData';
-import { fetchMaterialMakerConfig } from '../../../api/apps';
+import { useApiData } from '@/hooks/useApiData';
+import { fetchMaterialMakerConfig } from '@/api/apps';
 
-import VoiceTextArea from '../../ui/VoiceTextArea';
-import VoiceInput from '../../ui/VoiceInput';
+import VoiceTextArea from '@/components/ui/VoiceTextArea';
+import VoiceInput from '@/components/ui/VoiceInput';
 
 import { fetchGeminiWithRetry, fetchImagenWithRetry, playChime } from './utils';
 

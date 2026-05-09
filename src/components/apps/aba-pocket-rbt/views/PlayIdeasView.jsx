@@ -1,6 +1,6 @@
 import React from 'react';
-import VoiceTextArea from '../../../ui/VoiceTextArea';
-import VoiceInput from '../../../ui/VoiceInput';
+import VoiceTextArea from '@/components/ui/VoiceTextArea';
+import VoiceInput from '@/components/ui/VoiceInput';
 
 export default function PlayIdeasView({ playForm, setPlayForm, onGenerate }) {
   return (

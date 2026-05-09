@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { BookOpen, Search, Database, Loader2, Save } from 'lucide-react';
-import { callGemini } from '../../../../lib/gemini';
-import { renderMarkdown } from '../../../../lib/renderMarkdown';
+import { callGemini } from '@/lib/gemini';
+import { renderMarkdown } from '@/lib/renderMarkdown';
 
 export default function ClinicalLibrary({ apiKey, showToast, onCopy }) {
   const [query, setQuery] = useState('');
