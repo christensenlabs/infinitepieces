@@ -5,12 +5,12 @@ export CLABS_INFINITEPIECES_CLOUDFRONT_DISTRIBUTION_ID := `source scripts/env.sh
 
 # Build the site
 build:
-    npm run build
+    cd frontend && npm run build
 
 # Deploy: build, sync to S3, invalidate CloudFront cache
 deploy: build
     @echo "==> Syncing dist/ to S3 bucket $CLABS_INFINITEPIECES_BUCKET..."
-    aws s3 sync dist s3://$CLABS_INFINITEPIECES_BUCKET --delete
+    aws s3 sync frontend/dist s3://$CLABS_INFINITEPIECES_BUCKET --delete
     @echo "==> Invalidating CloudFront distribution $CLABS_INFINITEPIECES_CLOUDFRONT_DISTRIBUTION_ID..."
     aws cloudfront create-invalidation --distribution-id $CLABS_INFINITEPIECES_CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
     @echo "==> Deploy complete!"

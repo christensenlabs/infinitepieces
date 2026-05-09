@@ -5,7 +5,10 @@
       "Grep",
       "Glob",
       "Write",
+      "Bash(echo:*)",
+      "Bash(find:*)",
       "Bash(git:*)",
+      "Bash(grep:*)",
       "Bash(npm run:*)",
       "Bash(sed:*)",
       "Bash(tr:*)"
