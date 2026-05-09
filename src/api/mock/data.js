@@ -79,7 +79,9 @@ export const mockApps = [
   { key: 'bcba', title: 'BCBA Assistant', icon: 'Users', appName: 'BCBA Assistant' },
   { key: 'caregiver', title: 'Caregiver Portal', icon: 'Message', appName: 'Caregiver Portal' },
   { key: 'programs', title: 'Program Hub', icon: 'Apps', appName: 'Program Hub' },
-  { key: 'progress', title: 'Progress Hub', icon: 'Analytics', appName: 'Progress Hub' },
+  { key: 'dataflow', title: 'Data Flow', icon: 'Analytics', appName: 'Data Flow' },
   { key: 'session', title: 'Session Maker', icon: 'Calendar', appName: 'Session Maker' },
   { key: 'material', title: 'Material Maker', icon: 'Apps', appName: 'Material Maker' },
+  { key: 'compliance', title: 'Compliance', icon: 'Shield', appName: 'Compliance' },
+  { key: 'zonemate', title: 'ZoneMate', icon: 'Users', appName: 'ZoneMate' },
 ];

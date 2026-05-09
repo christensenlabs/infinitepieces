@@ -1,9 +1,6 @@
 import React, { useState, useCallback } from 'react';
-import { useLocalStorage } from '../hooks/useLocalStorage';
+import { useApp } from '../context/AppContext';
 import { useGeminiAction } from '../hooks/useGeminiAction';
-import { useApiData } from '../hooks/useApiData';
-import { fetchCurrentUser } from '../api/user';
-import { fetchNotifications } from '../api/notifications';
 import Sidebar from '../components/dashboard/Sidebar';
 import DashboardHeader from '../components/dashboard/DashboardHeader';
 import AppView from '../components/dashboard/AppView';
@@ -15,19 +12,16 @@ const COPILOT_SYSTEM_TEXT =
   "You are the central AI Assistant for Infinite Suite OS, an enterprise ABA clinic management platform. Answer the clinic administrator's query professionally, concisely, and accurately.";
 
 export default function Dashboard() {
+  const { apiKey, setApiKey, user, notifications, showSettings, openSettings, closeSettings } = useApp();
+
   const [activeApp, setActiveApp] = useState(null);
-  const [apiKey, setApiKey] = useLocalStorage('infinity_api_key');
-  const [showSettings, setShowSettings] = useState(false);
   const [aiCommandOpen, setAiCommandOpen] = useState(false);
 
-  const onMissingKey = useCallback(() => setShowSettings(true), []);
+  const onMissingKey = useCallback(() => openSettings(), [openSettings]);
 
   const briefing = useGeminiAction(apiKey, { onMissingKey });
   const copilot = useGeminiAction(apiKey, { onMissingKey });
   const surge = useGeminiAction(apiKey, { onMissingKey });
-
-  const { data: user } = useApiData(fetchCurrentUser);
-  const { data: notifications } = useApiData(fetchNotifications);
 
   const handleQuickCommand = useCallback(
     (promptText) => {
@@ -43,7 +37,7 @@ export default function Dashboard() {
         user={user}
         notificationCount={notifications?.unread ?? 0}
         onNavigateHub={() => setActiveApp(null)}
-        onOpenSettings={() => setShowSettings(true)}
+        onOpenSettings={openSettings}
         onOpenApp={setActiveApp}
       />
 
@@ -66,7 +60,7 @@ export default function Dashboard() {
         <SettingsModal
           apiKey={apiKey}
           onApiKeyChange={setApiKey}
-          onClose={() => setShowSettings(false)}
+          onClose={closeSettings}
         />
       )}
 

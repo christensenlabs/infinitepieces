@@ -1,10 +1,41 @@
 import React from 'react';
 import { Icons } from '../Icons';
+import { ErrorBoundary } from '../ui/ErrorBoundary';
+import { useApp } from '../../context/AppContext';
+import ClinicSchedulerApp from '../apps/ClinicSchedulerApp';
+import SubPoolMarketPlace from '../apps/SubPoolMarketPlace';
+import ComplianceSentinelApp from '../apps/ComplianceSentinelApp';
+import DataFlowProApp from '../apps/DataFlowProApp';
+import ABAPocketRBTMentor from '../apps/ABAPocketRBTMentor';
+import BCBAPocket from '../apps/bcba-pocket';
+import MaterialMakerApp from '../apps/MaterialMakerApp';
+import ProgramTreeApp from '../apps/ProgramTreeApp';
+import SessionStructureApp from '../apps/SessionStructureApp';
+import CaregiverPortalApp from '../apps/CaregiverPortalApp';
+import ZoneMateApp from '../apps/ZoneMateApp';
+
+const APP_COMPONENTS = {
+  'Scheduling': ClinicSchedulerApp,
+  'SubPool Market': SubPoolMarketPlace,
+  'Compliance': ComplianceSentinelApp,
+  'Data Flow': DataFlowProApp,
+  'Provider Assistant': ABAPocketRBTMentor,
+  'BCBA Assistant': BCBAPocket,
+  'Material Maker': MaterialMakerApp,
+  'Program Hub': ProgramTreeApp,
+  'Session Maker': SessionStructureApp,
+  'Caregiver Portal': CaregiverPortalApp,
+  'ZoneMate': ZoneMateApp,
+};
 
 export default function AppView({ appName, onClose }) {
+  const { apiKey } = useApp();
+  const AppComponent = APP_COMPONENTS[appName];
+
   return (
-    <div className="flex flex-col h-full bg-slate-100 z-20 absolute inset-0 pt-20">
-      <div className="h-14 border-b border-slate-200 flex items-center px-8 bg-white shrink-0 shadow-sm">
+    <div className="flex flex-col h-full bg-slate-100 z-20 absolute inset-0 pt-16">
+      {/* Back-navigation header — always visible */}
+      <div className="h-12 border-b border-slate-200 flex items-center px-8 bg-white shrink-0 shadow-sm">
         <button
           onClick={onClose}
           className="text-sm font-bold text-slate-500 hover:text-[#12214A] flex items-center gap-2 transition-colors"
@@ -15,27 +46,32 @@ export default function AppView({ appName, onClose }) {
           <Icons.Apps className="w-4 h-4 text-cyan-500" /> {appName}
         </span>
       </div>
-      <div className="flex-1 overflow-auto bg-slate-50 p-8 flex items-center justify-center">
-        <div className="text-center opacity-70 max-w-md">
-          <div className="w-20 h-20 bg-white border border-slate-200 rounded-3xl mx-auto flex items-center justify-center mb-6 shadow-sm">
-            <Icons.Apps className="w-10 h-10 text-cyan-500" />
+
+      {/* App content */}
+      <div className="flex-1 overflow-auto">
+        {AppComponent ? (
+          <ErrorBoundary>
+            <AppComponent apiKey={apiKey} onClose={onClose} />
+          </ErrorBoundary>
+        ) : (
+          <div className="h-full flex items-center justify-center bg-slate-50 p-8">
+            <div className="text-center opacity-70 max-w-md">
+              <div className="w-20 h-20 bg-white border border-slate-200 rounded-3xl mx-auto flex items-center justify-center mb-6 shadow-sm">
+                <Icons.Apps className="w-10 h-10 text-cyan-500" />
+              </div>
+              <h2 className="text-3xl font-black text-[#0B132B] mb-2">{appName}</h2>
+              <p className="text-sm font-bold mt-2 text-slate-500 leading-relaxed">
+                This module is not yet connected.
+              </p>
+              <button
+                onClick={onClose}
+                className="mt-8 bg-[#12214A] text-white px-6 py-3 rounded-xl font-bold shadow-md hover:bg-blue-900 transition-colors"
+              >
+                Close App
+              </button>
+            </div>
           </div>
-          <h2 className="text-3xl font-black text-[#0B132B] mb-2">{appName} App Loaded</h2>
-          <p className="text-sm font-bold mt-2 text-slate-500 leading-relaxed">
-            In your final production codebase, the individual React &ldquo;Bookcase&rdquo; component
-            (like{' '}
-            <span className="font-mono text-cyan-600 bg-cyan-50 px-1 rounded">
-              ProgramLibraryHub.jsx
-            </span>
-            ) physically mounts inside this window.
-          </p>
-          <button
-            onClick={onClose}
-            className="mt-8 bg-[#12214A] text-white px-6 py-3 rounded-xl font-bold shadow-md hover:bg-blue-900 transition-colors"
-          >
-            Close App
-          </button>
-        </div>
+        )}
       </div>
     </div>
   );
