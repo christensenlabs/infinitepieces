@@ -13,7 +13,7 @@ Enterprise ABA (Applied Behavior Analysis) clinic management dashboard.
 ## Project Structure
 
 - `frontend/` — React SPA (all source, config, and dependencies)
-- `terraform/` — AWS infrastructure (S3, CloudFront)
+- `terraform/` — AWS infrastructure, using OpenTofu (S3, CloudFront)
 - `scripts/` — Shell helpers (env loading)
 - `secrets/` — Local-only secret files (gitignored)
 
@@ -75,3 +75,8 @@ npm run lint:fix   # ESLint autofix
 
 - Use `lucide-react` for icons in app modules.
 - The dashboard shell uses custom SVG icons from `frontend/src/components/Icons.jsx`.
+
+### Formatting
+
+- All files must end with a single trailing newline.
+- No trailing whitespace on any line.
