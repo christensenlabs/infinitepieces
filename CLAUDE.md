@@ -13,7 +13,8 @@ Enterprise ABA (Applied Behavior Analysis) clinic management dashboard.
 ## Project Structure
 
 - `frontend/` — React SPA (all source, config, and dependencies)
-- `terraform/` — AWS infrastructure, using OpenTofu (S3, CloudFront)
+- `backend/` — Spring Boot API (Kotlin, Gradle)
+- `terraform/` — AWS infrastructure, using OpenTofu (S3, CloudFront, ECS, RDS)
 - `scripts/` — Shell helpers (env loading)
 - `secrets/` — Local-only secret files (gitignored)
 
@@ -28,6 +29,28 @@ npm run build      # Production build
 npm run lint       # ESLint check
 npm run lint:fix   # ESLint autofix
 ```
+
+Backend commands run from the `backend/` directory:
+
+```bash
+cd backend
+./gradlew build                                        # Compile & test
+./gradlew bootRun --args='--spring.profiles.active=local'  # Run locally
+```
+
+Docker:
+
+```bash
+docker build -t infinitepieces-backend backend/        # Build image
+docker run -p 8080:8080 infinitepieces-backend         # Run (local profile)
+docker run -e SPRING_PROFILES_ACTIVE=prod -p 8080:8080 infinitepieces-backend  # Run with prod profile
+```
+
+### Spring Profiles
+
+- `local` — default in Dockerfile, CORS allows `http://localhost:5173`
+- `prod` — set by ECS in AWS, CORS allows `https://infinitepieces.christensenlabs.com`
+- Profile-specific config lives in `backend/src/main/resources/application-{profile}.yaml`
 
 ## Architecture Rules
 

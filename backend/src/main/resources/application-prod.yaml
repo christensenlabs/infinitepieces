@@ -1,0 +1,2 @@
+cors:
+  allowed-origins: "https://infinitepieces.christensenlabs.com"

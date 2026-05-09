@@ -14,9 +14,3 @@ deploy: build
     @echo "==> Invalidating CloudFront distribution $CLABS_INFINITEPIECES_CLOUDFRONT_DISTRIBUTION_ID..."
     aws cloudfront create-invalidation --distribution-id $CLABS_INFINITEPIECES_CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
     @echo "==> Deploy complete!"
-
-# Show resolved config (for debugging)
-show-config:
-    @echo "AWS Account:    $CLABS_AWS_ACCOUNT_ID"
-    @echo "S3 Bucket:      $CLABS_INFINITEPIECES_BUCKET"
-    @echo "CloudFront Dist: $CLABS_INFINITEPIECES_CLOUDFRONT_DISTRIBUTION_ID"

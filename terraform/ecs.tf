@@ -108,8 +108,8 @@ resource "aws_ecs_task_definition" "backend" {
     }]
 
     environment = [
+      { name = "SPRING_PROFILES_ACTIVE", value = "prod" },
       { name = "SPRING_DATASOURCE_URL", value = "jdbc:postgresql://${aws_db_instance.main.endpoint}/${aws_db_instance.main.db_name}" },
-      { name = "SPRING_DATASOURCE_USERNAME", value = aws_db_instance.main.username },
       { name = "S3_STORAGE_BUCKET", value = aws_s3_bucket.storage.id },
     ]
 
