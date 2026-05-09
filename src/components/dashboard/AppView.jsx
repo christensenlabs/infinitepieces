@@ -2,17 +2,17 @@ import React from 'react';
 import { Icons } from '../Icons';
 import { ErrorBoundary } from '../ui/ErrorBoundary';
 import { useApp } from '../../context/AppContext';
-import ClinicSchedulerApp from '../apps/ClinicSchedulerApp';
-import SubPoolMarketPlace from '../apps/SubPoolMarketPlace';
-import ComplianceSentinelApp from '../apps/ComplianceSentinelApp';
-import DataFlowProApp from '../apps/DataFlowProApp';
-import ABAPocketRBTMentor from '../apps/ABAPocketRBTMentor';
+import ClinicSchedulerApp from '../apps/clinic-scheduler';
+import SubPoolMarketPlace from '../apps/sub-pool-marketplace';
+import ComplianceSentinelApp from '../apps/compliance-sentinel';
+import DataFlowProApp from '../apps/data-flow-pro';
+import ABAPocketRBTMentor from '../apps/aba-pocket-rbt';
 import BCBAPocket from '../apps/bcba-pocket';
-import MaterialMakerApp from '../apps/MaterialMakerApp';
-import ProgramTreeApp from '../apps/ProgramTreeApp';
-import SessionStructureApp from '../apps/SessionStructureApp';
-import CaregiverPortalApp from '../apps/CaregiverPortalApp';
-import ZoneMateApp from '../apps/ZoneMateApp';
+import MaterialMakerApp from '../apps/material-maker';
+import ProgramTreeApp from '../apps/program-tree';
+import SessionStructureApp from '../apps/session-structure';
+import CaregiverPortalApp from '../apps/caregiver-portal';
+import ZoneMateApp from '../apps/zone-mate';
 
 const APP_COMPONENTS = {
   'Scheduling': ClinicSchedulerApp,
