@@ -25,7 +25,7 @@ export default function ProgramCard({ program, role, pools, onEdit, onClone, onD
                 <Badge className="border-indigo-200 bg-indigo-50 text-indigo-700">BL: {program.baselineData}</Badge>
               ) : null}
             </div>
-            <h3 className="text-xl font-black text-[#12214A] md:text-2xl">{program.target || "Untitled Target"}</h3>
+            <h3 className="text-xl font-black text-brand-navy md:text-2xl">{program.target || "Untitled Target"}</h3>
             <p className="mt-2 max-w-3xl text-sm font-medium leading-6 text-slate-500">
               {program.objective || "No objective set."}
             </p>

@@ -8,7 +8,7 @@ export default function EmptyState({ role, onDraft, onDatabase }) {
       <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-[2rem] bg-indigo-50 text-5xl">
         <I name="library" className="text-indigo-500" />
       </div>
-      <h3 className="text-2xl font-black text-[#12214A]">Blank Slate Ready</h3>
+      <h3 className="text-2xl font-black text-brand-navy">Blank Slate Ready</h3>
       <p className="mx-auto mt-3 max-w-2xl text-sm font-medium leading-6 text-slate-500">
         No programs match this view yet. BCBAs can build custom treatment targets or import pre-built evidence-based templates from the ACE Curriculum Database.
       </p>

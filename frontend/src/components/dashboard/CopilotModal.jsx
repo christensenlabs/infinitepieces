@@ -39,7 +39,7 @@ export default function CopilotModal({ copilot, onClose }) {
     <Modal onClose={onClose} position="top" maxWidth="max-w-2xl">
       <div className="flex flex-col max-h-[80vh]">
         {/* Header */}
-        <div className="bg-gradient-to-r from-[#0B132B] to-blue-900 p-6 flex justify-between items-center text-white shrink-0">
+        <div className="bg-gradient-to-r from-brand to-blue-900 p-6 flex justify-between items-center text-white shrink-0">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center">
               <Icons.Sparkles className="w-5 h-5 text-cyan-400" />
@@ -86,7 +86,7 @@ export default function CopilotModal({ copilot, onClose }) {
             <button
               onClick={() => submit()}
               disabled={copilot.loading || !query}
-              className="bg-[#0B132B] text-white px-6 py-3 rounded-xl font-bold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-900 transition-colors"
+              className="bg-brand text-white px-6 py-3 rounded-xl font-bold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-900 transition-colors"
             >
               {copilot.loading ? 'Thinking...' : 'Ask'}
             </button>

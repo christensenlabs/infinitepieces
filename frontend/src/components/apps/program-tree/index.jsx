@@ -446,7 +446,7 @@ export default function ProgramTreeApp({ apiKey }) {
         <Select
           value={client?.id || ""}
           onChange={(e) => setState((p) => ({ ...p, selectedClientId: e.target.value }))}
-          className="font-black text-[#12214A]"
+          className="font-black text-brand-navy"
         >
           {state.clients.map((c) => (
             <option key={c.id} value={c.id}>
@@ -458,7 +458,7 @@ export default function ProgramTreeApp({ apiKey }) {
         {client ? (
           <div className="mt-4 rounded-2xl border border-slate-100 bg-slate-50 p-4">
             <div className="mb-2 flex items-center justify-between gap-2">
-              <p className="text-sm font-black text-[#12214A]">{client.name}</p>
+              <p className="text-sm font-black text-brand-navy">{client.name}</p>
               <button
                 onClick={() => setClientModal(client)}
                 className="rounded-full bg-white px-3 py-1 text-xs font-black text-slate-600 shadow-sm hover:bg-slate-100 transition-colors"
@@ -513,7 +513,7 @@ export default function ProgramTreeApp({ apiKey }) {
   );
 
   return (
-    <div className="min-h-screen bg-[#F7F8FB] font-sans text-slate-800 relative">
+    <div className="min-h-screen bg-surface font-sans text-slate-800 relative">
       <style>{`
         .animate-in { animation-duration: 300ms; animation-fill-mode: both; animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
         .fade-in { animation-name: fadeIn; }
@@ -531,7 +531,7 @@ export default function ProgramTreeApp({ apiKey }) {
       `}</style>
 
       {/* GLOBAL HEADER */}
-      <header className="sticky top-0 z-30 border-b border-white/10 bg-[#12214A] px-4 py-4 text-white shadow-lg shadow-slate-900/10 md:px-8">
+      <header className="sticky top-0 z-30 border-b border-white/10 bg-brand-navy px-4 py-4 text-white shadow-lg shadow-slate-900/10 md:px-8">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-4">
             <button
@@ -541,7 +541,7 @@ export default function ProgramTreeApp({ apiKey }) {
             >
               <I name="filter" />
             </button>
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#D7A83F] text-3xl shadow-inner">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-gold-muted text-3xl shadow-inner">
               <I name="library" />
             </div>
             <div>
@@ -563,7 +563,7 @@ export default function ProgramTreeApp({ apiKey }) {
                 }}
                 className={cn(
                   "rounded-2xl px-4 py-2.5 text-sm font-black transition-all",
-                  role === r ? "bg-white text-[#12214A] shadow" : "text-white hover:bg-white/20"
+                  role === r ? "bg-white text-brand-navy shadow" : "text-white hover:bg-white/20"
                 )}
               >
                 {r}
@@ -731,7 +731,7 @@ export default function ProgramTreeApp({ apiKey }) {
       {confirmState.isOpen && (
         <div className="fixed inset-0 z-[110] flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm animate-in fade-in duration-200">
           <div className="bg-white p-8 rounded-[2rem] shadow-2xl max-w-sm w-full border-t-8 border-rose-500 animate-in zoom-in-95">
-            <h3 className="text-2xl font-black text-[#12214A] mb-2 flex items-center gap-2">
+            <h3 className="text-2xl font-black text-brand-navy mb-2 flex items-center gap-2">
               <I name="alert" className="text-rose-500" />
               {confirmState.title}
             </h3>
@@ -811,7 +811,7 @@ export default function ProgramTreeApp({ apiKey }) {
       ) : null}
 
       {toast ? (
-        <div className="fixed bottom-6 left-1/2 z-[100] -translate-x-1/2 rounded-full bg-[#12214A] px-6 py-3 text-sm font-black text-white shadow-2xl animate-in slide-in-from-bottom-4 flex items-center gap-2">
+        <div className="fixed bottom-6 left-1/2 z-[100] -translate-x-1/2 rounded-full bg-brand-navy px-6 py-3 text-sm font-black text-white shadow-2xl animate-in slide-in-from-bottom-4 flex items-center gap-2">
           <I name="check" className="text-emerald-400" /> {toast}
         </div>
       ) : null}

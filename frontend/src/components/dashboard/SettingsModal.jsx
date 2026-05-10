@@ -7,7 +7,7 @@ export default function SettingsModal({ apiKey, onApiKeyChange, onClose }) {
     <Modal onClose={onClose}>
       <div className="p-6">
         <div className="flex justify-between items-center mb-6">
-          <h3 className="text-xl font-black text-[#0B132B]">Platform Settings</h3>
+          <h3 className="text-xl font-black text-brand">Platform Settings</h3>
           <button onClick={onClose} className="text-slate-400 hover:text-slate-600">
             <Icons.Hub className="w-5 h-5 rotate-45" />
           </button>
@@ -32,7 +32,7 @@ export default function SettingsModal({ apiKey, onApiKeyChange, onClose }) {
 
         <button
           onClick={onClose}
-          className="w-full bg-[#0B132B] text-white py-3 rounded-xl font-bold"
+          className="w-full bg-brand text-white py-3 rounded-xl font-bold"
         >
           Save &amp; Close
         </button>

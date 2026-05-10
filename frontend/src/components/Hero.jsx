@@ -1,12 +1,12 @@
 import React from 'react';
 
 const Hero = () => (
-  <section className="pt-32 pb-20 px-6 relative bg-[#040811]">
+  <section className="pt-32 pb-20 px-6 relative bg-brand-dark">
     <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-blue-900/20 blur-[120px] rounded-full pointer-events-none" />
 
     <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 relative z-10 pt-10">
       <div className="flex-1">
-        <div className="inline-block bg-white/5 border border-white/10 px-4 py-1.5 rounded-full text-xs font-bold text-[#00E5FF] uppercase tracking-widest mb-6">
+        <div className="inline-block bg-white/5 border border-white/10 px-4 py-1.5 rounded-full text-xs font-bold text-accent uppercase tracking-widest mb-6">
           2026 Behavioral Health Benchmarks
         </div>
         <h1 className="text-6xl lg:text-7xl font-black mb-6 leading-[1.1] tracking-tight text-white">
@@ -15,7 +15,7 @@ const Hero = () => (
             Hours.
           </span>
           <br />
-          Retained <span className="text-[#FFC800]">Talent.</span>
+          Retained <span className="text-accent-gold">Talent.</span>
           <br />
           Automated ABA.
         </h1>

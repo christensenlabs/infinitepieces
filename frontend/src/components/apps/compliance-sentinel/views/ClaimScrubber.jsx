@@ -9,10 +9,10 @@ export default function ClaimScrubber({ claims, deleteClaim, onAddClaim }) {
        <Card>
          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
            <div>
-             <h3 className="text-xl font-black text-[#12214A]">Pre-Billing Scrubber</h3>
+             <h3 className="text-xl font-black text-brand-navy">Pre-Billing Scrubber</h3>
              <p className="text-sm text-slate-500 mt-1">Add raw claims below. Click &ldquo;Run Deep Scrub&rdquo; at the top to process them.</p>
            </div>
-           <button onClick={onAddClaim} className="bg-[#D7A83F] text-white px-4 py-2 rounded-xl font-black text-sm flex items-center gap-2 shadow-sm hover:bg-amber-500"><Icon name="plus"/> Add Claim</button>
+           <button onClick={onAddClaim} className="bg-accent-gold-muted text-white px-4 py-2 rounded-xl font-black text-sm flex items-center gap-2 shadow-sm hover:bg-amber-500"><Icon name="plus"/> Add Claim</button>
          </div>
 
          {claims.length === 0 ? (
@@ -32,7 +32,7 @@ export default function ClaimScrubber({ claims, deleteClaim, onAddClaim }) {
                <tbody className="divide-y divide-slate-100">
                  {claims.map(claim => (
                    <tr key={claim.id} className={claim.status === 'Hold' ? 'bg-rose-50/30' : ''}>
-                     <td className="py-4"><p className="font-bold text-[#12214A]">{claim.date}</p><p className="text-slate-500 text-xs">{claim.client}</p></td>
+                     <td className="py-4"><p className="font-bold text-brand-navy">{claim.date}</p><p className="text-slate-500 text-xs">{claim.client}</p></td>
                      <td className="py-4">
                         {claim.codes.map(c => <Badge key={c} tone="slate" className="mr-1">{c}</Badge>)}
                         {claim.modifier && <Badge tone="gold">Mod applied</Badge>}

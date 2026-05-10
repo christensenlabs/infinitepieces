@@ -18,22 +18,22 @@ export default function Dashboard({
 
       {/* Top KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 shrink-0">
-        <div className="bg-[#0A1220]/80 backdrop-blur-md border border-white/5 p-6 rounded-3xl shadow-xl flex items-center gap-5">
+        <div className="bg-brand-panel/80 backdrop-blur-md border border-white/5 p-6 rounded-3xl shadow-xl flex items-center gap-5">
           <div className="w-14 h-14 bg-cyan-500/10 text-cyan-400 rounded-2xl flex items-center justify-center border border-cyan-500/20 shrink-0"><Clock size={28}/></div>
           <div><p className="text-[10px] font-black uppercase text-slate-500 tracking-widest mb-1">Auth Remaining</p><p className="text-2xl font-black text-white">{client.authTotal - client.authUsed} Hrs</p></div>
         </div>
-        <div className="bg-[#0A1220]/80 backdrop-blur-md border border-white/5 p-6 rounded-3xl shadow-xl flex items-center gap-5">
+        <div className="bg-brand-panel/80 backdrop-blur-md border border-white/5 p-6 rounded-3xl shadow-xl flex items-center gap-5">
           <div className="w-14 h-14 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center border border-emerald-500/20 shrink-0"><CheckCircle2 size={28}/></div>
           <div><p className="text-[10px] font-black uppercase text-slate-500 tracking-widest mb-1">Mastered Skills</p><p className="text-2xl font-black text-white">0</p></div>
         </div>
-        <div className="bg-[#0A1220]/80 backdrop-blur-md border border-white/5 p-6 rounded-3xl shadow-xl flex items-center gap-5">
+        <div className="bg-brand-panel/80 backdrop-blur-md border border-white/5 p-6 rounded-3xl shadow-xl flex items-center gap-5">
           <div className="w-14 h-14 bg-purple-500/10 text-purple-400 rounded-2xl flex items-center justify-center border border-purple-500/20 shrink-0"><Users size={28}/></div>
           <div><p className="text-[10px] font-black uppercase text-slate-500 tracking-widest mb-1">Care Team</p><p className="text-2xl font-black text-white">0 Active</p></div>
         </div>
       </div>
 
       {/* Schedule Card (The Revenue Trap) */}
-      <div className="flex-1 bg-[#0A1220]/80 backdrop-blur-md border border-white/5 rounded-[2.5rem] p-6 md:p-10 shadow-2xl relative overflow-hidden flex flex-col justify-center">
+      <div className="flex-1 bg-brand-panel/80 backdrop-blur-md border border-white/5 rounded-[2.5rem] p-6 md:p-10 shadow-2xl relative overflow-hidden flex flex-col justify-center">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-[100px] pointer-events-none"></div>
 
         {cancelState === "idle" && (

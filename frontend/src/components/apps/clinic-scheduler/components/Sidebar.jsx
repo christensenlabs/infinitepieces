@@ -19,7 +19,7 @@ export default function Sidebar({
       {/* Mobile Sidebar Overlay */}
       {isSidebarOpen && <div className="fixed inset-0 bg-slate-900/50 z-20 lg:hidden" onClick={() => setIsSidebarOpen(false)} />}
 
-      <div className={`fixed inset-y-0 left-0 w-[260px] bg-[#0b132b] text-slate-300 flex flex-col shadow-2xl z-30 transition-transform duration-300 lg:relative lg:translate-x-0 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+      <div className={`fixed inset-y-0 left-0 w-[260px] bg-brand text-slate-300 flex flex-col shadow-2xl z-30 transition-transform duration-300 lg:relative lg:translate-x-0 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="p-5 border-b border-white/10 flex justify-between items-center">
           <button className="flex-1 flex items-center justify-between text-sm bg-white/5 border border-white/10 px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors mr-2">
             <div className="flex flex-col text-left">
@@ -44,7 +44,7 @@ export default function Sidebar({
               }}
               className={`w-full flex items-center justify-between px-4 py-3 rounded-lg transition-all text-sm font-medium ${
                 activeTab === item.id
-                ? 'bg-[#152243] text-yellow-400 border-l-4 border-yellow-400 shadow-md'
+                ? 'bg-brand-navy text-yellow-400 border-l-4 border-yellow-400 shadow-md'
                 : 'text-slate-300 hover:bg-white/5 hover:text-white border-l-4 border-transparent'
               }`}
             >
@@ -60,7 +60,7 @@ export default function Sidebar({
           ))}
         </nav>
 
-        <div className="p-4 border-t border-white/10 bg-[#080d1e] flex items-center space-x-3 shrink-0">
+        <div className="p-4 border-t border-white/10 bg-brand-dark flex items-center space-x-3 shrink-0">
           <div className="w-10 h-10 rounded-full bg-slate-600 overflow-hidden flex-shrink-0 border-2 border-slate-700">
              <div className="w-full h-full flex items-center justify-center text-xs font-bold text-white bg-indigo-600">
                {isAdminAuthenticated ? 'AD' : 'UI'}

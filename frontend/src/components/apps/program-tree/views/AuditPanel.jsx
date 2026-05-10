@@ -8,7 +8,7 @@ export default function AuditPanel({ audit }) {
     <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm animate-in fade-in duration-300">
       <div className="mb-6 flex items-center justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-black text-[#12214A]">Activity Log</h2>
+          <h2 className="text-2xl font-black text-brand-navy">Activity Log</h2>
           <p className="mt-1 text-sm font-medium text-slate-500">Local audit-style history for this prototype workspace.</p>
         </div>
         <Badge className="border-slate-200 bg-slate-100 text-slate-600">{audit.length} Events</Badge>

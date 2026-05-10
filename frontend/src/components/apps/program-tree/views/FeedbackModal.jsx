@@ -15,7 +15,7 @@ export default function FeedbackModal({ data, program, flagTypes, onClose, onSub
         {program ? (
           <div className="rounded-2xl border border-blue-100 bg-blue-50 p-4">
             <p className="text-xs font-black uppercase tracking-widest text-blue-500">Program</p>
-            <p className="mt-1 font-black text-[#12214A]">{program.target}</p>
+            <p className="mt-1 font-black text-brand-navy">{program.target}</p>
           </div>
         ) : null}
         <Field label="Flag Type">

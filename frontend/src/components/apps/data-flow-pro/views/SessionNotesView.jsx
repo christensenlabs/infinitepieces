@@ -59,14 +59,14 @@ export default function SessionNotesView({ activeClient, sessionData, programs, 
 
   return (
     <div className="max-w-5xl mx-auto space-y-6 animate-in fade-in duration-500">
-      <div className="flex items-center gap-4 border-b border-[#233554] pb-4">
+      <div className="flex items-center gap-4 border-b border-dfp-border pb-4">
         <FileSignature size={28} className="text-fuchsia-400" />
         <h2 className="text-3xl font-black text-white tracking-tight">Clinical Documentation</h2>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Generator Section */}
-        <div className="bg-[#112240]/80 p-8 rounded-[2.5rem] border border-[#233554] shadow-lg flex flex-col h-[500px]">
+        <div className="bg-dfp-light/80 p-8 rounded-[2.5rem] border border-dfp-border shadow-lg flex flex-col h-[500px]">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-xs font-black uppercase tracking-[0.2em] text-fuchsia-400">SOAP Note Drafter</h3>
             <button onClick={handleGenerate} disabled={isGenerating} className="bg-fuchsia-500/10 text-fuchsia-400 border border-fuchsia-500/30 px-4 py-2 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-fuchsia-500 hover:text-white transition-all flex items-center gap-2 disabled:opacity-50">
@@ -76,28 +76,28 @@ export default function SessionNotesView({ activeClient, sessionData, programs, 
           </div>
 
           <textarea
-            className="flex-1 w-full bg-[#0A192F] border border-[#233554] rounded-[1.5rem] p-6 text-sm text-slate-300 focus:outline-none focus:border-fuchsia-500 transition-all custom-scrollbar resize-none"
+            className="flex-1 w-full bg-dfp border border-dfp-border rounded-[1.5rem] p-6 text-sm text-slate-300 focus:outline-none focus:border-fuchsia-500 transition-all custom-scrollbar resize-none"
             placeholder="Click Auto-Generate to synthesize today's data into a clinical note, or type manually..."
             value={draft}
             onChange={(e) => setDraft(e.target.value)}
           />
 
           <div className="mt-4 flex justify-end">
-             <button onClick={handleSave} disabled={!draft.trim() || isGenerating} className="bg-cyan-500 text-[#061224] px-8 py-3 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-white transition-colors shadow-lg disabled:opacity-50 flex items-center gap-2">
+             <button onClick={handleSave} disabled={!draft.trim() || isGenerating} className="bg-cyan-500 text-dfp-dark px-8 py-3 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-white transition-colors shadow-lg disabled:opacity-50 flex items-center gap-2">
                 <Save size={16} /> Save to Vault
              </button>
           </div>
         </div>
 
         {/* History Section */}
-        <div className="bg-[#112240]/40 p-8 rounded-[2.5rem] border border-[#233554] overflow-y-auto custom-scrollbar h-[500px]">
-          <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-500 mb-6 sticky top-0 bg-[#112240]/40 py-2">Past Records</h3>
+        <div className="bg-dfp-light/40 p-8 rounded-[2.5rem] border border-dfp-border overflow-y-auto custom-scrollbar h-[500px]">
+          <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-500 mb-6 sticky top-0 bg-dfp-light/40 py-2">Past Records</h3>
           {clientNotes.length === 0 ? (
             <div className="text-center py-10 text-slate-500 italic text-sm">No saved notes for this client.</div>
           ) : (
             <div className="space-y-4">
               {clientNotes.slice().reverse().map(note => (
-                <div key={note.id} className="bg-[#0A192F] p-5 rounded-2xl border border-[#233554]">
+                <div key={note.id} className="bg-dfp p-5 rounded-2xl border border-dfp-border">
                   <div className="text-[10px] font-bold text-cyan-400 mb-2 uppercase tracking-widest flex items-center gap-1.5"><Clock size={12}/> {note.date}</div>
                   <p className="text-xs text-slate-400 whitespace-pre-wrap leading-relaxed">{note.text}</p>
                 </div>

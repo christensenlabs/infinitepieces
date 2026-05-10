@@ -8,7 +8,7 @@ export const WIDGET_CONFIGS = [
     badge: { text: 'AI', className: 'bg-blue-100 text-blue-700' },
     theme: {
       topColor: 'bg-blue-500',
-      iconBg: 'bg-[#0B132B]',
+      iconBg: 'bg-brand',
       bg: 'bg-white border-slate-200',
       primaryBtn: 'bg-blue-50 text-blue-700 hover:bg-blue-100',
       secondaryBtn: 'bg-slate-100 text-slate-600 hover:bg-slate-200',

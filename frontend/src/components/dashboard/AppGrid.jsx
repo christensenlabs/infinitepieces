@@ -6,7 +6,7 @@ import { mockApps } from '../../api/mock/data';
 export default function AppGrid({ onOpenApp }) {
   return (
     <section>
-      <h3 className="text-sm font-black text-[#0B132B] mb-4">
+      <h3 className="text-sm font-black text-brand mb-4">
         Infinite Suite Bookcases (Click to Open)
       </h3>
       <div className="flex gap-4 overflow-x-auto pb-4">

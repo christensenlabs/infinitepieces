@@ -392,14 +392,14 @@ export default function SessionStructureApp({ apiKey }) {
 
   if (configLoading) {
     return (
-      <div className="flex h-full items-center justify-center bg-[#0F172A] text-slate-200">
+      <div className="flex h-full items-center justify-center bg-slate-900 text-slate-200">
         <Loader2 className="w-8 h-8 animate-spin text-indigo-500" />
       </div>
     );
   }
 
   return (
-    <div className="flex h-screen bg-[#0F172A] overflow-hidden text-slate-200 font-sans print:bg-white print:text-black print:h-auto print:overflow-visible">
+    <div className="flex h-screen bg-slate-900 overflow-hidden text-slate-200 font-sans print:bg-white print:text-black print:h-auto print:overflow-visible">
 
       {/* Dynamic Keyframes and Animations injected here to ensure they always load */}
       <style dangerouslySetInnerHTML={{ __html: `

@@ -13,7 +13,7 @@ export default function FlagsPanel({ flags, programs, flagTypes, isBCBA, onResol
           <div className="mb-4 text-5xl">
             <I name="flag" className="text-slate-300" />
           </div>
-          <h3 className="text-xl font-black text-[#12214A]">Feedback queue is empty</h3>
+          <h3 className="text-xl font-black text-brand-navy">Feedback queue is empty</h3>
           <p className="mt-2 text-sm font-medium text-slate-500">RBT and caregiver flags will appear here for BCBA review.</p>
         </div>
       ) : (
@@ -29,7 +29,7 @@ export default function FlagsPanel({ flags, programs, flagTypes, isBCBA, onResol
                     </Badge>
                     <Badge className="border-blue-200 bg-blue-50 text-blue-800">{flagTypes[f.type] || f.type}</Badge>
                   </div>
-                  <p className="text-lg font-black text-[#12214A]">{f.reason}</p>
+                  <p className="text-lg font-black text-brand-navy">{f.reason}</p>
                   <p className="mt-1 text-xs font-bold text-slate-500">
                     From: {f.requestedBy || "Team"} - {formatDate(f.createdAt)}
                   </p>

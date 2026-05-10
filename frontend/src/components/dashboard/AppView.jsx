@@ -38,11 +38,11 @@ export default function AppView({ appName, onClose }) {
       <div className="h-12 border-b border-slate-200 flex items-center px-8 bg-white shrink-0 shadow-sm">
         <button
           onClick={onClose}
-          className="text-sm font-bold text-slate-500 hover:text-[#12214A] flex items-center gap-2 transition-colors"
+          className="text-sm font-bold text-slate-500 hover:text-brand-navy flex items-center gap-2 transition-colors"
         >
           <Icons.ArrowRight className="w-4 h-4 rotate-180" /> Back to Operations Hub
         </button>
-        <span className="ml-auto font-black text-[#12214A] flex items-center gap-2">
+        <span className="ml-auto font-black text-brand-navy flex items-center gap-2">
           <Icons.Apps className="w-4 h-4 text-cyan-500" /> {appName}
         </span>
       </div>
@@ -59,13 +59,13 @@ export default function AppView({ appName, onClose }) {
               <div className="w-20 h-20 bg-white border border-slate-200 rounded-3xl mx-auto flex items-center justify-center mb-6 shadow-sm">
                 <Icons.Apps className="w-10 h-10 text-cyan-500" />
               </div>
-              <h2 className="text-3xl font-black text-[#0B132B] mb-2">{appName}</h2>
+              <h2 className="text-3xl font-black text-brand mb-2">{appName}</h2>
               <p className="text-sm font-bold mt-2 text-slate-500 leading-relaxed">
                 This module is not yet connected.
               </p>
               <button
                 onClick={onClose}
-                className="mt-8 bg-[#12214A] text-white px-6 py-3 rounded-xl font-bold shadow-md hover:bg-blue-900 transition-colors"
+                className="mt-8 bg-brand-navy text-white px-6 py-3 rounded-xl font-bold shadow-md hover:bg-blue-900 transition-colors"
               >
                 Close App
               </button>

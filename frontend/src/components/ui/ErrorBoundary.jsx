@@ -17,7 +17,7 @@ export class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div className="p-8 bg-[#0A1220] text-slate-100 text-center rounded-2xl border border-rose-600">
+        <div className="p-8 bg-brand-panel text-slate-100 text-center rounded-2xl border border-rose-600">
           <h2 className="text-rose-500 font-bold text-lg">Module Offline</h2>
           <p className="mt-2 text-sm text-slate-300">
             This component encountered an error. Your session data is safely stored.

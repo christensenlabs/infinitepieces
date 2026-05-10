@@ -94,6 +94,12 @@ docker run -e SPRING_PROFILES_ACTIVE=prod -p 8080:8080 infinitepieces-backend  #
 - `<style dangerouslySetInnerHTML>` for static CSS is acceptable.
 - Do not hardcode API keys, PINs, or secrets in components. These should come from context, environment variables, or the mock API layer.
 
+### Styling
+
+- **No arbitrary hex values in components.** Do not use Tailwind's `bg-[#0a1628]` or `text-[#00e5ff]` syntax. Define colors in `frontend/tailwind.config.js` under `theme.extend.colors` and reference them by name (e.g. `bg-brand`, `text-accent`).
+- Styling should be composable — shared visual patterns (color palette, spacing scales, component variants) live in the Tailwind config, not scattered across JSX files.
+- Use Tailwind's built-in utility classes. Only drop into `frontend/src/index.css` for things Tailwind can't express (pseudo-element selectors, keyframe animations, third-party overrides).
+
 ### Icons
 
 - Use `lucide-react` for icons in app modules.

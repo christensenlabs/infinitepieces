@@ -532,7 +532,7 @@ export default function MaterialMakerApp({ apiKey }) {
   const schedulePlaceholders = config?.schedulePlaceholders || ['Hang up coat', 'Wash Hands', 'Eat Snack', 'Play with Blocks'];
 
   return (
-    <div className="min-h-screen bg-[#F1F5F9] text-slate-900 font-sans flex flex-col md:flex-row">
+    <div className="min-h-screen bg-slate-100 text-slate-900 font-sans flex flex-col md:flex-row">
       <style dangerouslySetInnerHTML={{ __html: `
         .animate-in { animation-duration: 300ms; animation-fill-mode: both; animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
         .fade-in { animation-name: fadeIn; }
@@ -595,7 +595,7 @@ export default function MaterialMakerApp({ apiKey }) {
       ` }} />
 
       {/* --- SIDEBAR --- */}
-      <aside className="no-print w-full md:w-[360px] bg-[#0F172A] text-white p-6 shadow-2xl flex flex-col md:fixed h-full left-0 z-40 overflow-y-auto border-r border-slate-800 custom-scrollbar">
+      <aside className="no-print w-full md:w-[360px] bg-slate-900 text-white p-6 shadow-2xl flex flex-col md:fixed h-full left-0 z-40 overflow-y-auto border-r border-slate-800 custom-scrollbar">
         <h2 className="text-2xl font-black mb-1 flex items-center gap-2">
             <BrainCircuit className="w-7 h-7 text-indigo-400"/>
             <span className="bg-gradient-to-r from-indigo-400 to-purple-400 gradient-text">ABA Master</span>

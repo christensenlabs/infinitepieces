@@ -1,15 +1,15 @@
 import React from 'react';
 
 const Navbar = () => (
-  <nav className="fixed top-0 w-full z-50 bg-[#040811]/80 backdrop-blur-md border-b border-white/5">
+  <nav className="fixed top-0 w-full z-50 bg-brand-dark/80 backdrop-blur-md border-b border-white/5">
     <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
       <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#00E5FF] to-blue-600 flex items-center justify-center text-[#040811] font-black text-xl shadow-[0_0_15px_rgba(0,229,255,0.3)]">
+        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-blue-600 flex items-center justify-center text-brand-dark font-black text-xl shadow-[0_0_15px_rgba(0,229,255,0.3)]">
           &infin;
         </div>
         <div>
           <h1 className="font-black text-lg tracking-widest leading-none text-white">
-            INFINITE <span className="text-[#00E5FF]">PIECES AI</span>
+            INFINITE <span className="text-accent">PIECES AI</span>
           </h1>
         </div>
       </div>
@@ -25,7 +25,7 @@ const Navbar = () => (
         <div className="flex items-center gap-4 ml-4">
           <a
             href="/dashboard"
-            className="text-white hover:text-[#00E5FF] transition flex items-center gap-2"
+            className="text-white hover:text-accent transition flex items-center gap-2"
           >
             Provider Login{' '}
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

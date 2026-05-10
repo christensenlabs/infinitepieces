@@ -6,7 +6,7 @@ import LibraryCard from '../components/LibraryCard';
 export default function Library({ libraryData }) {
   return (
     <div className="space-y-6 animate-in fade-in duration-500 h-full flex flex-col pb-10">
-      <div className="bg-[#0A1220]/80 backdrop-blur-md border border-white/5 rounded-[2.5rem] p-8 shadow-xl flex items-center gap-6 shrink-0 relative overflow-hidden">
+      <div className="bg-brand-panel/80 backdrop-blur-md border border-white/5 rounded-[2.5rem] p-8 shadow-xl flex items-center gap-6 shrink-0 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 blur-[80px] rounded-full pointer-events-none"></div>
         <div className="p-4 bg-purple-500/20 border border-purple-500/30 rounded-2xl text-purple-400 relative z-10 hidden sm:block"><BookOpen size={32} /></div>
         <div className="relative z-10">

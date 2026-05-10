@@ -7,7 +7,7 @@ import { Icons } from '../Icons';
  */
 export default function MorningBriefing({ briefing }) {
   return (
-    <div className="bg-gradient-to-br from-[#0B132B] to-[#12214A] rounded-[2rem] p-6 shadow-md border border-slate-800 text-white relative overflow-hidden">
+    <div className="bg-gradient-to-br from-brand to-brand-navy rounded-[2rem] p-6 shadow-md border border-slate-800 text-white relative overflow-hidden">
       <div className="absolute -right-20 -top-20 w-64 h-64 bg-cyan-500/10 blur-3xl rounded-full pointer-events-none" />
 
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center relative z-10 gap-4">

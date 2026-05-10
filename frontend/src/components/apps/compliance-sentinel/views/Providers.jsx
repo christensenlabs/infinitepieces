@@ -10,10 +10,10 @@ export default function Providers({ providers, deleteProvider, onAddProvider, su
       <Card>
          <div className="flex justify-between items-center mb-6">
            <div>
-             <h3 className="text-xl font-black text-[#12214A]">Providers & Supervision</h3>
+             <h3 className="text-xl font-black text-brand-navy">Providers & Supervision</h3>
              <p className="text-sm text-slate-500 mt-1">Live tracking of {supervisionThreshold}% rule and BACB expirations.</p>
            </div>
-           <button onClick={onAddProvider} className="bg-[#D7A83F] text-white px-4 py-2 rounded-xl font-black text-sm flex items-center gap-2 shadow-sm hover:bg-amber-500"><Icon name="plus"/> Add Provider</button>
+           <button onClick={onAddProvider} className="bg-accent-gold-muted text-white px-4 py-2 rounded-xl font-black text-sm flex items-center gap-2 shadow-sm hover:bg-amber-500"><Icon name="plus"/> Add Provider</button>
          </div>
 
          {providers.length === 0 ? (
@@ -37,7 +37,7 @@ export default function Providers({ providers, deleteProvider, onAddProvider, su
                    return (
                      <tr key={prov.id} className={!supPass || isExp ? 'bg-rose-50/30' : ''}>
                        <td className="py-4">
-                         <p className="font-bold text-[#12214A]">{prov.name}</p>
+                         <p className="font-bold text-brand-navy">{prov.name}</p>
                          <p className="text-[10px] font-bold uppercase text-slate-500">{prov.role}</p>
                        </td>
                        <td className="py-4"><Badge tone={isExp ? 'red' : 'green'}>{prov.bacbExp}</Badge></td>

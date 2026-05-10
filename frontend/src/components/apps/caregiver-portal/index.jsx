@@ -115,14 +115,14 @@ export default function CaregiverPortalApp() {
 
   if (clientsLoading && !clientsData) {
     return (
-      <div className="flex h-full items-center justify-center bg-[#040811] text-slate-200">
+      <div className="flex h-full items-center justify-center bg-brand-dark text-slate-200">
         <Loader2 className="w-8 h-8 animate-spin text-cyan-500" />
       </div>
     );
   }
 
   return (
-    <div className="flex h-screen bg-[#040811] text-slate-200 font-sans overflow-hidden selection:bg-cyan-500/30 relative w-full">
+    <div className="flex h-screen bg-brand-dark text-slate-200 font-sans overflow-hidden selection:bg-cyan-500/30 relative w-full">
       <style>{`
         .animate-in { animation-duration: 300ms; animation-fill-mode: both; animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
         .fade-in { animation-name: fadeIn; }
@@ -158,11 +158,11 @@ export default function CaregiverPortalApp() {
       )}
 
       {/* SIDEBAR NAVIGATION */}
-      <div className={`fixed inset-y-0 left-0 transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:relative md:translate-x-0 w-[80vw] md:w-80 bg-[#0A1220]/95 backdrop-blur-xl border-r border-white/5 flex flex-col z-[90] transition-transform duration-300 shadow-2xl shrink-0`}>
+      <div className={`fixed inset-y-0 left-0 transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:relative md:translate-x-0 w-[80vw] md:w-80 bg-brand-panel/95 backdrop-blur-xl border-r border-white/5 flex flex-col z-[90] transition-transform duration-300 shadow-2xl shrink-0`}>
         <div className="p-6 md:p-8 flex items-center justify-between border-b border-white/5 shrink-0">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center shadow-[0_0_20px_rgba(0,229,255,0.4)] border border-cyan-400/30">
-              <Heart className="w-5 h-5 text-[#040811] fill-current" />
+              <Heart className="w-5 h-5 text-brand-dark fill-current" />
             </div>
             <div>
               <h1 className="text-lg font-black tracking-tight text-white leading-none">Caregiver <span className="text-cyan-400">Portal</span></h1>
@@ -173,7 +173,7 @@ export default function CaregiverPortalApp() {
         </div>
 
         <div className="p-6 shrink-0">
-          <div className="bg-[#12214A]/40 border border-blue-500/20 p-4 rounded-2xl flex items-center gap-4">
+          <div className="bg-brand-navy/40 border border-blue-500/20 p-4 rounded-2xl flex items-center gap-4">
             <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center text-xl font-black text-blue-400 border border-blue-500/30">{client.avatar}</div>
             <div>
               <p className="text-[10px] uppercase font-black text-slate-400 tracking-widest">Active Plan</p>
@@ -201,7 +201,7 @@ export default function CaregiverPortalApp() {
       <div className="flex-1 flex flex-col relative z-10 overflow-hidden">
 
         {/* Header Overlay */}
-        <header className="px-6 py-4 md:py-6 flex items-center justify-between border-b border-white/5 bg-[#0A1220]/50 backdrop-blur-md sticky top-0 z-40 shrink-0">
+        <header className="px-6 py-4 md:py-6 flex items-center justify-between border-b border-white/5 bg-brand-panel/50 backdrop-blur-md sticky top-0 z-40 shrink-0">
           <div className="flex items-center gap-4">
             <button onClick={() => setIsSidebarOpen(true)} className="md:hidden p-2 bg-slate-800 rounded-lg text-slate-300 hover:text-white transition-colors border border-slate-700">
               <Menu size={20} />

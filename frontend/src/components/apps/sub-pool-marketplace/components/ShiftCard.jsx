@@ -7,7 +7,7 @@ import {
 
 export default function ShiftCard({ shift, activeRole, defaultBounty, config, onClaim, onBoost, onAIAction }) {
   return (
-    <div className="bg-[#0A1220] border border-white/10 hover:border-cyan-500/30 rounded-2xl p-5 shadow-lg transition-all fade-in flex flex-col">
+    <div className="bg-brand-panel border border-white/10 hover:border-cyan-500/30 rounded-2xl p-5 shadow-lg transition-all fade-in flex flex-col">
       <div className="flex justify-between items-start mb-4">
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center shrink-0">
@@ -20,9 +20,9 @@ export default function ShiftCard({ shift, activeRole, defaultBounty, config, on
             </p>
           </div>
         </div>
-        <div className="bg-[#FFC800]/10 border border-[#FFC800]/30 px-3 py-1.5 rounded-lg text-right shrink-0">
-          <p className="text-[9px] text-[#FFC800] uppercase font-black tracking-widest mb-0.5">Bounty</p>
-          <p className="text-lg font-black text-[#FFC800] leading-none">+${shift.bounty || defaultBounty}</p>
+        <div className="bg-accent-gold/10 border border-accent-gold/30 px-3 py-1.5 rounded-lg text-right shrink-0">
+          <p className="text-[9px] text-accent-gold uppercase font-black tracking-widest mb-0.5">Bounty</p>
+          <p className="text-lg font-black text-accent-gold leading-none">+${shift.bounty || defaultBounty}</p>
         </div>
       </div>
 
@@ -39,13 +39,13 @@ export default function ShiftCard({ shift, activeRole, defaultBounty, config, on
               <button disabled className="flex-1 bg-white/5 text-slate-400 font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2">
                 <Activity size={14}/> Waiting...
               </button>
-              <button onClick={() => onBoost(shift)} className="flex-1 bg-[#FFC800]/10 hover:bg-[#FFC800]/20 text-[#FFC800] font-black py-2.5 rounded-xl text-xs uppercase tracking-widest transition-colors flex items-center justify-center gap-2">
+              <button onClick={() => onBoost(shift)} className="flex-1 bg-accent-gold/10 hover:bg-accent-gold/20 text-accent-gold font-black py-2.5 rounded-xl text-xs uppercase tracking-widest transition-colors flex items-center justify-center gap-2">
                 <TrendingUp size={14}/> Boost +${config?.bountyBoost || 15}
               </button>
             </>
           ) : activeRole === 'bcba' ? (
             <>
-              <button onClick={() => onClaim(shift, false)} className="flex-1 bg-cyan-500 hover:bg-cyan-400 text-[#040811] font-black py-2.5 rounded-xl text-xs uppercase tracking-widest transition-colors flex items-center justify-center gap-2">
+              <button onClick={() => onClaim(shift, false)} className="flex-1 bg-cyan-500 hover:bg-cyan-400 text-brand-dark font-black py-2.5 rounded-xl text-xs uppercase tracking-widest transition-colors flex items-center justify-center gap-2">
                 <Zap size={14}/> Claim 1:1
               </button>
               <button onClick={() => onClaim(shift, true)} className="flex-1 bg-purple-500/20 hover:bg-purple-500/30 border border-purple-500/50 text-purple-400 font-black py-2.5 rounded-xl text-[10px] uppercase tracking-widest transition-colors flex items-center justify-center gap-1">
@@ -53,7 +53,7 @@ export default function ShiftCard({ shift, activeRole, defaultBounty, config, on
               </button>
             </>
           ) : (
-            <button onClick={() => onClaim(shift, false)} className="w-full bg-emerald-500 hover:bg-emerald-400 text-[#040811] font-black py-2.5 rounded-xl text-xs uppercase tracking-widest transition-colors shadow-[0_0_15px_rgba(16,185,129,0.3)] flex items-center justify-center gap-2">
+            <button onClick={() => onClaim(shift, false)} className="w-full bg-emerald-500 hover:bg-emerald-400 text-brand-dark font-black py-2.5 rounded-xl text-xs uppercase tracking-widest transition-colors shadow-[0_0_15px_rgba(16,185,129,0.3)] flex items-center justify-center gap-2">
               <Zap size={14}/> Claim Shift & Bounty
             </button>
           )}

@@ -7,7 +7,7 @@ export default function PoolButton({ active, label, count, dot, onClick }) {
       onClick={onClick}
       className={cn(
         "flex w-full items-center justify-between gap-3 rounded-2xl px-4 py-3 text-left text-sm font-black transition-all",
-        active ? "bg-[#12214A] text-white shadow-md scale-[1.02]" : "text-slate-700 hover:bg-slate-50 border border-transparent hover:border-slate-200"
+        active ? "bg-brand-navy text-white shadow-md scale-[1.02]" : "text-slate-700 hover:bg-slate-50 border border-transparent hover:border-slate-200"
       )}
     >
       <span className="flex items-center gap-2">

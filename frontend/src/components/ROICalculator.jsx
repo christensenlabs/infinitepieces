@@ -78,7 +78,7 @@ const ROICalculator = () => {
   };
 
   return (
-    <section id="roi" className="py-20 px-6 bg-[#03060D] text-slate-200">
+    <section id="roi" className="py-20 px-6 bg-brand-dark text-slate-200">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -93,7 +93,7 @@ const ROICalculator = () => {
           </p>
         </div>
 
-        <div className="bg-[#0A1220] border border-cyan-500/30 rounded-3xl p-6 md:p-8 shadow-[0_0_30px_rgba(0,229,255,0.05)]">
+        <div className="bg-brand-panel border border-cyan-500/30 rounded-3xl p-6 md:p-8 shadow-[0_0_30px_rgba(0,229,255,0.05)]">
           {/* Title bar */}
           <div className="flex items-center gap-3 mb-8 border-b border-white/10 pb-4">
             <div className="w-10 h-10 bg-cyan-500/20 text-cyan-400 rounded-lg flex items-center justify-center text-xl">
@@ -192,7 +192,7 @@ const ROICalculator = () => {
               <p className="text-[10px] uppercase font-bold text-slate-500 mb-1">
                 Total Monthly Leak
               </p>
-              <p className="text-4xl font-black text-[#FF3366] drop-shadow-[0_0_10px_rgba(255,51,102,0.6)]">
+              <p className="text-4xl font-black text-accent-pink drop-shadow-[0_0_10px_rgba(255,51,102,0.6)]">
                 -${totalMonthlyLeak.toLocaleString()}
               </p>
             </div>
@@ -228,7 +228,7 @@ const ROICalculator = () => {
               <p
                 className={
                   netProfit >= 0
-                    ? 'text-5xl font-black text-[#00FF9D] drop-shadow-[0_0_15px_rgba(0,255,157,0.4)]'
+                    ? 'text-5xl font-black text-accent-mint drop-shadow-[0_0_15px_rgba(0,255,157,0.4)]'
                     : 'text-5xl font-black text-rose-500'
                 }
               >
@@ -260,7 +260,7 @@ const ROICalculator = () => {
           </div>
 
           {/* Owner Pitch Script */}
-          <div className="bg-[#040811] border border-white/10 rounded-xl p-6">
+          <div className="bg-brand-dark border border-white/10 rounded-xl p-6">
             <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3">
               Owner Pitch Script
             </p>
@@ -341,7 +341,7 @@ function ExampleCycler({
         {buttonLabel}
       </button>
       {activeIndex >= 0 && (
-        <div className={`bg-[#040811] p-3 rounded-lg border ${colors.result}`}>
+        <div className={`bg-brand-dark p-3 rounded-lg border ${colors.result}`}>
           <div className="flex justify-between items-center mb-1">
             <span className="text-sm font-bold text-white">{examples[activeIndex].title}</span>
             <span className="text-xs font-black text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">

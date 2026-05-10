@@ -42,7 +42,7 @@ function BoyClassroomScene({ zone, fidgetPos, isBlinking }) {
         )}
 
         <div className={`relative w-40 h-40 md:w-44 md:h-44 rounded-[45%] border-b-4 border-black/10 transition-all duration-500 z-20 overflow-hidden
-          ${isRed ? 'bg-red-200 shadow-[0_0_30px_rgba(239,68,68,0.3)]' : isBlue ? 'bg-blue-50' : 'bg-[#fdf0e6]'}
+          ${isRed ? 'bg-red-200 shadow-[0_0_30px_rgba(239,68,68,0.3)]' : isBlue ? 'bg-blue-50' : 'bg-surface-warm'}
           ${isBlue ? 'rotate-12 translate-y-6' : ''}`}
         >
           <div className="absolute top-0 w-full h-14 bg-[#4a332a] z-10 pointer-events-none">
@@ -90,12 +90,12 @@ function BoyClassroomScene({ zone, fidgetPos, isBlinking }) {
           {/* Left Arm */}
           <div className={`absolute -left-4 md:-left-6 top-10 w-12 md:w-16 h-24 md:h-32 rounded-full origin-top transition-all duration-500 shadow-[-5px_0_10px_rgba(0,0,0,0.1)] border-l-[6px] border-black/10 z-[60] ${zone.color}
             ${isYellow ? 'animate-flail-left' : isBlue ? 'rotate-[70deg] translate-y-6 translate-x-4' : 'rotate-[25deg]'}`}>
-            <div className={`absolute bottom-[-8px] md:bottom-[-12px] left-1/2 -translate-x-1/2 w-10 h-10 md:w-12 md:h-12 ${isRed ? 'bg-red-200' : isBlue ? 'bg-blue-50' : 'bg-[#fdf0e6]'} rounded-full shadow-md z-[80] flex items-center justify-center transition-colors duration-500`}>
+            <div className={`absolute bottom-[-8px] md:bottom-[-12px] left-1/2 -translate-x-1/2 w-10 h-10 md:w-12 md:h-12 ${isRed ? 'bg-red-200' : isBlue ? 'bg-blue-50' : 'bg-surface-warm'} rounded-full shadow-md z-[80] flex items-center justify-center transition-colors duration-500`}>
               <div className={`absolute w-8 h-8 md:w-10 md:h-10 bg-purple-500 rounded-full shadow-[inset_-3px_-3px_6px_rgba(0,0,0,0.4)] z-[81] transition-transform duration-300 ${isRed ? 'scale-x-110 scale-y-75' : ''}`} />
               <div className="absolute top-[40%] z-[82] flex gap-[2px] md:gap-1">
-                 <div className={`w-2.5 md:w-3 h-5 md:h-6 ${isRed ? 'bg-red-200' : isBlue ? 'bg-blue-50' : 'bg-[#fdf0e6]'} rounded-full origin-top rotate-[45deg] translate-x-[-2px] border-b border-black/10 shadow-sm ${isYellow ? 'animate-wiggle-1' : ''}`} />
+                 <div className={`w-2.5 md:w-3 h-5 md:h-6 ${isRed ? 'bg-red-200' : isBlue ? 'bg-blue-50' : 'bg-surface-warm'} rounded-full origin-top rotate-[45deg] translate-x-[-2px] border-b border-black/10 shadow-sm ${isYellow ? 'animate-wiggle-1' : ''}`} />
                  {[1, 2, 3].map(i => (
-                   <div key={`l-finger-${i}`} className={`w-2 md:w-2.5 h-6 md:h-7 ${isRed ? 'bg-red-200' : isBlue ? 'bg-blue-50' : 'bg-[#fdf0e6]'} rounded-full origin-top transition-colors duration-500 border-b border-black/10 shadow-sm ${isYellow ? 'animate-wiggle-' + ((i % 3) + 1) : ''}`} />
+                   <div key={`l-finger-${i}`} className={`w-2 md:w-2.5 h-6 md:h-7 ${isRed ? 'bg-red-200' : isBlue ? 'bg-blue-50' : 'bg-surface-warm'} rounded-full origin-top transition-colors duration-500 border-b border-black/10 shadow-sm ${isYellow ? 'animate-wiggle-' + ((i % 3) + 1) : ''}`} />
                  ))}
               </div>
             </div>
@@ -104,7 +104,7 @@ function BoyClassroomScene({ zone, fidgetPos, isBlinking }) {
           {/* Right Arm */}
           <div className={`absolute -right-4 md:-right-6 top-10 w-12 md:w-16 h-24 md:h-32 rounded-full origin-top transition-all duration-500 shadow-[5px_0_10px_rgba(0,0,0,0.1)] border-r-[6px] border-black/10 z-[70] ${zone.color}
             ${isYellow ? 'animate-flail-right' : isGreen ? 'animate-write' : isRed ? 'animate-fist-shake' : isBlue ? 'rotate-[-70deg] translate-y-6 -translate-x-4' : 'rotate-[-25deg]'}`} >
-            <div className={`absolute bottom-[-8px] md:bottom-[-12px] left-1/2 -translate-x-1/2 w-10 h-10 md:w-12 md:h-12 ${isRed ? 'bg-red-200' : isBlue ? 'bg-blue-50' : 'bg-[#fdf0e6]'} rounded-full shadow-md z-[80] flex items-center justify-center transition-colors duration-500`}>
+            <div className={`absolute bottom-[-8px] md:bottom-[-12px] left-1/2 -translate-x-1/2 w-10 h-10 md:w-12 md:h-12 ${isRed ? 'bg-red-200' : isBlue ? 'bg-blue-50' : 'bg-surface-warm'} rounded-full shadow-md z-[80] flex items-center justify-center transition-colors duration-500`}>
               {isGreen && (
                 <div className="absolute top-[30%] -left-6 w-16 h-3 bg-yellow-400 rotate-[-40deg] rounded-sm shadow-sm border-b border-yellow-600 flex items-center z-[81]">
                   <div className="w-3 h-3 bg-pink-400 rounded-l-sm" />
@@ -114,9 +114,9 @@ function BoyClassroomScene({ zone, fidgetPos, isBlinking }) {
                 </div>
               )}
               <div className="absolute top-[40%] z-[82] flex gap-[2px] md:gap-1">
-                 <div className={`w-2.5 md:w-3 rounded-full origin-top rotate-[45deg] translate-x-[-2px] border-b border-black/10 shadow-sm ${isYellow ? 'animate-wiggle-1' : ''} transition-all duration-300 ${isRed ? 'h-3 md:h-4 bg-red-300 translate-y-1' : isBlue ? 'h-5 md:h-6 bg-blue-50' : 'h-5 md:h-6 bg-[#fdf0e6]'}`} />
+                 <div className={`w-2.5 md:w-3 rounded-full origin-top rotate-[45deg] translate-x-[-2px] border-b border-black/10 shadow-sm ${isYellow ? 'animate-wiggle-1' : ''} transition-all duration-300 ${isRed ? 'h-3 md:h-4 bg-red-300 translate-y-1' : isBlue ? 'h-5 md:h-6 bg-blue-50' : 'h-5 md:h-6 bg-surface-warm'}`} />
                  {[1, 2, 3].map(i => (
-                   <div key={`r-finger-${i}`} className={`w-2 md:w-2.5 rounded-full origin-top transition-all duration-300 border-b border-black/10 shadow-sm ${isYellow ? 'animate-wiggle-' + ((i % 3) + 1) : ''} ${isRed ? 'h-3 md:h-4 bg-red-300 translate-y-1' : isBlue ? 'h-6 md:h-7 bg-blue-50' : 'h-6 md:h-7 bg-[#fdf0e6]'}`} />
+                   <div key={`r-finger-${i}`} className={`w-2 md:w-2.5 rounded-full origin-top transition-all duration-300 border-b border-black/10 shadow-sm ${isYellow ? 'animate-wiggle-' + ((i % 3) + 1) : ''} ${isRed ? 'h-3 md:h-4 bg-red-300 translate-y-1' : isBlue ? 'h-6 md:h-7 bg-blue-50' : 'h-6 md:h-7 bg-surface-warm'}`} />
                  ))}
               </div>
             </div>

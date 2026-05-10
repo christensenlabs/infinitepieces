@@ -28,7 +28,7 @@ export default function WidgetCard({ config, data, onQuickCommand, onOpenApp }) 
           <IconComponent className="w-5 h-5" />
         </div>
         <div>
-          <h4 className="font-black text-[#0B132B]">
+          <h4 className="font-black text-brand">
             {config.title}
             {config.badge && (
               <span

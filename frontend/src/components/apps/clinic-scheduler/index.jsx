@@ -255,7 +255,7 @@ export default function ClinicSchedulerApp({ apiKey }) {
   };
 
   return (
-    <div className="min-h-screen flex font-sans bg-[#f3f4f6]">
+    <div className="min-h-screen flex font-sans bg-gray-100">
       <style>{`
         .fade-in { animation: fadeIn 0.3s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
@@ -299,12 +299,12 @@ export default function ClinicSchedulerApp({ apiKey }) {
             <button onClick={() => setIsSidebarOpen(true)} className="lg:hidden text-slate-600 hover:text-slate-900">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
-            <h2 className="text-lg sm:text-xl font-bold text-[#0b132b] tracking-tight">Scheduling Operations</h2>
+            <h2 className="text-lg sm:text-xl font-bold text-brand tracking-tight">Scheduling Operations</h2>
           </div>
           <div className="flex items-center space-x-5">
             <button
               onClick={() => requireAdmin(() => setIsAddModalOpen(true))}
-              className="bg-[#0b132b] text-yellow-400 px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-bold flex items-center hover:bg-[#152243] shadow-md transition-colors"
+              className="bg-brand text-yellow-400 px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-bold flex items-center hover:bg-brand-navy shadow-md transition-colors"
             >
               {!isAdminAuthenticated && <Lock size={12} className="mr-1.5 opacity-70" />}
               <Plus size={16} className="sm:mr-2"/> <span className="hidden sm:inline">New Session</span>
@@ -313,7 +313,7 @@ export default function ClinicSchedulerApp({ apiKey }) {
         </header>
 
         {/* WORKSPACE AREA */}
-        <main className="flex-1 overflow-y-auto p-4 sm:p-6 bg-[#f8fafc] flex flex-col custom-scrollbar">
+        <main className="flex-1 overflow-y-auto p-4 sm:p-6 bg-slate-50 flex flex-col custom-scrollbar">
           <div className="max-w-[1600px] w-full mx-auto flex-1 flex flex-col space-y-6 min-h-0">
 
             {activeTab === 'schedule' && (

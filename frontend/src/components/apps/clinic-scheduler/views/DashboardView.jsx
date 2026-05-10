@@ -52,7 +52,7 @@ export default function DashboardView({
             <h3 className="font-bold text-slate-800">Executive Reporting</h3>
             <button
               onClick={handleGenerateEOD} disabled={isGeneratingEod}
-              className="text-xs bg-[#0b132b] text-yellow-400 px-3 py-1.5 rounded-lg font-bold flex items-center hover:bg-[#152243] disabled:opacity-50 transition-colors shadow-sm"
+              className="text-xs bg-brand text-yellow-400 px-3 py-1.5 rounded-lg font-bold flex items-center hover:bg-brand-navy disabled:opacity-50 transition-colors shadow-sm"
             >
               {isGeneratingEod ? <Loader2 size={14} className="mr-1.5 animate-spin"/> : <Sparkles size={14} className="mr-1.5"/>}
               Generate EOD Summary

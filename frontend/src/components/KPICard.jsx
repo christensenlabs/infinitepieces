@@ -40,7 +40,7 @@ export default function KPICard({ title, metric, iconColor, iconBg }) {
         <div>
           <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{title}</p>
           <div className="flex items-end gap-2 mt-1">
-            <h3 className="text-3xl font-black text-[#0B132B] leading-none">{value}</h3>
+            <h3 className="text-3xl font-black text-brand leading-none">{value}</h3>
           </div>
           <p className="text-[10px] font-bold mt-1">
             <span className={isPositive ? 'text-emerald-500' : 'text-slate-400'}>{delta}</span>

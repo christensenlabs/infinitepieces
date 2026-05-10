@@ -10,7 +10,7 @@ export default function ModalComponent({ title, subtitle, children, onClose, wid
           <div className="flex items-center gap-3">
             {icon && <div className="p-3 bg-white rounded-xl shadow-sm border border-slate-200 text-xl">{icon}</div>}
             <div>
-              <h3 className="text-2xl font-black text-[#12214A]">{title}</h3>
+              <h3 className="text-2xl font-black text-brand-navy">{title}</h3>
               {subtitle ? <p className="mt-1 text-sm font-semibold text-slate-500">{subtitle}</p> : null}
             </div>
           </div>

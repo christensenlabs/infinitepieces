@@ -3,7 +3,7 @@ import DigitalClock from './DigitalClock';
 
 function ClassroomBackground({ birdFly, onBirdFly }) {
   return (
-    <div className="absolute inset-0 z-0 overflow-hidden bg-[#e8f0f8]">
+    <div className="absolute inset-0 z-0 overflow-hidden bg-surface-blue">
       <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-black/5 mix-blend-multiply" />
       <div
         onClick={onBirdFly}

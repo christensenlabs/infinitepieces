@@ -32,7 +32,7 @@ export default function Dashboard() {
   );
 
   return (
-    <div className="flex h-screen w-full bg-[#F4F7FB] font-sans overflow-hidden">
+    <div className="flex h-screen w-full bg-surface font-sans overflow-hidden">
       <Sidebar
         user={user}
         notificationCount={notifications?.unread ?? 0}

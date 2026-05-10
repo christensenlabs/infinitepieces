@@ -137,7 +137,7 @@ const [usedOffline, setUsedOffline] = useState(false);
 
   return (
     <ModalComponent title="Program Draft Builder" subtitle="Create, edit, approve, or format a program." onClose={onClose} width="max-w-6xl" icon={<I name="edit" className="text-blue-500" />}>
-      <div className="mb-8 rounded-[2rem] bg-gradient-to-r from-[#12214A] to-blue-950 p-6 text-white shadow-lg">
+      <div className="mb-8 rounded-[2rem] bg-gradient-to-r from-brand-navy to-blue-950 p-6 text-white shadow-lg">
         <h4 className="text-xs font-black uppercase tracking-widest text-blue-300 mb-3 flex items-center gap-2"><I name="sparkles" /> AI Auto-Builder</h4>
         <div className="flex flex-col gap-4 lg:flex-row lg:items-end">
           <div className="flex-1">

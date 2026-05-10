@@ -22,12 +22,12 @@ export default function SiteLogin() {
   };
 
   return (
-    <div className="h-screen w-full bg-[#040811] flex items-center justify-center relative overflow-hidden font-sans">
+    <div className="h-screen w-full bg-brand-dark flex items-center justify-center relative overflow-hidden font-sans">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent"></div>
 
       <div className="absolute inset-0 z-0 opacity-40">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#040811] via-transparent to-[#040811] z-10"></div>
-        <div className="w-full h-full bg-[#0B132B]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-dark via-transparent to-brand-dark z-10"></div>
+        <div className="w-full h-full bg-brand"></div>
       </div>
 
       <div className={[
@@ -54,7 +54,7 @@ export default function SiteLogin() {
                 className="w-full bg-black/40 border border-white/10 rounded-2xl py-5 pl-14 pr-6 text-white text-xl font-bold tracking-[0.5em] focus:outline-none focus:border-blue-500/50 transition-all placeholder:text-slate-600 placeholder:tracking-normal placeholder:text-sm"
               />
             </div>
-            <button className="w-full bg-white text-[#040811] py-5 rounded-2xl font-black uppercase tracking-widest text-sm hover:bg-blue-50 transition-all active:scale-95 shadow-xl">
+            <button className="w-full bg-white text-brand-dark py-5 rounded-2xl font-black uppercase tracking-widest text-sm hover:bg-blue-50 transition-all active:scale-95 shadow-xl">
               Unlock Motherboard
             </button>
           </form>

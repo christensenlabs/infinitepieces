@@ -41,7 +41,7 @@ export default function DispatchesView({
                   {dispatch.date && <p className="text-sm text-slate-600 flex items-center"><Calendar size={14} className="mr-2"/> {dispatch.date} at {dispatch.startTime}</p>}
                 </div>
                 <div className="flex flex-wrap gap-2">
-                   <button onClick={() => dispatchToPool(dispatch)} className="px-4 py-2 bg-[#00E5FF] text-[#0A1220] font-black uppercase tracking-widest rounded-lg text-xs shadow-md hover:bg-cyan-300 transition-colors flex items-center gap-1.5"><Radio size={14} /> Dispatch SubPool</button>
+                   <button onClick={() => dispatchToPool(dispatch)} className="px-4 py-2 bg-accent text-brand-panel font-black uppercase tracking-widest rounded-lg text-xs shadow-md hover:bg-cyan-300 transition-colors flex items-center gap-1.5"><Radio size={14} /> Dispatch SubPool</button>
                    <button onClick={() => markResolved(dispatch.id)} className="px-4 py-2 bg-slate-100 text-slate-700 hover:bg-slate-200 font-bold rounded-lg text-sm transition-colors whitespace-nowrap shadow-sm">Mark Resolved</button>
                 </div>
               </div>

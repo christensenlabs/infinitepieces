@@ -9,7 +9,7 @@ export default function HipaaLogs({ auditLogs }) {
       <Card>
         <div className="flex justify-between items-center mb-6">
            <div>
-             <h3 className="text-xl font-black text-[#12214A]">Immutable Access & Security Logs</h3>
+             <h3 className="text-xl font-black text-brand-navy">Immutable Access & Security Logs</h3>
              <p className="text-sm text-slate-500 mt-1">Live tracking of every action taken within this prototype.</p>
            </div>
          </div>
@@ -23,8 +23,8 @@ export default function HipaaLogs({ auditLogs }) {
                  <div className="flex gap-4 items-start">
                    <div className="text-slate-400 mt-1"><Icon name="userShield"/></div>
                    <div>
-                     <p className="font-bold text-[#12214A]">{log.user} <span className="font-normal text-slate-500">performed:</span> {log.action}</p>
-                     <p className="text-xs text-slate-500 mt-1">Target: <span className="font-bold text-[#12214A]">{log.target}</span></p>
+                     <p className="font-bold text-brand-navy">{log.user} <span className="font-normal text-slate-500">performed:</span> {log.action}</p>
+                     <p className="text-xs text-slate-500 mt-1">Target: <span className="font-bold text-brand-navy">{log.target}</span></p>
                    </div>
                  </div>
                  <div className="mt-3 md:mt-0 md:text-right flex flex-row md:flex-col justify-between items-end">

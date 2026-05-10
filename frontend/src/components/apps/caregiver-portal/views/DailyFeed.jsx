@@ -5,7 +5,7 @@ import {
 export default function DailyFeed({ client }) {
   return (
     <div className="space-y-6 animate-in fade-in duration-500 max-w-4xl mx-auto h-full flex flex-col pb-10">
-      <div className="bg-[#0A1220]/80 backdrop-blur-md border border-white/5 rounded-[2rem] p-6 shadow-xl flex items-center justify-between shrink-0">
+      <div className="bg-brand-panel/80 backdrop-blur-md border border-white/5 rounded-[2rem] p-6 shadow-xl flex items-center justify-between shrink-0">
         <div>
           <h3 className="font-black text-white text-2xl mb-1">Daily Feed</h3>
           <p className="text-[10px] uppercase font-bold text-emerald-500 tracking-widest flex items-center gap-1.5"><Shield size={12}/> Safe-Snap Privacy Active</p>
@@ -15,14 +15,14 @@ export default function DailyFeed({ client }) {
 
       <div className="flex-1 space-y-6 overflow-y-auto custom-scrollbar pr-2">
         {client.feed.length === 0 ? (
-          <div className="bg-[#0A1220]/60 backdrop-blur-md border border-white/5 rounded-[2rem] p-12 flex flex-col items-center justify-center text-center shadow-lg h-64">
+          <div className="bg-brand-panel/60 backdrop-blur-md border border-white/5 rounded-[2rem] p-12 flex flex-col items-center justify-center text-center shadow-lg h-64">
             <Activity className="w-16 h-16 text-slate-600 mb-4 opacity-50" />
             <h3 className="text-xl font-bold text-white mb-2">Feed is Empty</h3>
             <p className="text-slate-400 text-sm max-w-sm">Updates and photos from the clinical team will appear here once the session begins.</p>
           </div>
         ) : (
           client.feed.map(item => (
-            <div key={item.id} className="bg-[#0A1220]/60 backdrop-blur-md border border-white/5 rounded-[2rem] overflow-hidden flex flex-col shadow-lg transition-transform hover:-translate-y-1">
+            <div key={item.id} className="bg-brand-panel/60 backdrop-blur-md border border-white/5 rounded-[2rem] overflow-hidden flex flex-col shadow-lg transition-transform hover:-translate-y-1">
               <div className="p-5 flex items-center justify-between border-b border-white/5 bg-slate-900/50">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 font-bold text-sm">HQ</div>

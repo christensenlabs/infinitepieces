@@ -15,13 +15,13 @@ export default function SubPoolSection({ shifts, surge }) {
     <section className="bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200">
       <div className="flex justify-between items-center mb-6">
         <div className="flex items-center gap-3">
-          <h3 className="text-lg font-black text-[#0B132B]">SubPool&trade;</h3>
+          <h3 className="text-lg font-black text-brand">SubPool&trade;</h3>
           <Badge variant={surgeActive ? 'warning' : 'success'}>
             {openCount} Open Shift{openCount !== 1 ? 's' : ''} &bull;{' '}
             {surgeActive ? `Surge ${shifts?.surgeLevel ?? 'Active'}` : 'Surge Inactive'}
           </Badge>
         </div>
-        <button className="text-xs font-bold text-slate-500 hover:text-[#0B132B] transition-colors">
+        <button className="text-xs font-bold text-slate-500 hover:text-brand transition-colors">
           Filter shifts <Icons.Search className="w-3 h-3 inline ml-1" />
         </button>
       </div>
@@ -64,7 +64,7 @@ export default function SubPoolSection({ shifts, surge }) {
                 <div className="w-16 h-16 bg-emerald-100 text-emerald-500 rounded-full flex items-center justify-center mb-4 shadow-inner">
                   <Icons.CheckCircle className="w-8 h-8" />
                 </div>
-                <h4 className="text-lg font-black text-[#0B132B] mb-2">All shifts covered</h4>
+                <h4 className="text-lg font-black text-brand mb-2">All shifts covered</h4>
                 <p className="text-sm text-slate-500 max-w-sm mb-6">
                   Network utilization is currently optimal. No coverage gaps detected.
                 </p>
@@ -101,7 +101,7 @@ function ShiftRow({ shift }) {
           className={`w-2 h-2 rounded-full ${isOpen ? 'bg-amber-500' : 'bg-emerald-500'}`}
         />
         <div>
-          <p className="text-sm font-bold text-[#0B132B]">{shift.patient}</p>
+          <p className="text-sm font-bold text-brand">{shift.patient}</p>
           <p className="text-xs text-slate-500">
             {shift.time} &bull; {shift.role}
           </p>

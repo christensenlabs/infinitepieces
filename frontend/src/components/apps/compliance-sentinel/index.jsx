@@ -151,7 +151,7 @@ export default function ComplianceSentinelApp() {
 
   if (configLoading) {
     return (
-      <div className="flex flex-col items-center justify-center h-screen bg-[#F7F8FB] text-[#12214A]">
+      <div className="flex flex-col items-center justify-center h-screen bg-surface text-brand-navy">
         <Loader2 className="animate-spin mb-4" size={48} />
         <h2 className="text-xl font-bold">Initializing Sentinel Engine...</h2>
       </div>
@@ -159,7 +159,7 @@ export default function ComplianceSentinelApp() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F7F8FB] text-slate-900 font-sans p-4 md:p-8 relative">
+    <div className="min-h-screen bg-surface text-slate-900 font-sans p-4 md:p-8 relative">
       <style>{`
         .animate-in { animation-duration: 300ms; animation-fill-mode: both; animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
         .fade-in { animation-name: fadeIn; }
@@ -189,7 +189,7 @@ export default function ComplianceSentinelApp() {
                 <Icon name="lock" /> Live Prototype
               </p>
             </div>
-            <h1 className="text-3xl md:text-5xl font-black text-[#12214A] tracking-tight">Compliance & Audit OS</h1>
+            <h1 className="text-3xl md:text-5xl font-black text-brand-navy tracking-tight">Compliance & Audit OS</h1>
             <p className="text-slate-500 mt-3 max-w-2xl text-sm font-medium leading-relaxed">
               Real-time cross-app auditing. Add data, run the scrubber, and watch the engine catch missing signatures, overlapping codes, and authorization cliffs.
             </p>
@@ -200,7 +200,7 @@ export default function ComplianceSentinelApp() {
             </button>
             <button
               onClick={runLiveScrub}
-              className="bg-[#12214A] text-white px-5 py-3 rounded-2xl font-black text-sm flex items-center gap-2 shadow-md hover:bg-blue-900 transition"
+              className="bg-brand-navy text-white px-5 py-3 rounded-2xl font-black text-sm flex items-center gap-2 shadow-md hover:bg-blue-900 transition"
             >
               <Icon name="refresh" /> Run Live Deep Scrub
             </button>
@@ -221,10 +221,10 @@ export default function ComplianceSentinelApp() {
               onClick={() => setActiveTab(tab.id)}
               className={cn(
                 "flex items-center gap-2 px-5 py-3 rounded-t-2xl text-sm font-black transition-all whitespace-nowrap",
-                activeTab === tab.id ? "bg-white text-[#12214A] border-t border-l border-r border-slate-200 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] relative top-[1px]" : "bg-transparent text-slate-500 hover:text-[#12214A] hover:bg-white/50"
+                activeTab === tab.id ? "bg-white text-brand-navy border-t border-l border-r border-slate-200 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] relative top-[1px]" : "bg-transparent text-slate-500 hover:text-brand-navy hover:bg-white/50"
               )}
             >
-              <Icon name={tab.icon} className={activeTab === tab.id ? 'text-[#D7A83F]' : ''} /> {tab.label}
+              <Icon name={tab.icon} className={activeTab === tab.id ? 'text-accent-gold-muted' : ''} /> {tab.label}
             </button>
           ))}
         </div>
@@ -310,11 +310,11 @@ export default function ComplianceSentinelApp() {
               </div>
             </div>
             <div className="space-y-2 mt-4 p-4 bg-slate-50 rounded-xl border border-slate-200">
-              <label className="flex items-center gap-2 text-sm font-bold text-[#12214A] cursor-pointer"><input type="checkbox" checked={claimForm.modifier} onChange={e=>setClaimForm({...claimForm, modifier: e.target.checked})} className="w-4 h-4 accent-[#12214A]" /> Has Modifier (e.g. XP) attached?</label>
-              <label className="flex items-center gap-2 text-sm font-bold text-[#12214A] cursor-pointer"><input type="checkbox" checked={claimForm.sig} onChange={e=>setClaimForm({...claimForm, sig: e.target.checked})} className="w-4 h-4 accent-[#12214A]" /> Signatures Complete?</label>
-              <label className="flex items-center gap-2 text-sm font-bold text-[#12214A] cursor-pointer"><input type="checkbox" checked={claimForm.gps} onChange={e=>setClaimForm({...claimForm, gps: e.target.checked})} className="w-4 h-4 accent-[#12214A]" /> GPS Clock-in Matches?</label>
+              <label className="flex items-center gap-2 text-sm font-bold text-brand-navy cursor-pointer"><input type="checkbox" checked={claimForm.modifier} onChange={e=>setClaimForm({...claimForm, modifier: e.target.checked})} className="w-4 h-4 accent-brand-navy" /> Has Modifier (e.g. XP) attached?</label>
+              <label className="flex items-center gap-2 text-sm font-bold text-brand-navy cursor-pointer"><input type="checkbox" checked={claimForm.sig} onChange={e=>setClaimForm({...claimForm, sig: e.target.checked})} className="w-4 h-4 accent-brand-navy" /> Signatures Complete?</label>
+              <label className="flex items-center gap-2 text-sm font-bold text-brand-navy cursor-pointer"><input type="checkbox" checked={claimForm.gps} onChange={e=>setClaimForm({...claimForm, gps: e.target.checked})} className="w-4 h-4 accent-brand-navy" /> GPS Clock-in Matches?</label>
             </div>
-            <button type="submit" className="w-full bg-[#12214A] text-white py-3 rounded-xl font-black mt-4 transition-colors hover:bg-blue-900 active:scale-95 shadow-md">Save Claim to Queue</button>
+            <button type="submit" className="w-full bg-brand-navy text-white py-3 rounded-xl font-black mt-4 transition-colors hover:bg-blue-900 active:scale-95 shadow-md">Save Claim to Queue</button>
           </form>
         </Modal>
       )}
@@ -332,7 +332,7 @@ export default function ComplianceSentinelApp() {
               <div><label className="text-xs font-bold text-slate-500">Used Units</label><input required type="number" className="w-full border border-slate-200 rounded-xl p-3 mt-1" value={authForm.used} onChange={e=>setAuthForm({...authForm, used: e.target.value})} /></div>
             </div>
             <div><label className="text-xs font-bold text-slate-500">Expiration Date</label><input required type="date" className="w-full border border-slate-200 rounded-xl p-3 mt-1" value={authForm.expire} onChange={e=>setAuthForm({...authForm, expire: e.target.value})} /></div>
-            <button type="submit" className="w-full bg-[#12214A] text-white py-3 rounded-xl font-black mt-4 transition-colors hover:bg-blue-900 active:scale-95 shadow-md">Save Authorization</button>
+            <button type="submit" className="w-full bg-brand-navy text-white py-3 rounded-xl font-black mt-4 transition-colors hover:bg-blue-900 active:scale-95 shadow-md">Save Authorization</button>
           </form>
         </Modal>
       )}
@@ -355,9 +355,9 @@ export default function ComplianceSentinelApp() {
               <div><label className="text-xs font-bold text-slate-500">Current Sup % (RBT only)</label><input type="number" step="0.1" className="w-full border border-slate-200 rounded-xl p-3 mt-1" value={provForm.supPercent} onChange={e=>setProvForm({...provForm, supPercent: e.target.value})} disabled={provForm.role !== 'RBT'} /></div>
             </div>
             <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
-              <label className="flex items-center gap-2 text-sm font-bold text-[#12214A] cursor-pointer"><input type="checkbox" checked={provForm.oigCleared} onChange={e=>setProvForm({...provForm, oigCleared: e.target.checked})} className="w-4 h-4 accent-[#12214A]" /> Cleared OIG/Medicaid Exclusion List</label>
+              <label className="flex items-center gap-2 text-sm font-bold text-brand-navy cursor-pointer"><input type="checkbox" checked={provForm.oigCleared} onChange={e=>setProvForm({...provForm, oigCleared: e.target.checked})} className="w-4 h-4 accent-brand-navy" /> Cleared OIG/Medicaid Exclusion List</label>
             </div>
-            <button type="submit" className="w-full bg-[#12214A] text-white py-3 rounded-xl font-black mt-4 transition-colors hover:bg-blue-900 active:scale-95 shadow-md">Save Provider</button>
+            <button type="submit" className="w-full bg-brand-navy text-white py-3 rounded-xl font-black mt-4 transition-colors hover:bg-blue-900 active:scale-95 shadow-md">Save Provider</button>
           </form>
         </Modal>
       )}
@@ -384,7 +384,7 @@ export default function ComplianceSentinelApp() {
 
       {/* TOAST NOTIFICATION */}
       {toast && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-[#12214A] text-white px-6 py-3 rounded-full font-black shadow-2xl z-[100] animate-in slide-in-from-bottom-5 text-sm flex items-center gap-2 border border-slate-700">
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-brand-navy text-white px-6 py-3 rounded-full font-black shadow-2xl z-[100] animate-in slide-in-from-bottom-5 text-sm flex items-center gap-2 border border-slate-700">
           <Icon name="checkCircle" className="text-emerald-400" /> {toast}
         </div>
       )}

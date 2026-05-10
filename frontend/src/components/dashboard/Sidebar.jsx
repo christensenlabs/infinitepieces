@@ -14,11 +14,11 @@ const NAV_ITEMS = [
 
 export default function Sidebar({ user, notificationCount, onNavigateHub, onOpenSettings, onOpenApp }) {
   return (
-    <aside className="w-64 bg-[#060B19] flex flex-col h-full shrink-0 relative z-20 shadow-2xl">
+    <aside className="w-64 bg-brand-deep flex flex-col h-full shrink-0 relative z-20 shadow-2xl">
       {/* Logo */}
       <div className="p-6">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded bg-gradient-to-br from-blue-400 to-amber-400 flex items-center justify-center text-[#060B19] font-black text-xs shadow-lg">
+          <div className="w-8 h-8 rounded bg-gradient-to-br from-blue-400 to-amber-400 flex items-center justify-center text-brand-deep font-black text-xs shadow-lg">
             &infin;
           </div>
           <div>
@@ -32,7 +32,7 @@ export default function Sidebar({ user, notificationCount, onNavigateHub, onOpen
         </div>
 
         {/* Org selector */}
-        <div className="mt-8 bg-[#0F172A] border border-slate-800 rounded-xl p-3 flex items-center justify-between cursor-pointer">
+        <div className="mt-8 bg-slate-900 border border-slate-800 rounded-xl p-3 flex items-center justify-between cursor-pointer">
           <div>
             <p className="text-xs font-bold text-white">{user?.role ?? 'Enterprise Admin'}</p>
             <p className="text-[10px] text-slate-500">{user?.scope ?? 'All locations'}</p>

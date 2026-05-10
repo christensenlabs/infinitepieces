@@ -88,7 +88,7 @@ export default function DataFlowProApp({ apiKey }) {
     showToast("System reset to factory defaults.");
   };
 
-  if (!isLoaded) return <div className="h-screen bg-[#0A192F] flex items-center justify-center"><Loader2 className="animate-spin text-cyan-400" size={48} /></div>;
+  if (!isLoaded) return <div className="h-screen bg-dfp flex items-center justify-center"><Loader2 className="animate-spin text-cyan-400" size={48} /></div>;
 
   if (role === 'login') return <LoginScreen setRole={setRole} setActiveTab={setActiveTab} systemSettings={systemSettings} />;
 
@@ -98,7 +98,7 @@ export default function DataFlowProApp({ apiKey }) {
   const clientBehaviors = activeClient ? behaviors.filter(b => b.clientId === activeClient.id) : [];
 
   return (
-    <div className="flex h-screen bg-[#0A192F] font-sans text-slate-300 overflow-hidden relative selection:bg-cyan-500/30">
+    <div className="flex h-screen bg-dfp font-sans text-slate-300 overflow-hidden relative selection:bg-cyan-500/30">
       <style>{`
         .animate-in { animation-duration: 300ms; animation-fill-mode: both; animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
         .fade-in { animation-name: fadeIn; }
@@ -125,8 +125,8 @@ export default function DataFlowProApp({ apiKey }) {
 
       {/* SIDEBAR NAVIGATION */}
       {isSidebarOpen && !focusMode && (
-        <aside className="w-64 bg-[#061224] flex flex-col z-50 shrink-0 border-r border-[#233554] shadow-2xl">
-          <div className="p-6 border-b border-[#233554] flex flex-col items-center relative">
+        <aside className="w-64 bg-dfp-dark flex flex-col z-50 shrink-0 border-r border-dfp-border shadow-2xl">
+          <div className="p-6 border-b border-dfp-border flex flex-col items-center relative">
             <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-xl mb-4 border-2 border-slate-200">
                <svg viewBox="0 0 100 100" className="w-10 h-10"><rect x="20" y="60" width="12" height="20" rx="2" fill="#93c5fd"/><rect x="45" y="40" width="12" height="40" rx="2" fill="#60a5fa"/><rect x="70" y="20" width="12" height="60" rx="2" fill="#3b82f6" /><path d="M 15 70 L 45 45 L 60 55 L 85 20" fill="none" stroke="#22c55e" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </div>
@@ -160,7 +160,7 @@ export default function DataFlowProApp({ apiKey }) {
             )}
           </nav>
 
-          <div className="p-4 bg-slate-950/50 border-t border-[#233554] space-y-3">
+          <div className="p-4 bg-slate-950/50 border-t border-dfp-border space-y-3">
              <button onClick={() => setShowResetModal(true)} className="w-full flex items-center justify-center gap-2 py-2 text-xs font-bold text-slate-500 hover:text-rose-400 transition-colors"><RotateCcw size={14}/> Factory Reset</button>
              <button onClick={() => { setRole('login'); setActiveClient(null); }} className="w-full flex items-center justify-center gap-2 py-2 text-xs font-bold text-slate-500 hover:text-rose-400 transition-colors"><Power size={14}/> Sign Out</button>
           </div>
@@ -169,14 +169,14 @@ export default function DataFlowProApp({ apiKey }) {
 
       {/* MAIN WORKSPACE */}
       <main className="flex-1 flex flex-col overflow-hidden relative">
-        <header className="h-16 bg-[#061224]/80 backdrop-blur-md border-b border-[#233554] px-8 flex items-center justify-between shrink-0 z-40">
+        <header className="h-16 bg-dfp-dark/80 backdrop-blur-md border-b border-dfp-border px-8 flex items-center justify-between shrink-0 z-40">
            <div className="flex items-center gap-4">
-              {!isSidebarOpen && <button onClick={() => setIsSidebarOpen(true)} className="p-2 hover:bg-[#112240] rounded-lg text-cyan-400 border border-[#233554]"><Menu size={20}/></button>}
+              {!isSidebarOpen && <button onClick={() => setIsSidebarOpen(true)} className="p-2 hover:bg-dfp-light rounded-lg text-cyan-400 border border-dfp-border"><Menu size={20}/></button>}
               <h2 className="font-bold text-white uppercase tracking-[0.2em] text-xs">{activeTab.replace('_', ' ')}</h2>
            </div>
            <div className="flex items-center gap-4">
               {activeClient && (
-                 <div className="flex items-center gap-3 pl-4 border-l border-[#233554]">
+                 <div className="flex items-center gap-3 pl-4 border-l border-dfp-border">
                     <div className="text-right">
                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Active File</p>
                        <p className="text-xs text-cyan-400 font-bold">{activeClient.name}</p>
@@ -194,7 +194,7 @@ export default function DataFlowProApp({ apiKey }) {
              <div className="h-full flex flex-col items-center justify-center text-slate-500 gap-4 animate-in fade-in">
                 <UserCheck size={64} className="opacity-20" />
                 <p className="font-bold tracking-widest uppercase text-sm">Select a Client File to begin</p>
-                <button onClick={() => setActiveTab('clients')} className="bg-cyan-500 text-[#061224] px-8 py-3 rounded-xl font-black uppercase text-xs tracking-widest shadow-lg">Open Roster</button>
+                <button onClick={() => setActiveTab('clients')} className="bg-cyan-500 text-dfp-dark px-8 py-3 rounded-xl font-black uppercase text-xs tracking-widest shadow-lg">Open Roster</button>
              </div>
           ) : (
             <>
@@ -215,11 +215,11 @@ export default function DataFlowProApp({ apiKey }) {
       {/* Reset Modal */}
       {showResetModal && (
         <div className="fixed inset-0 bg-slate-900/80 z-[110] flex items-center justify-center p-4 backdrop-blur-sm animate-in fade-in">
-           <div className="bg-[#112240] p-8 rounded-[2rem] shadow-2xl max-w-md w-full border-t-8 border-rose-600 animate-in zoom-in-95">
+           <div className="bg-dfp-light p-8 rounded-[2rem] shadow-2xl max-w-md w-full border-t-8 border-rose-600 animate-in zoom-in-95">
               <h3 className="text-2xl font-black text-white mb-2 flex items-center gap-2"><ShieldAlert className="text-rose-600" /> Factory Reset</h3>
               <p className="text-slate-400 mb-6 font-medium leading-relaxed">This will erase all clients and records to restore the blank slate. <strong>This cannot be undone.</strong></p>
               <div className="flex gap-4 justify-end">
-                 <button onClick={() => setShowResetModal(false)} className="px-5 py-2.5 font-bold text-slate-300 bg-[#0A192F] rounded-xl transition-colors hover:bg-[#233554]">Cancel</button>
+                 <button onClick={() => setShowResetModal(false)} className="px-5 py-2.5 font-bold text-slate-300 bg-dfp rounded-xl transition-colors hover:bg-dfp-border">Cancel</button>
                  <button onClick={handleFactoryReset} className="px-5 py-2.5 font-bold text-white bg-rose-600 hover:bg-rose-700 rounded-xl shadow-sm transition-colors">Confirm Reset</button>
               </div>
            </div>

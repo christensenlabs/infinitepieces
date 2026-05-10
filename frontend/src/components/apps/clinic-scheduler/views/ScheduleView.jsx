@@ -102,7 +102,7 @@ export default function ScheduleView({
             <button onClick={handlePrev} className="p-1.5 hover:bg-slate-100 rounded text-slate-600"><ChevronLeft size={18} /></button>
             <button onClick={handleNext} className="p-1.5 hover:bg-slate-100 rounded text-slate-600"><ChevronRight size={18} /></button>
           </div>
-          <h3 className="text-base sm:text-lg font-bold text-[#0b132b]">
+          <h3 className="text-base sm:text-lg font-bold text-brand">
             {calView === 'week' ? `Week of ${getStartOfWeek(currentDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}` : currentDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
           </h3>
         </div>

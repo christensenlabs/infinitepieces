@@ -8,7 +8,7 @@ export default function SettingsModal({ onClose, onReset, onExport, onImport }) 
     <ModalComponent title="Application Settings" subtitle="Local data, exports, and workspace management." onClose={onClose} width="max-w-2xl" icon={<I name="settings" className="text-slate-500" />}>
       <div className="space-y-6">
         <div className="rounded-[2rem] border border-blue-100 bg-blue-50 p-6">
-          <h4 className="flex items-center gap-2 text-lg font-black text-[#12214A] mb-2">
+          <h4 className="flex items-center gap-2 text-lg font-black text-brand-navy mb-2">
             <I name="wand" /> AI Intelligence Core
           </h4>
           <p className="text-sm font-medium leading-relaxed text-slate-600 mb-5">

@@ -5,7 +5,7 @@ import ROICalculator from '../components/ROICalculator';
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-[#040811] selection:bg-[#00E5FF] selection:text-[#040811] font-sans">
+    <div className="min-h-screen bg-brand-dark selection:bg-accent selection:text-brand-dark font-sans">
       <Navbar />
       <Hero />
       <ROICalculator />

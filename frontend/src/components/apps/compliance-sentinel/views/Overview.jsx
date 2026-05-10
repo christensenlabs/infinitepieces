@@ -8,25 +8,25 @@ export default function Overview({ claimsOnHold, claimsClean, providersAtRisk, s
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-300 space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <Card className="flex flex-col justify-between">
-          <div><p className="text-slate-500 text-xs font-bold uppercase tracking-wider flex items-center gap-1"><Icon name="banknote"/> Claims Held</p><p className="text-3xl font-black text-[#12214A] mt-2">{claimsOnHold}</p></div>
+          <div><p className="text-slate-500 text-xs font-bold uppercase tracking-wider flex items-center gap-1"><Icon name="banknote"/> Claims Held</p><p className="text-3xl font-black text-brand-navy mt-2">{claimsOnHold}</p></div>
           <p className="text-xs text-rose-600 font-bold mt-3 bg-rose-50 p-2 rounded-lg">Blocked by Scrubber</p>
         </Card>
         <Card className="flex flex-col justify-between">
-          <div><p className="text-slate-500 text-xs font-bold uppercase tracking-wider flex items-center gap-1"><Icon name="checkCircle"/> Clean Claims</p><p className="text-3xl font-black text-[#12214A] mt-2">{claimsClean}</p></div>
+          <div><p className="text-slate-500 text-xs font-bold uppercase tracking-wider flex items-center gap-1"><Icon name="checkCircle"/> Clean Claims</p><p className="text-3xl font-black text-brand-navy mt-2">{claimsClean}</p></div>
           <p className="text-xs text-emerald-600 font-bold mt-3 bg-emerald-50 p-2 rounded-lg">Ready for Clearinghouse</p>
         </Card>
         <Card className="flex flex-col justify-between">
-          <div><p className="text-slate-500 text-xs font-bold uppercase tracking-wider flex items-center gap-1"><Icon name="userShield"/> {supervisionThreshold}% Rule Fails</p><p className="text-3xl font-black text-[#12214A] mt-2">{providersAtRisk}</p></div>
+          <div><p className="text-slate-500 text-xs font-bold uppercase tracking-wider flex items-center gap-1"><Icon name="userShield"/> {supervisionThreshold}% Rule Fails</p><p className="text-3xl font-black text-brand-navy mt-2">{providersAtRisk}</p></div>
           <p className="text-xs text-amber-600 font-bold mt-3 bg-amber-50 p-2 rounded-lg">RBTs below threshold</p>
         </Card>
         <Card className="flex flex-col justify-between">
-          <div><p className="text-slate-500 text-xs font-bold uppercase tracking-wider flex items-center gap-1"><Icon name="network"/> Audit Events</p><p className="text-3xl font-black text-[#12214A] mt-2">{auditLogs.length}</p></div>
+          <div><p className="text-slate-500 text-xs font-bold uppercase tracking-wider flex items-center gap-1"><Icon name="network"/> Audit Events</p><p className="text-3xl font-black text-brand-navy mt-2">{auditLogs.length}</p></div>
           <p className="text-xs text-blue-600 font-bold mt-3 bg-blue-50 p-2 rounded-lg">Immutable logs captured</p>
         </Card>
       </div>
 
       <Card>
-        <h3 className="text-xl font-black text-[#12214A] flex items-center gap-2 mb-6">
+        <h3 className="text-xl font-black text-brand-navy flex items-center gap-2 mb-6">
           <Icon name="link" className="text-rose-500" /> Active System Alerts
         </h3>
         {alerts.length === 0 ? (

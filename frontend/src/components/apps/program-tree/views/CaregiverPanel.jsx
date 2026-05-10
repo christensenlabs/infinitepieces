@@ -23,7 +23,7 @@ export default function CaregiverPanel({ client, programs, onFlag }) {
           <div className="mb-4 text-5xl">
             <I name="family" className="text-blue-500" />
           </div>
-          <h3 className="text-xl font-black text-[#12214A]">No approved home programs yet</h3>
+          <h3 className="text-xl font-black text-brand-navy">No approved home programs yet</h3>
           <p className="mt-2 text-sm font-medium text-slate-500">
             Once the BCBA approves a program, it will appear here in caregiver-friendly language.
           </p>
@@ -37,7 +37,7 @@ export default function CaregiverPanel({ client, programs, onFlag }) {
                   <Badge className="border-blue-200 bg-blue-50 text-blue-800">{p.domain || "Home Practice"}</Badge>
                   <Badge className="border-emerald-200 bg-emerald-50 text-emerald-800">Approved</Badge>
                 </div>
-                <h3 className="text-2xl font-black text-[#12214A]">{p.target}</h3>
+                <h3 className="text-2xl font-black text-brand-navy">{p.target}</h3>
               </div>
               <div className="flex flex-wrap gap-2">
                 <Button variant="light" onClick={() => onFlag(p, "successHome")}>

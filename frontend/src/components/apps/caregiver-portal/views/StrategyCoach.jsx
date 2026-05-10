@@ -15,7 +15,7 @@ export default function StrategyCoach({
 }) {
   return (
     <div className="h-full flex flex-col lg:flex-row gap-6 animate-in fade-in duration-500">
-      <div className="w-full lg:w-5/12 bg-[#0A1220]/80 backdrop-blur-md border border-white/5 rounded-[2.5rem] p-6 md:p-8 shadow-2xl flex flex-col shrink-0">
+      <div className="w-full lg:w-5/12 bg-brand-panel/80 backdrop-blur-md border border-white/5 rounded-[2.5rem] p-6 md:p-8 shadow-2xl flex flex-col shrink-0">
         <div className="flex items-center gap-4 mb-6 border-b border-white/5 pb-6">
           <div className="w-12 h-12 bg-cyan-500/20 rounded-2xl text-cyan-400 flex items-center justify-center border border-cyan-500/30 shadow-[0_0_15px_rgba(0,229,255,0.2)]"><Brain size={24} /></div>
           <div>
@@ -44,7 +44,7 @@ export default function StrategyCoach({
           <button
             onClick={handleGenerateStrategy}
             disabled={isGeneratingStrategy || !strategyForm.antecedent || !strategyForm.behavior}
-            className="w-full bg-cyan-500 hover:bg-cyan-400 text-[#040811] py-4 rounded-xl font-black text-sm uppercase tracking-widest shadow-[0_0_20px_rgba(0,229,255,0.3)] active:scale-95 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-cyan-500 hover:bg-cyan-400 text-brand-dark py-4 rounded-xl font-black text-sm uppercase tracking-widest shadow-[0_0_20px_rgba(0,229,255,0.3)] active:scale-95 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isGeneratingStrategy ? <Loader2 size={18} className="animate-spin" /> : <Sparkles size={18} />}
             {isGeneratingStrategy ? 'Consulting Behavior Plan...' : 'Generate Strategy'}
@@ -52,7 +52,7 @@ export default function StrategyCoach({
         </div>
       </div>
 
-      <div className="w-full lg:w-7/12 bg-[#0A1220]/50 backdrop-blur-md border border-white/5 rounded-[2.5rem] flex flex-col overflow-hidden shadow-2xl relative">
+      <div className="w-full lg:w-7/12 bg-brand-panel/50 backdrop-blur-md border border-white/5 rounded-[2.5rem] flex flex-col overflow-hidden shadow-2xl relative">
         <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 blur-[80px] rounded-full pointer-events-none"></div>
         <div className="px-8 py-6 bg-slate-900/50 border-b border-white/5 flex items-center justify-between shrink-0">
           <h3 className="font-bold text-white text-lg flex items-center gap-2"><Sparkles className="text-cyan-400 w-5 h-5"/> Coach Response</h3>
