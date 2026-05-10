@@ -9,13 +9,13 @@ import org.springframework.context.annotation.Configuration
 
 @Configuration
 class JooqConfig {
-
     @Bean
-    fun jooqConfigurationCustomizer() = DefaultConfigurationCustomizer { config: DefaultConfiguration ->
-        config.set(
-            Settings()
-                .withRenderSchema(false)
-                .withRenderQuotedNames(RenderQuotedNames.EXPLICIT_DEFAULT_UNQUOTED)
-        )
-    }
+    fun jooqConfigurationCustomizer() =
+        DefaultConfigurationCustomizer { config: DefaultConfiguration ->
+            config.set(
+                Settings()
+                    .withRenderSchema(false)
+                    .withRenderQuotedNames(RenderQuotedNames.EXPLICIT_DEFAULT_UNQUOTED),
+            )
+        }
 }

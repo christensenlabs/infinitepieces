@@ -15,7 +15,7 @@ allowed-tools: Bash(git *), Bash(backend/gradlew *), Read, Grep, Glob
     - `refactor`, `docs`, `chore`, etc. as appropriate
 5. If any changed files are Kotlin (`.kt`/`.kts`), run the linter from the `backend/` directory:
    ```bash
-   backend/gradlew -p backend ktlintFormat spotlessApply
+   backend/gradlew -p backend ktlintFormat
    ```
    Then re-check `git diff` for any auto-fixed formatting changes.
 6. Stage specific changed files by name (do NOT use `git add .` or `git add -A` to avoid staging secrets)

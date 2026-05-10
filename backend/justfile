@@ -9,6 +9,14 @@ dev:
 build:
     ./gradlew build
 
+# Lint Kotlin sources
+lint:
+    ./gradlew ktlintCheck
+
+# Autofix Kotlin lint issues
+lint-fix:
+    ./gradlew ktlintFormat
+
 # Generate JOOQ code from migration SQL files
 jooq:
     ./gradlew generateJooq

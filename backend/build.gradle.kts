@@ -4,6 +4,7 @@ plugins {
     id("org.springframework.boot") version "3.4.5"
     id("io.spring.dependency-management") version "1.1.7"
     id("nu.studer.jooq") version "9.0"
+    id("org.jlleitschuh.gradle.ktlint") version "12.3.0"
 }
 
 group = "com.infinitepieces"
@@ -47,6 +48,13 @@ sourceSets {
     }
 }
 
+ktlint {
+    version.set("1.6.0")
+    filter {
+        exclude("**/generated/**")
+    }
+}
+
 tasks.withType<Test> {
     useJUnitPlatform()
 }
@@ -72,14 +80,18 @@ jooq {
                         // functions) must be excluded since the H2 parser can't handle them.
                         // Convention: name DDL files normally, name PL/pgSQL files with
                         // a __plpgsql_ or __seed_ prefix after the version number.
-                        properties.add(org.jooq.meta.jaxb.Property().apply {
-                            key = "scripts"
-                            value = "../database/migrations/*.sql"
-                        })
-                        properties.add(org.jooq.meta.jaxb.Property().apply {
-                            key = "sort"
-                            value = "flyway"
-                        })
+                        properties.add(
+                            org.jooq.meta.jaxb.Property().apply {
+                                key = "scripts"
+                                value = "../database/migrations/*.sql"
+                            },
+                        )
+                        properties.add(
+                            org.jooq.meta.jaxb.Property().apply {
+                                key = "sort"
+                                value = "flyway"
+                            },
+                        )
                     }
                     generate.apply {
                         isDeprecated = false

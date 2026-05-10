@@ -10,12 +10,16 @@ import java.util.UUID
 
 @RestController
 @RequestMapping("/api/users")
-class UsersController(private val usersDao: UsersDao) {
-
+class UsersController(
+    private val usersDao: UsersDao,
+) {
     @GetMapping("/{id}")
-    fun getUser(@PathVariable id: UUID): ResponseEntity<Any> {
-        val user = usersDao.findById(id)
-            ?: return ResponseEntity.notFound().build()
+    fun getUser(
+        @PathVariable id: UUID,
+    ): ResponseEntity<Any> {
+        val user =
+            usersDao.findById(id)
+                ?: return ResponseEntity.notFound().build()
         return ResponseEntity.ok(user)
     }
 }
