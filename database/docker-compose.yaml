@@ -3,12 +3,15 @@ services:
     image: postgres:16-alpine
     environment:
       POSTGRES_DB: infinitepieces
-      POSTGRES_USER: infinitepieces
-      POSTGRES_PASSWORD: infinitepieces
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_SUPERUSER_PASSWORD:-postgres}
+      ADMIN_PASSWORD: ${POSTGRES_ADMIN_PASSWORD:-admin}
+      APP_PASSWORD: ${POSTGRES_APP_PASSWORD:-app}
     ports:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d
 
 volumes:
   pgdata:

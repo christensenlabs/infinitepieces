@@ -2,7 +2,7 @@
 
 ## Conventions
 
-- **Naming**: `V{datetime}__{description}.sql` for versioned migrations, `R__{description}.sql` for repeatable. Use `YYYYMMDDHHmmss` timestamps and snake_case descriptions (e.g. `V20260510143000__add_client_table.sql`). Timestamps prevent merge conflicts when multiple developers add migrations concurrently.
+- **Naming**: `V{datetime}__{description}.sql` for versioned migrations, `R__{description}.sql` for repeatable. Use `YYYYMMDDHHmmss` timestamps from the **current system clock** and snake_case descriptions (e.g. `V20260510143000__add_client_table.sql`). Do not use midnight or placeholder timestamps. Timestamps prevent merge conflicts when multiple developers add migrations concurrently.
 - **One concern per migration**: Don't mix unrelated table changes in a single file.
 
 ## Column Standards

@@ -2,6 +2,8 @@
 export CLABS_AWS_ACCOUNT_ID := `source scripts/env.sh && echo $CLABS_AWS_ACCOUNT_ID`
 export CLABS_INFINITEPIECES_BUCKET := `source scripts/env.sh && echo $CLABS_INFINITEPIECES_BUCKET`
 export CLABS_INFINITEPIECES_CLOUDFRONT_DISTRIBUTION_ID := `source scripts/env.sh && echo $CLABS_INFINITEPIECES_CLOUDFRONT_DISTRIBUTION_ID`
+export POSTGRES_ADMIN_PASSWORD := `source scripts/env.sh && echo ${CLABS_INFINITEPIECES_DB_ADMIN_PASSWORD:-admin}`
+export POSTGRES_APP_PASSWORD := `source scripts/env.sh && echo ${CLABS_INFINITEPIECES_DB_APP_PASSWORD:-app}`
 
 ecr_repo := "infinitepieces-backend"
 aws_region := "us-east-1"
@@ -72,6 +74,16 @@ database-reset:
 # Generate JOOQ code from migration SQL files (no running DB needed)
 database-codegen:
     cd backend && ./gradlew generateJooq
+
+# Initialize RDS roles using the same init script as local Docker
+database-init-prod:
+    @echo "==> Running init script against RDS..."
+    source scripts/env.sh && psql \
+        "postgresql://$(tofu -chdir=terraform output -raw rds_endpoint)/infinitepieces" \
+        -v admin_password="$CLABS_INFINITEPIECES_DB_ADMIN_PASSWORD" \
+        -v app_password="$CLABS_INFINITEPIECES_DB_APP_PASSWORD" \
+        -f database/init/01_create_roles.sql
+    @echo "==> RDS roles created!"
 
 # ─── Terraform ───────────────────────────────────────────────────────
 

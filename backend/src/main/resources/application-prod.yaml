@@ -4,7 +4,9 @@ cors:
 spring:
   datasource:
     url: ${SPRING_DATASOURCE_URL}
-    username: ${SPRING_DATASOURCE_USERNAME:infinitepieces}
-    password: ${SPRING_DATASOURCE_PASSWORD}
+    username: infinitepieces_app
+    password: ${SPRING_DATASOURCE_APP_PASSWORD}
   flyway:
+    user: infinitepieces_admin
+    password: ${SPRING_DATASOURCE_ADMIN_PASSWORD}
     locations: classpath:db/migrations
