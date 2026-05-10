@@ -9,7 +9,7 @@ export default function HipaaLogs({ auditLogs }) {
       <Card>
         <div className="flex justify-between items-center mb-6">
            <div>
-             <h3 className="text-xl font-black text-brand-navy">Immutable Access & Security Logs</h3>
+             <h3 className="heading-section text-brand-navy">Immutable Access & Security Logs</h3>
              <p className="text-sm text-slate-500 mt-1">Live tracking of every action taken within this prototype.</p>
            </div>
          </div>

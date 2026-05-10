@@ -10,10 +10,10 @@ export default function AuthTracker({ auths, deleteAuth, onAddAuth }) {
       <Card>
          <div className="flex justify-between items-center mb-6">
            <div>
-             <h3 className="text-xl font-black text-brand-navy">Authorization Database</h3>
+             <h3 className="heading-section text-brand-navy">Authorization Database</h3>
              <p className="text-sm text-slate-500 mt-1">Required for the scrubber to verify claims.</p>
            </div>
-           <button onClick={onAddAuth} className="bg-accent-gold-muted text-white px-4 py-2 rounded-xl font-black text-sm flex items-center gap-2 shadow-sm hover:bg-amber-500"><Icon name="plus"/> Add Auth</button>
+           <button onClick={onAddAuth} className="btn-gold"><Icon name="plus"/> Add Auth</button>
          </div>
 
          {auths.length === 0 ? (

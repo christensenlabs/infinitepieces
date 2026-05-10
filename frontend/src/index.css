@@ -2,6 +2,149 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   GLOBAL COMPONENT STYLES
+   Shared design tokens using @apply. These are the composable
+   building blocks — combine them freely in JSX with cn().
+   ============================================================ */
+
+/* --- Buttons ------------------------------------------------ */
+
+.btn {
+  @apply font-bold transition-all disabled:opacity-50 flex items-center justify-center gap-2;
+}
+
+.btn-sm {
+  @apply px-4 py-2 rounded-xl text-xs;
+}
+
+.btn-md {
+  @apply px-6 py-3 rounded-xl text-sm;
+}
+
+.btn-lg {
+  @apply px-8 py-4 rounded-2xl text-sm uppercase tracking-widest;
+}
+
+.btn-primary {
+  @apply btn btn-md bg-brand text-white shadow-md hover:bg-blue-950;
+}
+
+.btn-indigo {
+  @apply btn btn-md bg-indigo-600 hover:bg-indigo-500 text-white;
+}
+
+.btn-accent {
+  @apply btn btn-md bg-cyan-500 hover:bg-cyan-400 text-brand-dark font-black;
+}
+
+.btn-gold {
+  @apply btn btn-sm bg-accent-gold-muted text-white shadow-sm hover:bg-amber-500 font-black;
+}
+
+.btn-ghost {
+  @apply btn btn-sm bg-slate-800 hover:bg-slate-700 text-white;
+}
+
+/* --- Cards -------------------------------------------------- */
+
+.card {
+  @apply rounded-2xl border shadow-sm;
+}
+
+.card-dark {
+  @apply card bg-slate-900/50 border-slate-800 p-6;
+}
+
+.card-brand {
+  @apply bg-brand-panel/80 backdrop-blur-md border border-white/5 rounded-3xl p-6 shadow-xl;
+}
+
+.card-brand-hero {
+  @apply bg-brand-panel/80 backdrop-blur-md border border-white/5 rounded-[2.5rem] p-6 md:p-10 shadow-2xl;
+}
+
+.card-dfp {
+  @apply bg-dfp-light/50 border border-dfp-border rounded-[2rem] p-6 shadow-sm;
+}
+
+.card-light {
+  @apply card bg-white border-slate-200 p-6;
+}
+
+/* --- Inputs ------------------------------------------------- */
+
+.input-dark {
+  @apply w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2 text-slate-200 text-sm
+         focus:outline-none focus:border-indigo-500 transition-all;
+}
+
+.input-dfp {
+  @apply w-full bg-dfp border border-dfp-border rounded-xl p-4 text-white text-sm
+         outline-none focus:border-cyan-400 transition-all;
+}
+
+.input-light {
+  @apply w-full border border-slate-300 rounded-lg p-2.5 text-sm outline-none
+         focus:border-brand transition-all;
+}
+
+.textarea-dark {
+  @apply input-dark py-3 resize-y;
+}
+
+.select-dark {
+  @apply input-dark;
+}
+
+/* --- Typography --------------------------------------------- */
+
+.heading-page {
+  @apply font-black text-3xl md:text-4xl tracking-tight;
+}
+
+.heading-section {
+  @apply text-xl font-black;
+}
+
+.heading-card {
+  @apply text-2xl font-black;
+}
+
+.text-subtitle {
+  @apply text-sm text-slate-400 leading-relaxed;
+}
+
+.text-label {
+  @apply text-xs font-semibold text-slate-400;
+}
+
+.text-label-upper {
+  @apply text-[10px] font-black uppercase tracking-widest text-slate-500;
+}
+
+/* --- Modals ------------------------------------------------- */
+
+.modal-overlay {
+  @apply fixed inset-0 z-50 flex justify-center items-center bg-slate-900/50 backdrop-blur-sm p-4;
+}
+
+.modal-content {
+  @apply bg-white rounded-[2rem] w-full max-w-md shadow-2xl overflow-hidden;
+}
+
+/* --- Layout ------------------------------------------------- */
+
+.page-animate {
+  @apply space-y-6;
+}
+
+/* --- Badges ------------------------------------------------- */
+
+.badge {
+  @apply inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-black uppercase tracking-wider;
+}
+
 /* ROI Calculator – custom slider thumb */
 .slider-thumb::-webkit-slider-thumb {
   -webkit-appearance: none;

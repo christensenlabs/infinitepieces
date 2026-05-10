@@ -1,13 +1,14 @@
 import React from 'react';
 import { X } from 'lucide-react';
+import { schedulerStyles } from '../styles';
 
 export default function SessionDetailModal({
   selectedSession, setSelectedSession, saveSession, deleteSession, reportException
 }) {
   return (
-    <div className="fixed inset-0 bg-brand/80 flex items-center justify-center z-50 p-4 backdrop-blur-sm">
+    <div className={schedulerStyles.overlay}>
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden flex flex-col zoom-in-95 max-h-[90vh]">
-        <div className={`bg-brand text-white px-6 py-5 flex items-center justify-between border-b-[4px] ${selectedSession.category === 'admin' ? 'border-slate-500' : 'border-yellow-500'} shrink-0`}>
+        <div className={`${schedulerStyles.modalHeader} border-b-[4px] ${selectedSession.category === 'admin' ? 'border-slate-500' : 'border-yellow-500'} shrink-0`}>
           <div>
             <h2 className="text-xl font-bold">{selectedSession.patientName}</h2>
             <p className="text-slate-300 text-xs mt-1">{selectedSession.date} | {selectedSession.startTime} - {selectedSession.endTime}</p>

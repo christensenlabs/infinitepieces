@@ -86,7 +86,7 @@ export default function CopilotModal({ copilot, onClose }) {
             <button
               onClick={() => submit()}
               disabled={copilot.loading || !query}
-              className="bg-brand text-white px-6 py-3 rounded-xl font-bold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-900 transition-colors"
+              className="btn-primary hover:bg-blue-900 shadow-none disabled:cursor-not-allowed"
             >
               {copilot.loading ? 'Thinking...' : 'Ask'}
             </button>

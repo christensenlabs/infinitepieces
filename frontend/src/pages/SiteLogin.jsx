@@ -54,7 +54,7 @@ export default function SiteLogin() {
                 className="w-full bg-black/40 border border-white/10 rounded-2xl py-5 pl-14 pr-6 text-white text-xl font-bold tracking-[0.5em] focus:outline-none focus:border-blue-500/50 transition-all placeholder:text-slate-600 placeholder:tracking-normal placeholder:text-sm"
               />
             </div>
-            <button className="w-full bg-white text-brand-dark py-5 rounded-2xl font-black uppercase tracking-widest text-sm hover:bg-blue-50 transition-all active:scale-95 shadow-xl">
+            <button className="btn btn-lg w-full bg-white text-brand-dark py-5 font-black hover:bg-blue-50 active:scale-95 shadow-xl">
               Unlock Motherboard
             </button>
           </form>

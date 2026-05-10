@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FileSignature, Sparkles, Loader2, Clock, Save } from 'lucide-react';
 import { callGemini } from '@/lib/gemini';
+import { dfpStyles } from '../styles';
 
 export default function SessionNotesView({ activeClient, sessionData, programs, sessionNotes, setSessionNotes, showToast, apiKey }) {
   const [draft, setDraft] = useState('');
@@ -59,14 +60,14 @@ export default function SessionNotesView({ activeClient, sessionData, programs, 
 
   return (
     <div className="max-w-5xl mx-auto space-y-6 animate-in fade-in duration-500">
-      <div className="flex items-center gap-4 border-b border-dfp-border pb-4">
+      <div className={dfpStyles.sectionBorder}>
         <FileSignature size={28} className="text-fuchsia-400" />
         <h2 className="text-3xl font-black text-white tracking-tight">Clinical Documentation</h2>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Generator Section */}
-        <div className="bg-dfp-light/80 p-8 rounded-[2.5rem] border border-dfp-border shadow-lg flex flex-col h-[500px]">
+        <div className={`${dfpStyles.panel} flex flex-col h-[500px]`}>
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-xs font-black uppercase tracking-[0.2em] text-fuchsia-400">SOAP Note Drafter</h3>
             <button onClick={handleGenerate} disabled={isGenerating} className="bg-fuchsia-500/10 text-fuchsia-400 border border-fuchsia-500/30 px-4 py-2 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-fuchsia-500 hover:text-white transition-all flex items-center gap-2 disabled:opacity-50">
@@ -83,7 +84,7 @@ export default function SessionNotesView({ activeClient, sessionData, programs, 
           />
 
           <div className="mt-4 flex justify-end">
-             <button onClick={handleSave} disabled={!draft.trim() || isGenerating} className="bg-cyan-500 text-dfp-dark px-8 py-3 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-white transition-colors shadow-lg disabled:opacity-50 flex items-center gap-2">
+             <button onClick={handleSave} disabled={!draft.trim() || isGenerating} className={`${dfpStyles.btnAction} px-8 py-3 rounded-xl disabled:opacity-50 flex items-center gap-2`}>
                 <Save size={16} /> Save to Vault
              </button>
           </div>

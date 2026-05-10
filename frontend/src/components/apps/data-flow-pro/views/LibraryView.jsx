@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { BookOpen, ChevronDown, ChevronUp } from 'lucide-react';
+import { dfpStyles } from '../styles';
 
 export default function LibraryView({ programs, activeClient }) {
   const [expandedId, setExpandedId] = useState(null);
@@ -8,7 +9,7 @@ export default function LibraryView({ programs, activeClient }) {
 
   return (
     <div className="max-w-5xl mx-auto space-y-6 animate-in fade-in duration-500">
-      <div className="flex items-center gap-4 border-b border-dfp-border pb-4">
+      <div className={dfpStyles.sectionBorder}>
         <BookOpen size={28} className="text-cyan-400" />
         <h2 className="text-3xl font-black text-white tracking-tight">Curriculum Core</h2>
       </div>

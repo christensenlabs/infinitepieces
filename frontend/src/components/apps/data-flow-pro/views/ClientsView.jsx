@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Users } from 'lucide-react';
+import { dfpStyles } from '../styles';
 
 export default function ClientsView({ clients, setClients, activeClient, setActiveClient, isBCBA, showToast }) {
   const [newClient, setNewClient] = useState({ name: '', age: '', profile: '' });
@@ -16,7 +17,7 @@ export default function ClientsView({ clients, setClients, activeClient, setActi
 
   return (
     <div className="max-w-5xl mx-auto space-y-8 animate-in fade-in duration-500">
-      <div className="flex items-center gap-4 border-b border-dfp-border pb-4">
+      <div className={dfpStyles.sectionBorder}>
         <Users size={28} className="text-cyan-400" />
         <h2 className="text-3xl font-black text-white tracking-tight">Client Roster</h2>
       </div>
@@ -38,7 +39,7 @@ export default function ClientsView({ clients, setClients, activeClient, setActi
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {clients.map(c => (
-            <div key={c.id} className={`p-8 rounded-[2rem] border-2 text-left flex flex-col transition-all ${activeClient?.id === c.id ? 'bg-dfp-light border-cyan-400 shadow-[0_0_30px_rgba(0,229,255,0.1)]' : 'bg-dfp-light/50 border-dfp-border hover:border-cyan-400/50'}`}>
+            <div key={c.id} className={`p-8 rounded-[2rem] border-2 text-left flex flex-col transition-all ${activeClient?.id === c.id ? dfpStyles.cardActive : dfpStyles.cardInactive}`}>
               <div className="flex justify-between items-start w-full mb-4">
                 <div>
                   <h4 className="font-black text-2xl text-white tracking-tight">{String(c.name)} <span className="text-xs text-cyan-400 font-mono ml-2 font-bold bg-dfp px-2 py-1 rounded border border-dfp-border">AGE {c.age}</span></h4>

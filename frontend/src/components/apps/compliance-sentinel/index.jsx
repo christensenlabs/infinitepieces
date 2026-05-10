@@ -200,7 +200,7 @@ export default function ComplianceSentinelApp() {
             </button>
             <button
               onClick={runLiveScrub}
-              className="bg-brand-navy text-white px-5 py-3 rounded-2xl font-black text-sm flex items-center gap-2 shadow-md hover:bg-blue-900 transition"
+              className="btn-primary rounded-2xl font-black"
             >
               <Icon name="refresh" /> Run Live Deep Scrub
             </button>
@@ -314,7 +314,7 @@ export default function ComplianceSentinelApp() {
               <label className="flex items-center gap-2 text-sm font-bold text-brand-navy cursor-pointer"><input type="checkbox" checked={claimForm.sig} onChange={e=>setClaimForm({...claimForm, sig: e.target.checked})} className="w-4 h-4 accent-brand-navy" /> Signatures Complete?</label>
               <label className="flex items-center gap-2 text-sm font-bold text-brand-navy cursor-pointer"><input type="checkbox" checked={claimForm.gps} onChange={e=>setClaimForm({...claimForm, gps: e.target.checked})} className="w-4 h-4 accent-brand-navy" /> GPS Clock-in Matches?</label>
             </div>
-            <button type="submit" className="w-full bg-brand-navy text-white py-3 rounded-xl font-black mt-4 transition-colors hover:bg-blue-900 active:scale-95 shadow-md">Save Claim to Queue</button>
+            <button type="submit" className="btn-primary w-full mt-4 active:scale-95">Save Claim to Queue</button>
           </form>
         </Modal>
       )}
@@ -332,7 +332,7 @@ export default function ComplianceSentinelApp() {
               <div><label className="text-xs font-bold text-slate-500">Used Units</label><input required type="number" className="w-full border border-slate-200 rounded-xl p-3 mt-1" value={authForm.used} onChange={e=>setAuthForm({...authForm, used: e.target.value})} /></div>
             </div>
             <div><label className="text-xs font-bold text-slate-500">Expiration Date</label><input required type="date" className="w-full border border-slate-200 rounded-xl p-3 mt-1" value={authForm.expire} onChange={e=>setAuthForm({...authForm, expire: e.target.value})} /></div>
-            <button type="submit" className="w-full bg-brand-navy text-white py-3 rounded-xl font-black mt-4 transition-colors hover:bg-blue-900 active:scale-95 shadow-md">Save Authorization</button>
+            <button type="submit" className="btn-primary w-full mt-4 active:scale-95">Save Authorization</button>
           </form>
         </Modal>
       )}
@@ -357,7 +357,7 @@ export default function ComplianceSentinelApp() {
             <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
               <label className="flex items-center gap-2 text-sm font-bold text-brand-navy cursor-pointer"><input type="checkbox" checked={provForm.oigCleared} onChange={e=>setProvForm({...provForm, oigCleared: e.target.checked})} className="w-4 h-4 accent-brand-navy" /> Cleared OIG/Medicaid Exclusion List</label>
             </div>
-            <button type="submit" className="w-full bg-brand-navy text-white py-3 rounded-xl font-black mt-4 transition-colors hover:bg-blue-900 active:scale-95 shadow-md">Save Provider</button>
+            <button type="submit" className="btn-primary w-full mt-4 active:scale-95">Save Provider</button>
           </form>
         </Modal>
       )}

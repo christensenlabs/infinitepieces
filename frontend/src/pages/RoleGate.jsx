@@ -52,7 +52,7 @@ export default function RoleGate() {
           "bg-white p-10 rounded-[2.5rem] shadow-2xl border transition-all",
           error ? "border-rose-200" : "border-slate-100"
         ].join(" ")}>
-          <h2 className="text-2xl font-black text-brand mb-2">Access Identity</h2>
+          <h2 className="heading-card text-brand mb-2">Access Identity</h2>
           <p className="text-slate-500 text-sm font-medium mb-8">
             Enter your 6-digit credential PIN to initialize your specific workspace.
           </p>
@@ -68,7 +68,7 @@ export default function RoleGate() {
               placeholder="••••••"
               className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-5 text-center text-3xl tracking-[0.5em] font-black text-brand focus:outline-none focus:border-blue-500 transition-all mb-6"
             />
-            <button className="w-full bg-brand text-white py-4 rounded-2xl font-black uppercase tracking-widest text-xs shadow-lg hover:bg-blue-950 transition-all">
+            <button className="btn btn-lg w-full bg-brand text-white shadow-lg hover:bg-blue-950 font-black text-xs">
               Initialize Session
             </button>
           </form>

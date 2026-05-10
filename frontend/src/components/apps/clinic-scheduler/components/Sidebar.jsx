@@ -3,6 +3,7 @@ import {
   BarChart2, Calendar, MessageSquare,
   ChevronRight, X, Lock
 } from 'lucide-react';
+import { schedulerStyles } from '../styles';
 
 export default function Sidebar({
   activeTab, setActiveTab, isSidebarOpen, setIsSidebarOpen,

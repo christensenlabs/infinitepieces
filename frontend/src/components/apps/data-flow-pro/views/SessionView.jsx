@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { RotateCcw } from 'lucide-react';
+import { dfpStyles } from '../styles';
 
 export default function SessionView({ programs, activeClient, sessionData, setSessionData }) {
   const [selectedId, setSelectedId] = useState(programs[0]?.id || null);
@@ -66,7 +67,7 @@ export default function SessionView({ programs, activeClient, sessionData, setSe
                 </div>
               </div>
 
-              <div className="bg-dfp-light/80 rounded-[2.5rem] border border-dfp-border p-8">
+              <div className={dfpStyles.panel}>
                 <div className="flex justify-between items-end mb-6">
                   <div className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-400">Record Data</div>
                   {totalT > 0 && <button onClick={removeLastTrial} className="text-[10px] font-black text-slate-400 hover:text-rose-500 flex items-center gap-1"><RotateCcw size={12}/> Undo Last</button>}

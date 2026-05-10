@@ -26,7 +26,7 @@ export default function Overview({ claimsOnHold, claimsClean, providersAtRisk, s
       </div>
 
       <Card>
-        <h3 className="text-xl font-black text-brand-navy flex items-center gap-2 mb-6">
+        <h3 className="heading-section text-brand-navy flex items-center gap-2 mb-6">
           <Icon name="link" className="text-rose-500" /> Active System Alerts
         </h3>
         {alerts.length === 0 ? (

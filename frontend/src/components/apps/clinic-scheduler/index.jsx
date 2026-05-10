@@ -5,6 +5,7 @@ import { useApiData } from '@/hooks/useApiData';
 import { fetchSchedulerConfig } from '@/api/apps';
 import { getToday, formatDate } from './utils';
 
+import { schedulerStyles } from './styles';
 import AdminLoginModal from './components/AdminLoginModal';
 import Sidebar from './components/Sidebar';
 import AddSessionModal from './components/AddSessionModal';
@@ -304,7 +305,7 @@ export default function ClinicSchedulerApp({ apiKey }) {
           <div className="flex items-center space-x-5">
             <button
               onClick={() => requireAdmin(() => setIsAddModalOpen(true))}
-              className="bg-brand text-yellow-400 px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-bold flex items-center hover:bg-brand-navy shadow-md transition-colors"
+              className={`${schedulerStyles.btnAction} px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm`}
             >
               {!isAdminAuthenticated && <Lock size={12} className="mr-1.5 opacity-70" />}
               <Plus size={16} className="sm:mr-2"/> <span className="hidden sm:inline">New Session</span>

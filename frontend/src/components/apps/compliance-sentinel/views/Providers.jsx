@@ -10,10 +10,10 @@ export default function Providers({ providers, deleteProvider, onAddProvider, su
       <Card>
          <div className="flex justify-between items-center mb-6">
            <div>
-             <h3 className="text-xl font-black text-brand-navy">Providers & Supervision</h3>
+             <h3 className="heading-section text-brand-navy">Providers & Supervision</h3>
              <p className="text-sm text-slate-500 mt-1">Live tracking of {supervisionThreshold}% rule and BACB expirations.</p>
            </div>
-           <button onClick={onAddProvider} className="bg-accent-gold-muted text-white px-4 py-2 rounded-xl font-black text-sm flex items-center gap-2 shadow-sm hover:bg-amber-500"><Icon name="plus"/> Add Provider</button>
+           <button onClick={onAddProvider} className="btn-gold"><Icon name="plus"/> Add Provider</button>
          </div>
 
          {providers.length === 0 ? (

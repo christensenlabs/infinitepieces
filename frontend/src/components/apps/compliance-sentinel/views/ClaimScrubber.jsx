@@ -9,10 +9,10 @@ export default function ClaimScrubber({ claims, deleteClaim, onAddClaim }) {
        <Card>
          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
            <div>
-             <h3 className="text-xl font-black text-brand-navy">Pre-Billing Scrubber</h3>
+             <h3 className="heading-section text-brand-navy">Pre-Billing Scrubber</h3>
              <p className="text-sm text-slate-500 mt-1">Add raw claims below. Click &ldquo;Run Deep Scrub&rdquo; at the top to process them.</p>
            </div>
-           <button onClick={onAddClaim} className="bg-accent-gold-muted text-white px-4 py-2 rounded-xl font-black text-sm flex items-center gap-2 shadow-sm hover:bg-amber-500"><Icon name="plus"/> Add Claim</button>
+           <button onClick={onAddClaim} className="btn-gold"><Icon name="plus"/> Add Claim</button>
          </div>
 
          {claims.length === 0 ? (

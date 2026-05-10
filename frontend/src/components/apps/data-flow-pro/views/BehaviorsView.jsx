@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ShieldAlert, Sparkles, Loader2 } from 'lucide-react';
 import { callGemini } from '@/lib/gemini';
+import { dfpStyles } from '../styles';
 
 export default function BehaviorsView({ behaviors, setBehaviors, activeClient, isBCBA, showToast, apiKey }) {
   const [newBx, setNewBx] = useState({ name: '', opDef: '', type: 'frequency' });
@@ -32,7 +33,7 @@ export default function BehaviorsView({ behaviors, setBehaviors, activeClient, i
 
   return (
     <div className="max-w-5xl mx-auto space-y-8 animate-in fade-in duration-500">
-      <div className="flex items-center gap-4 border-b border-dfp-border pb-4">
+      <div className={dfpStyles.sectionBorder}>
         <ShieldAlert size={28} className="text-rose-500" />
         <h2 className="text-3xl font-black text-white tracking-tight">Target Behaviors</h2>
       </div>
@@ -42,7 +43,7 @@ export default function BehaviorsView({ behaviors, setBehaviors, activeClient, i
           <form onSubmit={handleAdd} className="space-y-4">
             <div className="flex flex-col md:flex-row gap-4">
               <input className="flex-1 bg-dfp border border-dfp-border text-white p-4 rounded-xl outline-none focus:border-cyan-400 text-sm font-bold uppercase" placeholder="Behavior Identifier (e.g. Elopement)" value={newBx.name} onChange={e => setNewBx({...newBx, name: e.target.value})}/>
-              <select className="bg-dfp border border-dfp-border text-cyan-400 p-4 rounded-xl font-black text-sm outline-none focus:border-cyan-400" value={newBx.type} onChange={e => setNewBx({...newBx, type: e.target.value})}><option value="frequency">Count</option><option value="duration">Timer</option></select>
+              <select className={dfpStyles.select} value={newBx.type} onChange={e => setNewBx({...newBx, type: e.target.value})}><option value="frequency">Count</option><option value="duration">Timer</option></select>
             </div>
             <div className="relative">
               <textarea className="w-full bg-dfp border border-dfp-border text-white p-4 rounded-xl outline-none focus:border-cyan-400 text-sm h-28 custom-scrollbar pr-40" placeholder="Operationalized Topography" value={newBx.opDef} onChange={e => setNewBx({...newBx, opDef: e.target.value})}/>
@@ -57,7 +58,7 @@ export default function BehaviorsView({ behaviors, setBehaviors, activeClient, i
       )}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {behaviors.map(b => (
-          <div key={b.id} className="p-6 bg-dfp-light/50 rounded-[2rem] border border-dfp-border shadow-sm relative group">
+          <div key={b.id} className={`${dfpStyles.card} relative group`}>
             <span className="absolute top-0 right-0 text-[10px] font-black uppercase tracking-widest bg-rose-500/10 text-rose-500 border-b border-l border-rose-500/20 px-3 py-1 rounded-bl-xl">{b.type}</span>
             <h4 className="font-black text-xl text-white mt-1 pr-12">{b.name}</h4>
             <p className="text-sm text-slate-400 mt-2 font-medium border-l-2 border-rose-500 pl-3">{b.opDef}</p>

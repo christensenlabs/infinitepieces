@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Settings, Key } from 'lucide-react';
+import { dfpStyles } from '../styles';
 
 export default function SettingsView({ systemSettings, setSystemSettings, showToast }) {
   const [bcbaPin, setBcbaPin] = useState(systemSettings?.bcbaPin || '222222');
@@ -13,7 +14,7 @@ export default function SettingsView({ systemSettings, setSystemSettings, showTo
 
   return (
     <div className="max-w-4xl mx-auto space-y-8 animate-in fade-in duration-300">
-      <div className="flex items-center gap-4 border-b border-dfp-border pb-4">
+      <div className={dfpStyles.sectionBorder}>
         <Settings size={28} className="text-cyan-400" />
         <h2 className="text-3xl font-black text-white tracking-tight">System Settings</h2>
       </div>

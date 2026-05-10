@@ -1,5 +1,6 @@
 import React from 'react';
 import { Lock, X } from 'lucide-react';
+import { schedulerStyles } from '../styles';
 
 export default function AdminLoginModal({ adminPin, setAdminPin, adminError, onSubmit, onCancel }) {
   return (
@@ -22,12 +23,12 @@ export default function AdminLoginModal({ adminPin, setAdminPin, adminError, onS
               maxLength={6}
               value={adminPin}
               onChange={(e) => setAdminPin(e.target.value)}
-              className="w-full text-center text-2xl tracking-[0.5em] border border-slate-300 p-3 rounded-xl outline-none focus:ring-2 focus:ring-brand font-mono"
+              className={schedulerStyles.pinInput}
               placeholder="••••••"
             />
           </div>
           {adminError && <p className="text-red-500 text-xs text-center font-bold mb-4 bg-red-50 p-2 rounded">{adminError}</p>}
-          <button type="submit" className="w-full bg-brand text-white font-bold py-3 rounded-xl hover:bg-brand-navy transition-all shadow-md">
+          <button type="submit" className={`w-full ${schedulerStyles.btnPrimary} py-3`}>
             Unlock Operations
           </button>
         </form>

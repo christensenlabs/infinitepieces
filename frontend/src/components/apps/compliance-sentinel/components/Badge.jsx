@@ -13,7 +13,7 @@ export default function Badge({ children, tone = "slate", icon }) {
     dark: "bg-brand-navy text-white border-brand-navy",
   };
   return (
-    <span className={cn("inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-black uppercase tracking-wider", tones[tone])}>
+    <span className={cn("badge", tones[tone])}>
       {icon && <Icon name={icon} />}
       {children}
     </span>

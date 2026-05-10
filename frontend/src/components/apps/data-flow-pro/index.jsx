@@ -11,6 +11,7 @@ import {
 import { useApiData } from '@/hooks/useApiData';
 import { fetchDataFlowClients, fetchDataFlowPrograms, fetchDataFlowConfig } from '@/api/apps';
 
+import { dfpStyles } from './styles';
 import NavItem from './components/NavItem';
 import LoginScreen from './views/LoginScreen';
 import DashboardView from './views/DashboardView';
@@ -125,7 +126,7 @@ export default function DataFlowProApp({ apiKey }) {
 
       {/* SIDEBAR NAVIGATION */}
       {isSidebarOpen && !focusMode && (
-        <aside className="w-64 bg-dfp-dark flex flex-col z-50 shrink-0 border-r border-dfp-border shadow-2xl">
+        <aside className={dfpStyles.sidebar}>
           <div className="p-6 border-b border-dfp-border flex flex-col items-center relative">
             <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-xl mb-4 border-2 border-slate-200">
                <svg viewBox="0 0 100 100" className="w-10 h-10"><rect x="20" y="60" width="12" height="20" rx="2" fill="#93c5fd"/><rect x="45" y="40" width="12" height="40" rx="2" fill="#60a5fa"/><rect x="70" y="20" width="12" height="60" rx="2" fill="#3b82f6" /><path d="M 15 70 L 45 45 L 60 55 L 85 20" fill="none" stroke="#22c55e" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/></svg>
@@ -169,7 +170,7 @@ export default function DataFlowProApp({ apiKey }) {
 
       {/* MAIN WORKSPACE */}
       <main className="flex-1 flex flex-col overflow-hidden relative">
-        <header className="h-16 bg-dfp-dark/80 backdrop-blur-md border-b border-dfp-border px-8 flex items-center justify-between shrink-0 z-40">
+        <header className={dfpStyles.header}>
            <div className="flex items-center gap-4">
               {!isSidebarOpen && <button onClick={() => setIsSidebarOpen(true)} className="p-2 hover:bg-dfp-light rounded-lg text-cyan-400 border border-dfp-border"><Menu size={20}/></button>}
               <h2 className="font-bold text-white uppercase tracking-[0.2em] text-xs">{activeTab.replace('_', ' ')}</h2>

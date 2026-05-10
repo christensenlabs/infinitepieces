@@ -4,6 +4,7 @@ import {
   ShieldCheck, Target, Cpu
 } from 'lucide-react';
 import Card from '../components/Card';
+import { dfpStyles } from '../styles';
 
 export default function DashboardView({ clients, activeClient, setActiveClient, setActiveTab }) {
   const [goalsMastered] = useState(() => Math.floor(Math.random() * 20) + 5);
@@ -22,7 +23,7 @@ export default function DashboardView({ clients, activeClient, setActiveClient, 
            {clients.length === 0 ? (
              <div className="w-full text-center py-12 border border-dfp-border rounded-[2rem] border-dashed text-slate-500">No active clients in database.</div>
            ) : clients.map(c => (
-             <button key={c.id} onClick={() => setActiveClient(c)} className={`min-w-[280px] p-6 rounded-[2.5rem] border-2 transition-all text-left ${activeClient?.id === c.id ? 'bg-dfp-light border-cyan-400 shadow-[0_0_20px_rgba(34,211,238,0.1)]' : 'bg-dfp border-dfp-border hover:border-cyan-400/50'}`}>
+             <button key={c.id} onClick={() => setActiveClient(c)} className={`min-w-[280px] p-6 rounded-[2.5rem] border-2 transition-all text-left ${activeClient?.id === c.id ? dfpStyles.cardActive : 'bg-dfp ' + dfpStyles.cardInactive}`}>
                 <div className="flex justify-between items-start mb-4">
                   <div className="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 font-black text-xl border border-cyan-500/30">{String(c.name).charAt(0)}</div>
                   <Cpu size={16} className="text-slate-600" />
@@ -39,7 +40,7 @@ export default function DashboardView({ clients, activeClient, setActiveClient, 
           <h2 className="text-xl font-black text-white flex items-center gap-3"><Sparkles className="text-cyan-400"/> AI Session Insights</h2>
           <p className="text-sm text-slate-400 mt-2">Generate automatic SOAP notes from collected data.</p>
         </div>
-        <button onClick={() => setActiveTab('notes')} className="bg-cyan-500 text-dfp px-6 py-3 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-white transition-colors shadow-lg shadow-cyan-500/20">Draft Note</button>
+        <button onClick={() => setActiveTab('notes')} className={`${dfpStyles.btnAction} px-6 py-3 rounded-xl shadow-cyan-500/20`}>Draft Note</button>
       </div>
     </div>
   );

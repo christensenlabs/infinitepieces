@@ -65,7 +65,7 @@ export default function AppView({ appName, onClose }) {
               </p>
               <button
                 onClick={onClose}
-                className="mt-8 bg-brand-navy text-white px-6 py-3 rounded-xl font-bold shadow-md hover:bg-blue-900 transition-colors"
+                className="btn-primary mt-8 bg-brand-navy hover:bg-blue-900"
               >
                 Close App
               </button>

@@ -13,7 +13,7 @@ export default function FlagsPanel({ flags, programs, flagTypes, isBCBA, onResol
           <div className="mb-4 text-5xl">
             <I name="flag" className="text-slate-300" />
           </div>
-          <h3 className="text-xl font-black text-brand-navy">Feedback queue is empty</h3>
+          <h3 className="heading-section text-brand-navy">Feedback queue is empty</h3>
           <p className="mt-2 text-sm font-medium text-slate-500">RBT and caregiver flags will appear here for BCBA review.</p>
         </div>
       ) : (
