@@ -17,7 +17,7 @@ Enterprise ABA (Applied Behavior Analysis) clinic management dashboard.
 - `database/` — Flyway SQL migrations and local Docker Compose for Postgres
 - `terraform/` — AWS infrastructure, using OpenTofu (S3, CloudFront, ECS, RDS)
 - `scripts/` — Shell helpers (env loading)
-- `secrets/` — Local-only secret files (gitignored)
+- `config/` — Shared config (`config.yaml`, committed) and secrets (`secrets.yaml`, gitignored)
 
 ## Commands
 

@@ -1,0 +1,4 @@
+clabs:
+  infinitepieces:
+    project-name: infpieces
+    postgres-superuser-password: local-e2e

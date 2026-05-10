@@ -1,13 +1,13 @@
 ################################################################################
 # Application secrets — YAML blob stored in Secrets Manager
 #
-# The nested YAML structure matches secrets/secrets.yaml.
+# The nested YAML structure matches config/secrets.yaml.
 # ECS injects the entire string as APP_SECRETS; Spring Boot parses it.
 #
 # To sync local secrets to Secrets Manager:
 #   aws secretsmanager put-secret-value \
 #     --secret-id infinitepieces/secrets \
-#     --secret-string "$(cat secrets/secrets.yaml)"
+#     --secret-string "$(cat config/secrets.yaml)"
 ################################################################################
 
 resource "aws_secretsmanager_secret" "app" {

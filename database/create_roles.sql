@@ -1,9 +1,9 @@
 -- Admin role: owns the schema, runs migrations (DDL + DML)
-CREATE USER infinitepieces_admin WITH PASSWORD :'admin_password';
+CREATE USER infinitepieces_admin WITH PASSWORD :'db_password';
 GRANT ALL PRIVILEGES ON DATABASE infinitepieces TO infinitepieces_admin;
 
 -- App role: read-write only (DML), used by the application at runtime
-CREATE USER infinitepieces_app WITH PASSWORD :'app_password';
+CREATE USER infinitepieces_app WITH PASSWORD :'db_password';
 GRANT CONNECT ON DATABASE infinitepieces TO infinitepieces_app;
 
 -- Admin owns public schema

@@ -17,11 +17,18 @@ jooq:
 docker-build:
     docker build -t {{ecr_repo}} .
 
-# Run in Docker locally (detached)
+# Run in Docker locally (detached, on the project network)
 docker: docker-build
-    docker rm -f infpieces-backend 2>/dev/null || true
-    docker run -d -p 8080:8080 --name infpieces-backend {{ecr_repo}}
-    @echo "==> Backend running at http://localhost:8080 (docker stop infpieces-backend to stop)"
+    docker rm -f $CLABS_INFINITEPIECES_PROJECT_NAME-backend 2>/dev/null || true
+    docker run -d -p 8080:8080 --name $CLABS_INFINITEPIECES_PROJECT_NAME-backend \
+        --network ${CLABS_INFINITEPIECES_PROJECT_NAME}_default \
+        -e SPRING_DATASOURCE_URL=jdbc:postgresql://$CLABS_INFINITEPIECES_PROJECT_NAME-postgres:5432/infinitepieces \
+        -e SPRING_FLYWAY_URL=jdbc:postgresql://$CLABS_INFINITEPIECES_PROJECT_NAME-postgres:5432/infinitepieces \
+        -e CLABS_INFINITEPIECES_DB_PASSWORD=$CLABS_INFINITEPIECES_DB_PASSWORD \
+        -v $(pwd)/../database/migrations:/migrations:ro \
+        -e SPRING_FLYWAY_LOCATIONS=filesystem:/migrations \
+        {{ecr_repo}}
+    @echo "==> Backend running at http://localhost:8080 (docker stop $CLABS_INFINITEPIECES_PROJECT_NAME-backend to stop)"
 
 # Deploy to ECS (build, push to ECR, force new deployment)
 deploy: docker-build

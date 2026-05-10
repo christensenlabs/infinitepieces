@@ -5,7 +5,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/infinitepieces
     username: infinitepieces_app
-    password: ${POSTGRES_APP_PASSWORD:app}
+    password: ${CLABS_INFINITEPIECES_DB_PASSWORD}
   flyway:
     user: infinitepieces_admin
-    password: ${POSTGRES_ADMIN_PASSWORD:admin}
+    password: ${CLABS_INFINITEPIECES_DB_PASSWORD}

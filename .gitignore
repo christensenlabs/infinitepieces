@@ -2,7 +2,7 @@ node_modules/
 dist/
 .idea/
 .DS_Store
-secrets/secrets.yaml
+config/secrets.yaml
 
 # Gradle / Kotlin
 .gradle/

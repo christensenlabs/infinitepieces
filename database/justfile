@@ -19,7 +19,6 @@ init-prod:
     @echo "==> Running init script against RDS..."
     source ../scripts/env.sh && psql \
         "postgresql://$(tofu -chdir=../terraform output -raw rds_endpoint)/infinitepieces" \
-        -v admin_password="$CLABS_INFINITEPIECES_DB_ADMIN_PASSWORD" \
-        -v app_password="$CLABS_INFINITEPIECES_DB_APP_PASSWORD" \
+        -v db_password="$CLABS_INFINITEPIECES_DB_PASSWORD" \
         -f create_roles.sql
     @echo "==> RDS roles created!"
