@@ -34,12 +34,16 @@ backend-dev:
 backend-build:
     cd backend && ./gradlew build
 
-# Build backend Docker image locally
-backend-docker:
+# Build backend Docker image
+backend-docker-build:
     docker build -t {{ecr_repo}} backend/
 
+# Run backend in Docker locally
+backend-docker: backend-docker-build
+    docker run -p 8080:8080 {{ecr_repo}}
+
 # Deploy backend to ECS (build, push to ECR, force new deployment)
-backend-deploy: backend-docker
+backend-deploy: backend-docker-build
     @echo "==> Logging into ECR..."
     aws ecr get-login-password --region {{aws_region}} | docker login --username AWS --password-stdin $CLABS_AWS_ACCOUNT_ID.dkr.ecr.{{aws_region}}.amazonaws.com
     @echo "==> Tagging and pushing image..."
@@ -48,6 +52,26 @@ backend-deploy: backend-docker
     @echo "==> Forcing new ECS deployment..."
     aws ecs update-service --cluster infinitepieces --service infinitepieces-backend --force-new-deployment --region {{aws_region}} > /dev/null
     @echo "==> Backend deploy complete!"
+
+# ─── Database ────────────────────────────────────────────────────────
+
+# Start local Postgres
+database-up:
+    cd database && docker compose up -d
+    @echo "==> Postgres running on localhost:5432"
+
+# Stop local Postgres
+database-down:
+    cd database && docker compose down
+
+# Stop local Postgres and wipe data
+database-reset:
+    cd database && docker compose down -v
+    @echo "==> Database wiped. Run 'just database-up' to start fresh."
+
+# Generate JOOQ code from migration SQL files (no running DB needed)
+database-codegen:
+    cd backend && ./gradlew generateJooq
 
 # ─── Terraform ───────────────────────────────────────────────────────
 
@@ -63,8 +87,16 @@ terraform-apply:
 terraform-destroy:
     cd terraform && tofu destroy
 
+# ─── Local Dev ───────────────────────────────────────────────────────
+
+# Start local backend + database (Postgres + Spring Boot)
+local-up: database-up backend-dev
+
+# Wipe database and restart everything fresh
+local-reset: database-reset database-up backend-dev
+
 # ─── Full Deploy ─────────────────────────────────────────────────────
 
-# Deploy everything (frontend + backend)
+# Deploy everything (frontend + backend) to AWS
 deploy-all: frontend-deploy backend-deploy
     @echo "==> Full deploy complete!"

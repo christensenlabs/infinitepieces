@@ -13,7 +13,8 @@ Enterprise ABA (Applied Behavior Analysis) clinic management dashboard.
 ## Project Structure
 
 - `frontend/` — React SPA (all source, config, and dependencies)
-- `backend/` — Spring Boot API (Kotlin, Gradle)
+- `backend/` — Spring Boot API (Kotlin, Gradle, JOOQ)
+- `database/` — Flyway SQL migrations and local Docker Compose for Postgres
 - `terraform/` — AWS infrastructure, using OpenTofu (S3, CloudFront, ECS, RDS)
 - `scripts/` — Shell helpers (env loading)
 - `secrets/` — Local-only secret files (gitignored)
@@ -51,6 +52,14 @@ docker run -e SPRING_PROFILES_ACTIVE=prod -p 8080:8080 infinitepieces-backend  #
 - `local` — default in Dockerfile, CORS allows `http://localhost:5173`
 - `prod` — set by ECS in AWS, CORS allows `https://infinitepieces.christensenlabs.com`
 - Profile-specific config lives in `backend/src/main/resources/application-{profile}.yaml`
+
+### Database & Migrations
+
+- Schema is managed via **Flyway** migrations in `database/migrations/` (e.g. `V1__create_users.sql`).
+- The same migration files run in both local dev and production — this is the coupling between environments.
+- **JOOQ** generates type-safe Kotlin code from the migration SQL files (no live DB needed). Run `just database-codegen` after adding or changing migrations.
+- JOOQ uses `DDLDatabase` which parses SQL files with an H2-based parser. **Avoid Postgres-specific procedural syntax** (`DO $$` blocks, PL/pgSQL) in migrations that define schema. If a migration uses advanced Postgres syntax that JOOQ can't parse, exclude it from the codegen glob and keep it Flyway-only.
+- Generated JOOQ code lives in `backend/src/main/kotlin/com/infinitepieces/generated/` — do not edit these files by hand.
 
 ## Architecture Rules
 
