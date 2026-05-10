@@ -6,4 +6,4 @@ psql -v ON_ERROR_STOP=1 \
      --dbname "$POSTGRES_DB" \
      -v admin_password="$ADMIN_PASSWORD" \
      -v app_password="$APP_PASSWORD" \
-     -f /docker-entrypoint-initdb.d/01_create_roles.sql
+     -f /opt/infinitepieces/create_roles.sql

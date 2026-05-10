@@ -60,6 +60,7 @@ docker run -e SPRING_PROFILES_ACTIVE=prod -p 8080:8080 infinitepieces-backend  #
 - **JOOQ** generates type-safe Kotlin code from the migration SQL files (no live DB needed). Run `just database-codegen` after adding or changing migrations.
 - JOOQ uses `DDLDatabase` which parses SQL files with an H2-based parser. **Avoid Postgres-specific procedural syntax** (`DO $$` blocks, PL/pgSQL) in migrations that define schema. If a migration uses advanced Postgres syntax that JOOQ can't parse, exclude it from the codegen glob and keep it Flyway-only.
 - Generated JOOQ code lives in `backend/src/main/kotlin/com/infinitepieces/generated/` — do not edit these files by hand.
+- **Record mapping**: Define a `RecordMapper<Record, T>` for each domain type and pass it to `fetchOne(mapper)` / `fetch(mapper)`. Do not use `fetchInto()`, inline `.let {}` mapping, or Jackson-based auto-mapping.
 
 ## Architecture Rules
 

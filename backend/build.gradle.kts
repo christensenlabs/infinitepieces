@@ -28,7 +28,7 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 
-    jooqGenerator("org.jooq:jooq-meta-extensions:3.19.16")
+    jooqGenerator("org.jooq:jooq-meta-extensions:3.19.22")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
@@ -38,6 +38,12 @@ dependencies {
 kotlin {
     compilerOptions {
         freeCompilerArgs.addAll("-Xjsr305=strict")
+    }
+}
+
+sourceSets {
+    main {
+        kotlin.srcDir("build/generated-src/jooq/main")
     }
 }
 
@@ -54,7 +60,7 @@ tasks.processResources {
 
 // JOOQ code generation — parses migration SQL files directly (no live DB needed)
 jooq {
-    version.set("3.19.16")
+    version.set("3.19.22")
     configurations {
         create("main") {
             jooqConfiguration.apply {
@@ -62,6 +68,10 @@ jooq {
                     name = "org.jooq.codegen.KotlinGenerator"
                     database.apply {
                         name = "org.jooq.meta.extensions.ddl.DDLDatabase"
+                        // Only scan DDL-safe migrations. Files with PL/pgSQL (triggers,
+                        // functions) must be excluded since the H2 parser can't handle them.
+                        // Convention: name DDL files normally, name PL/pgSQL files with
+                        // a __plpgsql_ or __seed_ prefix after the version number.
                         properties.add(org.jooq.meta.jaxb.Property().apply {
                             key = "scripts"
                             value = "../database/migrations/*.sql"
@@ -79,7 +89,7 @@ jooq {
                     }
                     target.apply {
                         packageName = "com.infinitepieces.generated"
-                        directory = "src/main/kotlin"
+                        directory = "build/generated-src/jooq/main"
                     }
                 }
             }

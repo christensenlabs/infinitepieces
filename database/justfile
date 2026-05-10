@@ -1,8 +1,8 @@
-set working-directory := 'database'
-
-# Start local Postgres
+# Start local Postgres and wait until ready
 up:
     docker compose up -d
+    @echo "==> Waiting for Postgres..."
+    @until docker compose exec -T postgres pg_isready -q 2>/dev/null; do sleep 0.5; done
     @echo "==> Postgres running on localhost:5432"
 
 # Stop local Postgres
@@ -14,10 +14,6 @@ reset:
     docker compose down -v
     @echo "==> Database wiped. Run 'just database up' to start fresh."
 
-# Generate JOOQ code from migration SQL files (no running DB needed)
-codegen:
-    cd ../backend && ./gradlew generateJooq
-
 # Initialize RDS roles using the same init script as local Docker
 init-prod:
     @echo "==> Running init script against RDS..."
@@ -25,5 +21,5 @@ init-prod:
         "postgresql://$(tofu -chdir=../terraform output -raw rds_endpoint)/infinitepieces" \
         -v admin_password="$CLABS_INFINITEPIECES_DB_ADMIN_PASSWORD" \
         -v app_password="$CLABS_INFINITEPIECES_DB_APP_PASSWORD" \
-        -f init/01_create_roles.sql
+        -f create_roles.sql
     @echo "==> RDS roles created!"
