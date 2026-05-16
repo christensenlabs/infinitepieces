@@ -26,7 +26,7 @@ docker-build:
     docker build -t {{ecr_repo}} .
 
 # Run in Docker locally (detached, on the project network)
-docker: docker-build
+docker-up: docker-build
     docker rm -f $CLABS_INFINITEPIECES_PROJECT_NAME-backend 2>/dev/null || true
     docker run -d -p 8080:8080 --name $CLABS_INFINITEPIECES_PROJECT_NAME-backend \
         --network ${CLABS_INFINITEPIECES_PROJECT_NAME}_default \

@@ -1,5 +1,5 @@
 # Start local Postgres and wait until ready
-up:
+docker-up:
     docker compose up -d
     @echo "==> Waiting for Postgres..."
     @until docker compose exec -T postgres pg_isready -q 2>/dev/null; do sleep 0.5; done

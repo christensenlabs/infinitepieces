@@ -20,13 +20,17 @@ mod backend
 mod database
 mod terraform
 
+# Ensure the shared Docker network exists
+network-up:
+    docker network create ${CLABS_INFINITEPIECES_PROJECT_NAME}_default 2>/dev/null || true
+
 # Start local backend + database (detached containers)
-local-up: database::up backend::docker
+docker-up: network-up database::docker-up backend::docker-up
 
 # Wipe database and nuke all project containers, then restart fresh
-local-reset:
+docker-reset: network-up
     docker rm -f $(docker ps -a --filter "name={{project}}-" -q) 2>/dev/null || true
-    just database::reset database::up backend::docker
+    just database::reset database::docker-up backend::docker-up
 
 # Deploy everything (frontend + backend) to AWS
 deploy-all: frontend::deploy backend::deploy
