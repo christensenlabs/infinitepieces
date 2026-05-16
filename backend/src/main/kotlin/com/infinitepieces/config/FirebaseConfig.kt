@@ -7,8 +7,10 @@ import com.google.firebase.auth.FirebaseAuth
 import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.context.annotation.Profile
 
 @Configuration
+@Profile("!test")
 class FirebaseConfig {
   private val log = LoggerFactory.getLogger(FirebaseConfig::class.java)
 

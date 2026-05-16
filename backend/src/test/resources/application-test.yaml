@@ -1,0 +1,6 @@
+spring:
+  flyway:
+    locations: filesystem:../database/migrations
+
+cors:
+  allowed-origins: "http://localhost"

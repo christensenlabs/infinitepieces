@@ -40,6 +40,9 @@ dependencies {
   jooqGenerator("org.slf4j:slf4j-simple:2.0.17")
 
   testImplementation("org.springframework.boot:spring-boot-starter-test")
+  testImplementation("org.springframework.boot:spring-boot-testcontainers")
+  testImplementation("org.testcontainers:testcontainers:2.0.2")
+  testImplementation("org.testcontainers:testcontainers-postgresql:2.0.2")
   testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
   testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
