@@ -1,14 +1,24 @@
-import { createContext, useContext, useCallback, useState } from 'react';
+import { createContext, useContext, useCallback, useState, useEffect } from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { useApiData } from '../hooks/useApiData';
 import { fetchCurrentUser } from '../api/user';
 import { fetchNotifications } from '../api/notifications';
+import { onAuthChange, signOut } from '../lib/firebase';
 
 const AppContext = createContext(null);
 
 export function AppProvider({ children }) {
   const [apiKey, setApiKey] = useLocalStorage('infinity_api_key');
   const [showSettings, setShowSettings] = useState(false);
+  const [firebaseUser, setFirebaseUser] = useState(null);
+  const [authLoading, setAuthLoading] = useState(true);
+
+  useEffect(() => {
+    return onAuthChange((user) => {
+      setFirebaseUser(user);
+      setAuthLoading(false);
+    });
+  }, []);
 
   const { data: user } = useApiData(fetchCurrentUser);
   const { data: notifications } = useApiData(fetchNotifications);
@@ -22,6 +32,9 @@ export function AppProvider({ children }) {
         apiKey,
         setApiKey,
         user,
+        firebaseUser,
+        authLoading,
+        signOut,
         notifications,
         showSettings,
         openSettings,

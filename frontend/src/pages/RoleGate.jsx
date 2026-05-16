@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
 import { Icons } from '../components/Icons';
+import { useApp } from '../context/AppContext';
 
 const ROLE_CODES = {
   BCBA: "222222",
@@ -12,9 +13,10 @@ export default function RoleGate() {
   const [pin, setPin] = useState("");
   const [error, setError] = useState(false);
   const navigate = useNavigate();
+  const { firebaseUser, authLoading, signOut } = useApp();
 
-  const siteAuth = sessionStorage.getItem('site_authenticated');
-  if (!siteAuth) return <Navigate to="/login" replace />;
+  if (authLoading) return null;
+  if (!firebaseUser) return <Navigate to="/login" replace />;
 
   const checkPin = (e) => {
     e.preventDefault();
@@ -33,8 +35,8 @@ export default function RoleGate() {
     }
   };
 
-  const handleBack = () => {
-    sessionStorage.removeItem('site_authenticated');
+  const handleBack = async () => {
+    await signOut();
     navigate('/login');
   };
 
@@ -52,7 +54,7 @@ export default function RoleGate() {
           "bg-white p-10 rounded-[2.5rem] shadow-2xl border transition-all",
           error ? "border-rose-200" : "border-slate-100"
         ].join(" ")}>
-          <h2 className="heading-card text-brand mb-2">Access Identity</h2>
+          <h2 className="heading-card text-brand mb-2">Welcome, {firebaseUser.displayName?.split(' ')[0] ?? 'User'}</h2>
           <p className="text-slate-500 text-sm font-medium mb-8">
             Enter your 6-digit credential PIN to initialize your specific workspace.
           </p>
