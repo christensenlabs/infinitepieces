@@ -45,3 +45,26 @@ export const fetchCaregiverSessionConfig = () => api.get('/apps/caregiver/sessio
 // ── ZoneMate ──
 export const fetchZoneMateCatalog = () => api.get('/apps/zonemate/catalog');
 export const fetchZoneMateConfig = () => api.get('/apps/zonemate/config');
+
+// ── Supervision Command Center ──
+export const fetchSupervisionRoster = () => api.get('/apps/supervision/roster');
+export const fetchSupervisionConfig = () => api.get('/apps/supervision/config');
+
+// ── Treatment Integrity Lab ──
+export const fetchIntegrityStaff = () => api.get('/apps/integrity/staff');
+export const fetchIntegrityChecklist = () => api.get('/apps/integrity/checklist');
+
+// ── Risk & Governance Hub ──
+export const fetchRiskIncidents = () => api.get('/apps/risk/incidents');
+export const fetchRiskCredentials = () => api.get('/apps/risk/credentials');
+export const fetchRiskConsents = () => api.get('/apps/risk/consents');
+
+// ── Outcomes Intelligence ──
+export const fetchOutcomesKpis = () => api.get('/apps/outcomes/kpis');
+export const fetchOutcomesStagnantTargets = () => api.get('/apps/outcomes/stagnant-targets');
+
+// ── Gestalt AAC ──
+export const fetchAacConfig = () => api.get('/apps/aac/config');
+
+// ── Auth War Room ──
+export const fetchAuthWarRoomData = () => api.get('/apps/auth-war-room/data');

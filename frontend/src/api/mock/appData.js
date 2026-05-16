@@ -337,3 +337,135 @@ export const mockZoneMateConfig = {
     },
   },
 };
+
+// ── Supervision Command Center ──
+export const mockSupervisionRbtRoster = [
+  { id: 1, name: 'Sarah M.', totalHours: 120, supHours: 4.5, compliance: 3.75, obs: 1, status: 'red', pip: true, trend: 'Declining data accuracy' },
+  { id: 2, name: 'Marcus L.', totalHours: 100, supHours: 7.0, compliance: 7.0, obs: 2, status: 'green', pip: false, trend: 'Excellent prompt fading' },
+  { id: 3, name: 'Chloe T.', totalHours: 85, supHours: 5.5, compliance: 6.4, obs: 1, status: 'green', pip: false, trend: 'Strong rapport building' },
+  { id: 4, name: 'Devon K.', totalHours: 90, supHours: 4.0, compliance: 4.4, obs: 0, status: 'yellow', pip: false, trend: 'Needs specific praise modeling' },
+];
+
+export const mockSupervisionConfig = {
+  bcbaCapacity: { current: 88, max: 100 },
+};
+
+// ── Treatment Integrity Lab ──
+export const mockIntegrityStaffData = [
+  {
+    id: 1, name: 'Sarah M.', role: 'RBT',
+    metrics: { total: 78, technical: 85, assent: 71 },
+    ioa: { score: 82, method: 'Trial-by-Trial' },
+    trend: 'down', status: 'warning', lastCheck: '2 days ago',
+  },
+  {
+    id: 2, name: 'Marcus L.', role: 'RBT',
+    metrics: { total: 96, technical: 95, assent: 97 },
+    ioa: { score: 96, method: 'Exact Count' },
+    trend: 'up', status: 'good', lastCheck: '1 week ago',
+  },
+  {
+    id: 3, name: 'Chloe T.', role: 'RBT',
+    metrics: { total: 91, technical: 90, assent: 92 },
+    ioa: { score: 89, method: 'Interval' },
+    trend: 'stable', status: 'good', lastCheck: '3 days ago',
+  },
+  {
+    id: 4, name: 'Devon K.', role: 'RBT',
+    metrics: { total: 65, technical: 80, assent: 50 },
+    ioa: { score: 70, method: 'Trial-by-Trial' },
+    trend: 'down', status: 'danger', lastCheck: 'Today',
+  },
+];
+
+export const mockIntegrityChecklist = [
+  { id: 1, category: 'Assent & Readiness', step: 'Verified learner readiness and active assent prior to demand', scored: true },
+  { id: 2, category: 'Assent & Readiness', step: 'Honored precursor behaviors or withdrawal of assent', scored: false },
+  { id: 3, category: 'Technical Execution', step: 'Delivered instruction using naturalistic/contextually appropriate language', scored: true },
+  { id: 4, category: 'Technical Execution', step: 'Utilized specified prompt hierarchy (Errorless/Most-to-Least)', scored: false },
+  { id: 5, category: 'Reinforcement', step: 'Delivered functionally-matched, highly preferred reinforcement', scored: false },
+];
+
+// ── Risk & Governance Hub ──
+export const mockRiskIncidents = [
+  {
+    id: 1, type: 'Elopement / Safety Risk', client: 'Noah T.',
+    time: 'Today, 10:14 AM', note: 'Pending BCBA Debrief & Parent Notification.',
+  },
+];
+
+export const mockRiskCredentials = [
+  { id: 1, initials: 'ER', name: 'Emma R. (RBT)', rbtCert: 'Valid', cprCert: 'Expired (2 days ago)', cprStatus: 'expired', status: 'Suspended from Schedule' },
+  { id: 2, initials: 'DC', name: 'David C. (RBT)', rbtCert: 'Valid', cprCert: 'Valid', cprStatus: 'valid', status: 'Cleared' },
+];
+
+export const mockRiskConsents = [
+  { id: 1, type: 'Media/Photo Consent', client: 'Liam M.', date: 'Signed Oct 12', signed: true },
+  { id: 2, type: 'Telehealth Consent', client: 'Emma W.', date: 'Missing', signed: false },
+];
+
+// ── Outcomes Intelligence ──
+export const mockOutcomesKpis = [
+  { key: 'mastery', label: 'Clinic Mastery Rate', value: '42', unit: 'Goals/Mo', direction: 'up' },
+  { key: 'velocity', label: 'Skill Acquisition Velocity', value: '12', unit: '% Faster', direction: 'up' },
+  { key: 'reduction', label: 'Behavior Reduction', value: '-18', unit: '% Freq', direction: 'down' },
+  { key: 'stagnant', label: 'Stagnant Targets', value: '14', unit: null, note: 'Requires BCBA Review', direction: 'alert' },
+];
+
+export const mockOutcomesStagnantTargets = [
+  { id: 1, target: 'Manding for Break', client: 'Liam M.', note: 'No progress > 20% in 4 weeks.' },
+  { id: 2, target: 'Tacting Colors', client: 'Emma W.', note: 'No data collected in 14 days.' },
+];
+
+// ── Gestalt AAC ──
+export const mockAacConfig = {
+  users: [
+    { id: 'u1', name: 'Boy A', demo: 'African boy', voice: 'Puck' },
+    { id: 'user_b', name: 'Boy B', demo: 'Caucasian boy', voice: 'Zephyr' },
+  ],
+  scenes: [
+    { id: 's1', userId: 'u1', title: 'Things I Want', icon: 'Star', bgClass: 'scene-home' },
+    { id: 's2', userId: 'u1', title: 'Feelings', icon: 'Smile', bgClass: 'scene-home' },
+    { id: 's3', userId: 'u1', title: 'Sensory', icon: 'Sparkles', bgClass: 'scene-outside' },
+    { id: 's4', userId: 'u1', title: 'People', icon: 'Users', bgClass: 'scene-home' },
+    { id: 's5', userId: 'u1', title: 'Places', icon: 'MapPin', bgClass: 'scene-outside' },
+    { id: 's6', userId: 'u1', title: 'Directing', icon: 'Hand', bgClass: 'scene-classroom' },
+    { id: 's1_b', userId: 'user_b', title: 'Boundaries', icon: 'Shapes', bgClass: 'scene-classroom' },
+    { id: 's2_b', userId: 'user_b', title: 'Media', icon: 'Activity', bgClass: 'scene-home' },
+    { id: 's3_b', userId: 'user_b', title: 'Safe Zones', icon: 'Home', bgClass: 'scene-outside' },
+    { id: 's4_b', userId: 'user_b', title: 'Intents', icon: 'Hand', bgClass: 'scene-home' },
+  ],
+  phrases: [
+    { id: 'p1', userId: 'u1', text: 'I want to go', sceneId: 's1', prompt: 'Young boy running fast' },
+    { id: 'p2', userId: 'u1', text: 'I want to swing', sceneId: 's1', prompt: 'Sensory swing' },
+    { id: 'p3', userId: 'u1', text: 'I want to eat', sceneId: 's1', prompt: 'Plate of food' },
+    { id: 'p4', userId: 'u1', text: 'I want trampoline', sceneId: 's1', prompt: 'Trampoline' },
+    { id: 'p5', userId: 'u1', text: 'I want chips', sceneId: 's1', prompt: 'Potato chips' },
+    { id: 'p6', userId: 'u1', text: 'I want more', sceneId: 's1', prompt: 'Two hands reaching' },
+    { id: 'p2_1', userId: 'u1', text: 'I need a break', sceneId: 's2', prompt: 'Child resting with blanket' },
+    { id: 'p2_2', userId: 'u1', text: 'Too loud!', sceneId: 's2', prompt: 'Noise canceling headphones' },
+    { id: 'p2_3', userId: 'u1', text: 'I am happy', sceneId: 's2', prompt: 'Big smiley face' },
+    { id: 'p9', userId: 'u1', text: 'I need my bite block', sceneId: 's3', prompt: 'Chewy coil sensory necklace' },
+    { id: 'p3_3', userId: 'u1', text: 'I want a squeeze', sceneId: 's3', prompt: 'A tight bear hug' },
+    { id: 'p3_4', userId: 'u1', text: 'I want to spin', sceneId: 's3', prompt: 'Sit-and-spin chair' },
+    { id: 'p11', userId: 'u1', text: 'This is mom', sceneId: 's4', prompt: 'A beautiful mother smiling warmly' },
+    { id: 'p13', userId: 'u1', text: "I'm going home", sceneId: 's5', prompt: 'A suburban house exterior' },
+    { id: 'p6_1', userId: 'u1', text: 'Stop doing that!', sceneId: 's6', prompt: 'A red stop sign' },
+    { id: 'p1_b', userId: 'user_b', text: 'It is available!', sceneId: 's1_b', prompt: 'Solid bright green circle' },
+    { id: 'p2_b', userId: 'user_b', text: 'It is closed right now.', sceneId: 's1_b', prompt: 'Large bold red X mark' },
+    { id: 'p3_b', userId: 'user_b', text: 'Oh no, it is broken.', sceneId: 's1_b', prompt: 'Red empty battery icon with wrench' },
+    { id: 'p7_b', userId: 'user_b', text: 'Play it again!', sceneId: 's2_b', prompt: 'Circular loop replay arrow' },
+    { id: 'p11_b', userId: 'user_b', text: 'Sitting on the window sill.', sceneId: 's3_b', prompt: 'Cozy window sill sitting spot' },
+    { id: 'p19_b', userId: 'user_b', text: 'I really want that.', sceneId: 's4_b', prompt: 'Boy reaching hands out' },
+  ],
+};
+
+// ── Auth War Room ──
+export const mockAuthWarRoomData = [
+  { id: 1, name: 'Liam M.', code: '97153', total: 120, used: 112, expire: '12 Days', status: 'danger', velocity: 1.08 },
+  { id: 2, name: 'Emma W.', code: '97153', total: 100, used: 45, expire: '4 Months', status: 'under', velocity: 0.62 },
+  { id: 3, name: 'Noah S.', code: '97153', total: 160, used: 135, expire: '28 Days', status: 'good', velocity: 0.92 },
+  { id: 4, name: 'Ava R.', code: '97155', total: 40, used: 38, expire: '5 Days', status: 'danger', velocity: 1.15 },
+  { id: 5, name: 'Lucas H.', code: '97153', total: 80, used: 55, expire: '2 Months', status: 'good', velocity: 0.88 },
+  { id: 6, name: 'Sophia P.', code: '97153', total: 120, used: 70, expire: '3 Months', status: 'under', velocity: 0.74 },
+];

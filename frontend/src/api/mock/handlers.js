@@ -32,6 +32,17 @@ import {
   mockCaregiverSessionConfig,
   mockZoneMateCatalog,
   mockZoneMateConfig,
+  mockSupervisionRbtRoster,
+  mockSupervisionConfig,
+  mockIntegrityStaffData,
+  mockIntegrityChecklist,
+  mockRiskIncidents,
+  mockRiskCredentials,
+  mockRiskConsents,
+  mockOutcomesKpis,
+  mockOutcomesStagnantTargets,
+  mockAacConfig,
+  mockAuthWarRoomData,
 } from './appData';
 
 export const handlers = {
@@ -67,4 +78,15 @@ export const handlers = {
   'GET:/apps/caregiver/session-config': () => mockCaregiverSessionConfig,
   'GET:/apps/zonemate/catalog': () => mockZoneMateCatalog,
   'GET:/apps/zonemate/config': () => mockZoneMateConfig,
+  'GET:/apps/supervision/roster': () => mockSupervisionRbtRoster,
+  'GET:/apps/supervision/config': () => mockSupervisionConfig,
+  'GET:/apps/integrity/staff': () => mockIntegrityStaffData,
+  'GET:/apps/integrity/checklist': () => mockIntegrityChecklist,
+  'GET:/apps/risk/incidents': () => mockRiskIncidents,
+  'GET:/apps/risk/credentials': () => mockRiskCredentials,
+  'GET:/apps/risk/consents': () => mockRiskConsents,
+  'GET:/apps/outcomes/kpis': () => mockOutcomesKpis,
+  'GET:/apps/outcomes/stagnant-targets': () => mockOutcomesStagnantTargets,
+  'GET:/apps/aac/config': () => mockAacConfig,
+  'GET:/apps/auth-war-room/data': () => mockAuthWarRoomData,
 };

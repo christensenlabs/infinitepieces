@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
-import { Icons } from '../components/Icons';
 import { useApp } from '../context/AppContext';
 import { signInWithGoogle } from '../lib/firebase';
 

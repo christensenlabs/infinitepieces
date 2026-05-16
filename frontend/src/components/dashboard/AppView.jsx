@@ -13,6 +13,12 @@ import ProgramTreeApp from '../apps/program-tree';
 import SessionStructureApp from '../apps/session-structure';
 import CaregiverPortalApp from '../apps/caregiver-portal';
 import ZoneMateApp from '../apps/zone-mate';
+import SupervisionCommandCenter from '../apps/supervision-command-center';
+import TreatmentIntegrityLab from '../apps/treatment-integrity-lab';
+import RiskGovernanceHub from '../apps/risk-governance-hub';
+import OutcomesIntelligence from '../apps/outcomes-intelligence';
+import GestaltAAC from '../apps/gestalt-aac';
+import AuthWarRoom from '../apps/auth-war-room';
 
 const APP_COMPONENTS = {
   'Scheduling': ClinicSchedulerApp,
@@ -26,6 +32,12 @@ const APP_COMPONENTS = {
   'Session Maker': SessionStructureApp,
   'Caregiver Portal': CaregiverPortalApp,
   'ZoneMate': ZoneMateApp,
+  'Supervision': SupervisionCommandCenter,
+  'Treatment Integrity': TreatmentIntegrityLab,
+  'Risk & Governance': RiskGovernanceHub,
+  'Outcomes Intelligence': OutcomesIntelligence,
+  'Gestalt AAC': GestaltAAC,
+  'Auth War Room': AuthWarRoom,
 };
 
 export default function AppView({ appName, onClose }) {

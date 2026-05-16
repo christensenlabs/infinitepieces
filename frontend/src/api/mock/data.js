@@ -84,4 +84,10 @@ export const mockApps = [
   { key: 'material', title: 'Material Maker', icon: 'Apps', appName: 'Material Maker' },
   { key: 'compliance', title: 'Compliance', icon: 'Shield', appName: 'Compliance' },
   { key: 'zonemate', title: 'ZoneMate', icon: 'Users', appName: 'ZoneMate' },
+  { key: 'supervision', title: 'Supervision', icon: 'Shield', appName: 'Supervision' },
+  { key: 'integrity', title: 'Treatment Integrity', icon: 'Shield', appName: 'Treatment Integrity' },
+  { key: 'risk', title: 'Risk & Governance', icon: 'Shield', appName: 'Risk & Governance' },
+  { key: 'outcomes', title: 'Outcomes', icon: 'Analytics', appName: 'Outcomes Intelligence' },
+  { key: 'aac', title: 'Gestalt AAC', icon: 'Message', appName: 'Gestalt AAC' },
+  { key: 'authwarroom', title: 'Auth War Room', icon: 'Analytics', appName: 'Auth War Room' },
 ];
