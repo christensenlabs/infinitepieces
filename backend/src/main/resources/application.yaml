@@ -4,3 +4,8 @@ server:
 spring:
   flyway:
     locations: filesystem:../database/migrations
+
+infinitepieces:
+  firebase:
+    project-id: infinite-pieces
+    google-certs-url: https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com

@@ -46,6 +46,7 @@ dependencies {
   jooqGenerator("org.testcontainers:testcontainers-postgresql:2.0.2")
   jooqGenerator("org.slf4j:slf4j-simple:2.0.17")
 
+  testImplementation("com.squareup.okhttp3:mockwebserver:4.12.0")
   testImplementation("org.springframework.boot:spring-boot-starter-test")
   testImplementation("org.springframework.boot:spring-boot-testcontainers")
   testImplementation("org.testcontainers:testcontainers:2.0.2")

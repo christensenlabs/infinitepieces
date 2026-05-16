@@ -25,9 +25,11 @@ class FirebaseConfig {
           .builder()
           .setCredentials(GoogleCredentials.getApplicationDefault())
           .build()
-      FirebaseApp.initializeApp(options)
+      FirebaseApp.initializeApp(options).also {
+        log.info("Firebase initialized with application default credentials.")
+      }
     } catch (e: Exception) {
-      log.warn("Firebase credentials not found — auth disabled. Set GOOGLE_APPLICATION_CREDENTIALS to enable.")
+      log.info("Firebase credentials not available — using manual JWT verification.")
       null
     }
   }
