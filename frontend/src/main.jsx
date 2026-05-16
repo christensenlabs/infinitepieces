@@ -18,7 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/login" element={<SiteLogin />} />
           <Route path="/role-select" element={<RoleGate />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/api-test" element={<ApiTest />} />
+          <Route path="/test/api" element={<ApiTest />} />
         </Routes>
       </AppProvider>
     </BrowserRouter>

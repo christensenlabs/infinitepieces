@@ -5,7 +5,8 @@ COPY gradle gradle
 COPY gradlew build.gradle.kts settings.gradle.kts ./
 RUN ./gradlew dependencies --no-daemon
 COPY src src
-RUN ./gradlew bootJar --no-daemon
+COPY build/generated-src/jooq build/generated-src/jooq
+RUN ./gradlew bootJar --no-daemon -x generateJooq
 
 # ---- Runtime stage ----
 FROM amazoncorretto:21-alpine

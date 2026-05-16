@@ -1,6 +1,7 @@
 package com.infinitepieces.controller
 
 import com.infinitepieces.database.UsersDao
+import com.infinitepieces.exceptions.NotFoundException
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -14,7 +15,7 @@ class UsersController(
 ) {
   @GetMapping("/{id}")
   fun getUser(@PathVariable id: UUID): ResponseEntity<Any> {
-    val user = usersDao.findById(id) ?: return ResponseEntity.notFound().build()
+    val user = usersDao.selectByUserId(id) ?: throw NotFoundException("User $id not found")
     return ResponseEntity.ok(user)
   }
 }

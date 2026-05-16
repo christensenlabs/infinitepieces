@@ -54,7 +54,7 @@ async function realRequest(method, url, body) {
     });
 
     if (!res.ok) {
-      return { data: null, error: `HTTP ${res.status}` };
+      return { data: null, error: `HTTP ${res.status}`, status: res.status };
     }
 
     const data = await res.json();

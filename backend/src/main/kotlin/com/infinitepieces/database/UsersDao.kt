@@ -5,8 +5,6 @@ import com.infinitepieces.objects.User
 import org.jooq.DSLContext
 import org.jooq.Record
 import org.jooq.RecordMapper
-import org.jooq.impl.DSL.field
-import org.jooq.impl.DSL.table
 import org.springframework.stereotype.Repository
 import java.util.UUID
 
@@ -18,16 +16,17 @@ class UsersDao(
   private val userMapper =
     RecordMapper<Record, User> { record ->
       User(
-        userId = record.get("user_id", UUID::class.java)!!,
-        email = record.get("email", String::class.java)!!,
-        firebaseId = record.get("firebase_id", String::class.java),
+        userId = record.get(USERS.USER_ID)!!,
+        email = record.get(USERS.EMAIL)!!,
+        firebaseId = record.get(USERS.FIREBASE_ID),
       )
     }
 
-  fun findById(userId: UUID): User? =
+  fun selectByUserId(userId: UUID): User? =
     dsl
-      .selectFrom(table("users"))
-      .where(field("user_id").eq(userId))
-      .and(field("deleted_at").isNull)
+      .select(domainSelect)
+      .from(USERS)
+      .where(USERS.USER_ID.eq(userId))
+      .and(USERS.DELETED_AT.isNull)
       .fetchOne(userMapper)
 }

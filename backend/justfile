@@ -21,8 +21,8 @@ lint-fix:
 jooq:
     ./gradlew generateJooq
 
-# Build Docker image
-docker-build:
+# Build Docker image (runs JOOQ codegen first, then builds inside Docker)
+docker-build: jooq
     docker build -t {{ecr_repo}} .
 
 # Run in Docker locally (detached, on the project network)

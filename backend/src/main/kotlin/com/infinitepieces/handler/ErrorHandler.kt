@@ -1,5 +1,6 @@
 package com.infinitepieces.handler
 
+import com.infinitepieces.exceptions.HttpException
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ControllerAdvice
@@ -10,6 +11,12 @@ import org.springframework.web.servlet.resource.NoResourceFoundException
 
 @ControllerAdvice
 class ErrorHandler {
+  @ExceptionHandler(HttpException::class)
+  fun handleHttpException(ex: HttpException): ResponseEntity<Map<String, Any>> =
+    ResponseEntity
+      .status(ex.status)
+      .body(mapOf("status" to ex.status.value(), "message" to ex.message))
+
   @ExceptionHandler(NoHandlerFoundException::class, NoResourceFoundException::class)
   fun handleNotFound(ex: Exception): ResponseEntity<Map<String, Any>> =
     ResponseEntity
