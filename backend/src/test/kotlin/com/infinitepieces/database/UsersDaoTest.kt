@@ -47,7 +47,6 @@ class UsersDaoTest
     @Test
     fun `selectByUserId returns user when found`() {
       val id = insertUser("alice@example.com", "firebase-123")
-
       val user = usersDao.selectByUserId(id)
 
       assertNotNull(user)
@@ -66,7 +65,6 @@ class UsersDaoTest
     @Test
     fun `selectByUserId excludes soft-deleted users`() {
       val id = insertUser("deleted@example.com", deletedAt = OffsetDateTime.now())
-
       val user = usersDao.selectByUserId(id)
 
       assertNull(user)
@@ -75,7 +73,6 @@ class UsersDaoTest
     @Test
     fun `selectByUserId returns user with null firebaseId`() {
       val id = insertUser("nofirebase@example.com")
-
       val user = usersDao.selectByUserId(id)
 
       assertNotNull(user)
