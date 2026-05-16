@@ -6,6 +6,7 @@ export CLABS_AWS_ACCOUNT_ID := `source scripts/env.sh && echo $CLABS_AWS_ACCOUNT
 export CLABS_INFINITEPIECES_BUCKET := `source scripts/env.sh && echo $CLABS_INFINITEPIECES_BUCKET`
 export CLABS_INFINITEPIECES_CLOUDFRONT_DISTRIBUTION_ID := `source scripts/env.sh && echo $CLABS_INFINITEPIECES_CLOUDFRONT_DISTRIBUTION_ID`
 export CLABS_INFINITEPIECES_DB_PASSWORD := `source scripts/env.sh && echo $CLABS_INFINITEPIECES_DB_PASSWORD`
+export GOOGLE_APPLICATION_CREDENTIALS := `source scripts/env.sh && echo ${CLABS_INFINITEPIECES_FIREBASE_CREDENTIALS:-}`
 
 ecr_repo := "infinitepieces-backend"
 aws_region := "us-east-1"

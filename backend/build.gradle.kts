@@ -22,14 +22,22 @@ repositories {
 
 dependencies {
   implementation("org.springframework.boot:spring-boot-starter-web")
+  implementation("org.springframework.boot:spring-boot-starter-security")
   implementation("org.springframework.boot:spring-boot-starter-jooq")
+  implementation("com.google.firebase:firebase-admin:9.4.3")
   implementation("org.flywaydb:flyway-core")
   implementation("org.flywaydb:flyway-database-postgresql")
   implementation("org.postgresql:postgresql")
   implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
   implementation("org.jetbrains.kotlin:kotlin-reflect")
 
-  jooqGenerator("org.jooq:jooq-meta-extensions:3.19.22")
+  jooqGenerator("org.postgresql:postgresql")
+  jooqGenerator("com.github.sabomichal:jooq-meta-postgres-flyway:1.1.1")
+  jooqGenerator("org.flywaydb:flyway-core")
+  jooqGenerator("org.flywaydb:flyway-database-postgresql")
+  jooqGenerator("org.testcontainers:testcontainers:2.0.2")
+  jooqGenerator("org.testcontainers:testcontainers-postgresql:2.0.2")
+  jooqGenerator("org.slf4j:slf4j-simple:2.0.17")
 
   testImplementation("org.springframework.boot:spring-boot-starter-test")
   testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
@@ -66,7 +74,8 @@ tasks.processResources {
   }
 }
 
-// JOOQ code generation — parses migration SQL files directly (no live DB needed)
+// JOOQ codegen: uses jooq-meta-postgres-flyway to spin up a Testcontainers
+// Postgres, run Flyway migrations, and generate Kotlin code from the schema.
 jooq {
   version.set("3.19.22")
   configurations {
@@ -75,23 +84,22 @@ jooq {
         generator.apply {
           name = "org.jooq.codegen.KotlinGenerator"
           database.apply {
-            name = "org.jooq.meta.extensions.ddl.DDLDatabase"
-            // Only scan DDL-safe migrations. Files with PL/pgSQL (triggers,
-            // functions) must be excluded since the H2 parser can't handle them.
-            // Convention: name DDL files normally, name PL/pgSQL files with
-            // a __plpgsql_ or __seed_ prefix after the version number.
-            properties.add(
-              org.jooq.meta.jaxb.Property().apply {
-                key = "scripts"
-                value = "../database/migrations/*.sql"
-              },
+            name = "com.github.sabomichal.jooq.PostgresDDLDatabase"
+            inputSchema = "public"
+            isOutputSchemaToDefault = true
+            properties.addAll(
+              listOf(
+                org.jooq.meta.jaxb
+                  .Property()
+                  .withKey("locations")
+                  .withValue("../database/migrations"),
+                org.jooq.meta.jaxb
+                  .Property()
+                  .withKey("dockerImage")
+                  .withValue("postgres:16-alpine"),
+              ),
             )
-            properties.add(
-              org.jooq.meta.jaxb.Property().apply {
-                key = "sort"
-                value = "flyway"
-              },
-            )
+            excludes = "flyway_schema_history"
           }
           generate.apply {
             isDeprecated = false

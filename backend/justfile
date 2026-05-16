@@ -28,11 +28,12 @@ docker-build:
 # Run in Docker locally (detached, on the project network)
 docker-up: docker-build
     docker rm -f $CLABS_INFINITEPIECES_PROJECT_NAME-backend 2>/dev/null || true
-    docker run -d -p 8080:8080 --name $CLABS_INFINITEPIECES_PROJECT_NAME-backend \
+    docker run -d -p 8080:8080 -p 5005:5005 --name $CLABS_INFINITEPIECES_PROJECT_NAME-backend \
         --network ${CLABS_INFINITEPIECES_PROJECT_NAME}_default \
         -e SPRING_DATASOURCE_URL=jdbc:postgresql://$CLABS_INFINITEPIECES_PROJECT_NAME-postgres:5432/infinitepieces \
         -e SPRING_FLYWAY_URL=jdbc:postgresql://$CLABS_INFINITEPIECES_PROJECT_NAME-postgres:5432/infinitepieces \
         -e CLABS_INFINITEPIECES_DB_PASSWORD=$CLABS_INFINITEPIECES_DB_PASSWORD \
+        $(if [ -n "$GOOGLE_APPLICATION_CREDENTIALS" ] && [ -f "$GOOGLE_APPLICATION_CREDENTIALS" ]; then echo "-e GOOGLE_APPLICATION_CREDENTIALS=/firebase/service-account.json -v $GOOGLE_APPLICATION_CREDENTIALS:/firebase/service-account.json:ro"; fi) \
         -v $(pwd)/../database/migrations:/migrations:ro \
         -e SPRING_FLYWAY_LOCATIONS=filesystem:/migrations \
         {{ecr_repo}}

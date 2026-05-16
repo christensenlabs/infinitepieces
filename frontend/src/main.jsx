@@ -6,6 +6,7 @@ import LandingPage from './pages/LandingPage';
 import SiteLogin from './pages/SiteLogin';
 import RoleGate from './pages/RoleGate';
 import Dashboard from './pages/Dashboard';
+import ApiTest from './pages/ApiTest';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -17,6 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/login" element={<SiteLogin />} />
           <Route path="/role-select" element={<RoleGate />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/api-test" element={<ApiTest />} />
         </Routes>
       </AppProvider>
     </BrowserRouter>

@@ -24,5 +24,10 @@ export default defineConfig(() => {
     define: {
       __FIREBASE_API_KEY__: JSON.stringify(firebaseApiKey),
     },
+    server: {
+      proxy: {
+        '/api': 'http://localhost:8080',
+      },
+    },
   };
 });

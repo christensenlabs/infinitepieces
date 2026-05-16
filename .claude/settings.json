@@ -11,7 +11,9 @@
       "Bash(grep:*)",
       "Bash(npm run:*)",
       "Bash(sed:*)",
-      "Bash(tr:*)"
+      "Bash(tr:*)",
+      "Skill(commit)",
+      "Skill(eattylercode)"
     ]
   }
 }

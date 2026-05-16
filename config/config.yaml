@@ -2,3 +2,4 @@ clabs:
   infinitepieces:
     project-name: infpieces
     postgres-superuser-password: local-e2e
+    firebase-credentials: config/secrets/firebase-service-account.json

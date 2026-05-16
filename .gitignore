@@ -3,6 +3,7 @@ dist/
 .idea/
 .DS_Store
 config/secrets.yaml
+config/secrets/
 
 # Gradle / Kotlin
 .gradle/

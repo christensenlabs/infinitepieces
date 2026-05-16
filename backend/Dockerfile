@@ -13,10 +13,10 @@ RUN adduser -D -u 1000 appuser
 WORKDIR /app
 COPY --from=build /app/build/libs/*.jar app.jar
 USER appuser
-EXPOSE 8080
+EXPOSE 8080 5005
 
 # Default to local profile; ECS overrides to "prod" via environment variable.
 # Available profiles: local, prod (see src/main/resources/application-*.yaml)
 ENV SPRING_PROFILES_ACTIVE=local
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005", "-jar", "app.jar"]
