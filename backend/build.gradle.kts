@@ -16,6 +16,13 @@ java {
   }
 }
 
+// Pin Netty to 4.1.121 to fix transitive CVEs from firebase-admin:
+//   CVE-2025-58057 (BrotliDecoder DoS)
+//   CVE-2025-58056 (request smuggling via chunk extensions)
+//   CVE-2026-33870 (request smuggling via chunked extension parsing)
+//   CVE-2025-67735 (CRLF injection)
+extra["netty.version"] = "4.1.121.Final"
+
 repositories {
   mavenCentral()
 }
@@ -24,7 +31,7 @@ dependencies {
   implementation("org.springframework.boot:spring-boot-starter-web")
   implementation("org.springframework.boot:spring-boot-starter-security")
   implementation("org.springframework.boot:spring-boot-starter-jooq")
-  implementation("com.google.firebase:firebase-admin:9.4.3")
+  implementation("com.google.firebase:firebase-admin:9.5.0")
   implementation("org.flywaydb:flyway-core")
   implementation("org.flywaydb:flyway-database-postgresql")
   implementation("org.postgresql:postgresql")
@@ -68,6 +75,16 @@ ktlint {
 
 tasks.withType<Test> {
   useJUnitPlatform()
+}
+
+// Fast bootJar for Docker builds — skips codegen, lint, and tests.
+tasks.register("bootJarOnly") {
+  dependsOn("bootJar")
+  gradle.taskGraph.whenReady {
+    gradle.taskGraph.allTasks
+      .filter { it.name in setOf("generateJooq", "test", "ktlintMainSourceSetCheck", "ktlintKotlinScriptCheck") }
+      .forEach { it.enabled = false }
+  }
 }
 
 // Copy shared migrations into the jar for production use

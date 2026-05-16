@@ -3,10 +3,10 @@ FROM amazoncorretto:21-alpine AS build
 WORKDIR /app
 COPY gradle gradle
 COPY gradlew build.gradle.kts settings.gradle.kts ./
-RUN ./gradlew dependencies --no-daemon
+RUN --mount=type=cache,target=/root/.gradle ./gradlew dependencies --no-daemon
 COPY src src
 COPY build/generated-src/jooq build/generated-src/jooq
-RUN ./gradlew bootJar --no-daemon -x generateJooq
+RUN --mount=type=cache,target=/root/.gradle ./gradlew bootJarOnly --no-daemon
 
 # ---- Runtime stage ----
 FROM amazoncorretto:21-alpine

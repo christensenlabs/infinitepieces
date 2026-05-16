@@ -1,10 +1,13 @@
 package com.infinitepieces.config
 
+import com.fasterxml.jackson.databind.ObjectMapper
 import com.infinitepieces.filter.FirebaseAuthFilter
+import jakarta.servlet.http.HttpServletResponse
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Profile
+import org.springframework.http.MediaType
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.http.SessionCreationPolicy
@@ -19,6 +22,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource
 @Profile("!test")
 class SecurityConfig(
   private val firebaseAuthFilter: FirebaseAuthFilter,
+  private val objectMapper: ObjectMapper,
 ) {
   @Value("\${cors.allowed-origins}")
   private lateinit var allowedOrigins: String
@@ -49,6 +53,19 @@ class SecurityConfig(
           // Everything else requires auth
           .anyRequest()
           .authenticated()
+      }.exceptionHandling {
+        it.authenticationEntryPoint { _, response, _ ->
+          writeJsonError(response, 401, "Unauthorized")
+        }
+        it.accessDeniedHandler { _, response, _ ->
+          writeJsonError(response, 403, "Forbidden")
+        }
       }.addFilterBefore(firebaseAuthFilter, UsernamePasswordAuthenticationFilter::class.java)
       .build()
+
+  private fun writeJsonError(response: HttpServletResponse, status: Int, message: String) {
+    response.status = status
+    response.contentType = MediaType.APPLICATION_JSON_VALUE
+    objectMapper.writeValue(response.outputStream, mapOf("status" to status, "message" to message))
+  }
 }

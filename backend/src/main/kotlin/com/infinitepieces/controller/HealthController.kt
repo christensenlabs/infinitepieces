@@ -8,5 +8,5 @@ class HealthController {
   fun health(): Map<String, String> = mapOf("status" to "ok")
 
   @GetMapping("/hello")
-  fun hello(): Map<String, String> = mapOf("message" to "Hello, World!")
+  fun hello(): Map<String, String> = mapOf("message" to "Hello!!")
 }
