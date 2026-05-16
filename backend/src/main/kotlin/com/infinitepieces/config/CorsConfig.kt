@@ -9,19 +9,19 @@ import org.springframework.web.filter.CorsFilter
 
 @Configuration
 class CorsConfig {
-    @Value("\${cors.allowed-origins}")
-    private lateinit var allowedOrigins: String
+  @Value("\${cors.allowed-origins}")
+  private lateinit var allowedOrigins: String
 
-    @Bean
-    fun corsFilter(): CorsFilter {
-        val config = CorsConfiguration()
-        allowedOrigins.split(",").forEach { config.addAllowedOrigin(it.trim()) }
-        config.addAllowedHeader("*")
-        config.addAllowedMethod("*")
-        config.allowCredentials = true
+  @Bean
+  fun corsFilter(): CorsFilter {
+    val config = CorsConfiguration()
+    allowedOrigins.split(",").forEach { config.addAllowedOrigin(it.trim()) }
+    config.addAllowedHeader("*")
+    config.addAllowedMethod("*")
+    config.allowCredentials = true
 
-        val source = UrlBasedCorsConfigurationSource()
-        source.registerCorsConfiguration("/**", config)
-        return CorsFilter(source)
-    }
+    val source = UrlBasedCorsConfigurationSource()
+    source.registerCorsConfiguration("/**", config)
+    return CorsFilter(source)
+  }
 }

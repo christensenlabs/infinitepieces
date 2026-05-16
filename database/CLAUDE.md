@@ -1,4 +1,11 @@
-# Database Migrations
+# Database
+
+Flyway SQL migrations and local Docker Compose for Postgres.
+
+- Schema is managed via **Flyway** migrations in `migrations/`.
+- The same migration files run in both local dev and production.
+
+## Migrations
 
 ## Conventions
 

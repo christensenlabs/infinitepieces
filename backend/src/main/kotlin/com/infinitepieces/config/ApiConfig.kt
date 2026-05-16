@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
 @Configuration
 class ApiConfig : WebMvcConfigurer {
-    override fun configurePathMatch(configurer: PathMatchConfigurer) {
-        configurer.addPathPrefix("/api", HandlerTypePredicate.forAnnotation(ApiController::class.java))
-    }
+  override fun configurePathMatch(configurer: PathMatchConfigurer) {
+    configurer.addPathPrefix("/api", HandlerTypePredicate.forAnnotation(ApiController::class.java))
+  }
 }
