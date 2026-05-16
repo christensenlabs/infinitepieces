@@ -4,7 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthException
 import com.infinitepieces.config.InfinitePiecesProps
-import com.infinitepieces.objects.FirebaseUser
+import com.infinitepieces.model.domain.FirebaseUser
+import com.infinitepieces.model.domain.InfPiecesPrincipal
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
@@ -53,6 +54,7 @@ class FirebaseAuthFilter(
   private val firebaseAuth: FirebaseAuth?,
   private val objectMapper: ObjectMapper,
   private val props: InfinitePiecesProps,
+  private val usersDao: com.infinitepieces.database.UsersDao,
 ) : OncePerRequestFilter() {
   private val log = LoggerFactory.getLogger(FirebaseAuthFilter::class.java)
 
@@ -62,17 +64,28 @@ class FirebaseAuthFilter(
   private val certCacheExpiry = AtomicLong(0)
 
   override fun doFilterInternal(request: HttpServletRequest, response: HttpServletResponse, filterChain: FilterChain) {
-    val header = request.getHeader("Authorization")
-    if (header != null && header.startsWith("Bearer ")) {
-      val token = header.substring(7)
-      val user = if (firebaseAuth != null) verifyWithAdminSdk(token) else verifyManually(token)
-      if (user != null) {
-        SecurityContextHolder.getContext().authentication = user
-      } else {
-        SecurityContextHolder.clearContext()
+    val token = extractToken(request)
+    if (token != null) {
+      val firebaseUser = if (firebaseAuth != null) verifyWithAdminSdk(token) else verifyManually(token)
+      if (firebaseUser == null) {
+        writeJsonError(response, 401, "Unauthorized")
+        return
       }
+      val dbUser = usersDao.selectByEmail(firebaseUser.email)
+      if (dbUser == null) {
+        // Valid Firebase token but no user in our database
+        writeJsonError(response, 403, "User Forbidden")
+        return
+      }
+      SecurityContextHolder.getContext().authentication = InfPiecesPrincipal(provider = firebaseUser, user = dbUser)
     }
     filterChain.doFilter(request, response)
+  }
+
+  private fun writeJsonError(response: HttpServletResponse, status: Int, message: String) {
+    response.status = status
+    response.contentType = "application/json"
+    objectMapper.writeValue(response.outputStream, mapOf("status" to status, "message" to message))
   }
 
   private fun verifyWithAdminSdk(token: String): FirebaseUser? {
@@ -128,7 +141,8 @@ class FirebaseAuthFilter(
       val emailVerified = payload.get("email_verified")?.asBoolean() ?: false
       if (!emailVerified) return null
 
-      val email = payload.get("email")?.asText()
+      val email = payload.get("email")?.asText() ?: return null
+
       return FirebaseUser(uid = sub, email = email)
     } catch (e: Exception) {
       log.warn("Manual JWT verification failed: {}", e.message)
@@ -173,7 +187,16 @@ class FirebaseAuthFilter(
     }
   }
 
+  private fun extractToken(request: HttpServletRequest): String? {
+    val header = request.getHeader("Authorization")
+    if (header != null && header.startsWith("Bearer ")) {
+      return header.substring(7)
+    }
+    return request.cookies?.firstOrNull { it.name == AUTH_COOKIE }?.value
+  }
+
   companion object {
+    const val AUTH_COOKIE = "SESSION"
     private const val CERT_CACHE_MILLIS = 60 * 60 * 1000 // 1 hour
   }
 }

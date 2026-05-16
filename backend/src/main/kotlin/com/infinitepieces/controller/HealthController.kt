@@ -1,12 +1,13 @@
 package com.infinitepieces.controller
 
+import com.infinitepieces.model.api.v1.Health
 import org.springframework.web.bind.annotation.GetMapping
 
 @ApiController
 class HealthController {
   @GetMapping("/health")
-  fun health(): Map<String, String> = mapOf("status" to "ok")
+  fun health() = Health("up", "ok")
 
   @GetMapping("/hello")
-  fun hello(): Map<String, String> = mapOf("message" to "Hello!!")
+  fun hello() = Health("Hello!", "World!")
 }

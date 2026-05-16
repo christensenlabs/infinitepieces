@@ -1,6 +1,6 @@
 package com.infinitepieces.handler
 
-import com.infinitepieces.exceptions.HttpException
+import com.infinitepieces.exception.HttpException
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ControllerAdvice

@@ -3,7 +3,7 @@ import { useApp } from '../context/AppContext';
 import { auth } from '../lib/firebase';
 
 export default function ApiTest() {
-  const { firebaseUser, authLoading } = useApp();
+  const { firebaseUser, authLoading, signOut } = useApp();
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -74,6 +74,13 @@ export default function ApiTest() {
                   </pre>
                 </div>
               )}
+
+              <button
+                onClick={signOut}
+                className="w-full py-3 bg-transparent text-slate-400 border border-white/10 rounded-2xl text-sm font-medium hover:text-white hover:border-white/20 transition-all"
+              >
+                Sign Out
+              </button>
 
               {error && error.status === 403 && (
                 <div className="px-5 py-6 bg-rose-500/10 rounded-2xl border border-rose-500/20 space-y-1">

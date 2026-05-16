@@ -1,4 +1,4 @@
-package com.infinitepieces.exceptions
+package com.infinitepieces.exception
 
 import org.springframework.http.HttpStatus
 

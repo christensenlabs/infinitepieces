@@ -1,7 +1,7 @@
 package com.infinitepieces.database
 
 import com.infinitepieces.generated.tables.Users.Companion.USERS
-import com.infinitepieces.objects.User
+import com.infinitepieces.model.domain.User
 import org.jooq.DSLContext
 import org.springframework.stereotype.Repository
 import java.util.UUID
@@ -22,6 +22,14 @@ class UsersDao(
       .select(domainSelect)
       .from(USERS)
       .where(USERS.USER_ID.eq(userId))
+      .and(USERS.DELETED_AT.isNull)
+      .fetchOneInto(User::class.java)
+
+  fun selectByEmail(email: String): User? =
+    dsl
+      .select(domainSelect)
+      .from(USERS)
+      .where(USERS.EMAIL.eq(email))
       .and(USERS.DELETED_AT.isNull)
       .fetchOneInto(User::class.java)
 }

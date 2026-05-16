@@ -1,15 +1,15 @@
-package com.infinitepieces.objects
+package com.infinitepieces.model.domain
 
 import org.springframework.security.core.Authentication
 import org.springframework.security.core.GrantedAuthority
 
-data class FirebaseUser(
-  val uid: String,
-  val email: String?,
+data class InfPiecesPrincipal(
+  val provider: FirebaseUser,
+  val user: User,
 ) : Authentication {
   private var authenticated = true
 
-  override fun getName(): String = uid
+  override fun getName(): String = provider.email
 
   override fun getAuthorities(): Collection<GrantedAuthority> = emptyList()
 
@@ -17,7 +17,7 @@ data class FirebaseUser(
 
   override fun getDetails(): Any? = null
 
-  override fun getPrincipal(): FirebaseUser = this
+  override fun getPrincipal(): InfPiecesPrincipal = this
 
   override fun isAuthenticated(): Boolean = authenticated
 

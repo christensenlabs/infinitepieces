@@ -14,9 +14,15 @@ export function AppProvider({ children }) {
   const [authLoading, setAuthLoading] = useState(true);
 
   useEffect(() => {
-    return onAuthChange((user) => {
+    return onAuthChange(async (user) => {
       setFirebaseUser(user);
       setAuthLoading(false);
+      if (user) {
+        const token = await user.getIdToken();
+        document.cookie = `SESSION=${token}; path=/; max-age=3600; SameSite=Strict`;
+      } else {
+        document.cookie = 'SESSION=; path=/; max-age=0';
+      }
     });
   }, []);
 

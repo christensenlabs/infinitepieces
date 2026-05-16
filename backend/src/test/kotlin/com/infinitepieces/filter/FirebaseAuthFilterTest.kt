@@ -2,7 +2,7 @@ package com.infinitepieces.filter
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.infinitepieces.config.InfinitePiecesProps
-import com.infinitepieces.objects.FirebaseUser
+import com.infinitepieces.model.domain.FirebaseUser
 import com.infinitepieces.util.TestCertGenerator
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
