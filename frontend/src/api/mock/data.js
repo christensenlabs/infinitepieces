@@ -1,11 +1,9 @@
 export const mockUser = {
-  id: 'usr_001',
-  name: 'Alexandra M.',
-  initials: 'AM',
-  role: 'Enterprise Admin',
-  scope: 'All locations',
-  avatarUrl: null,
-  status: 'online',
+  userId: '4329903e-78db-49eb-885c-c451fee059b7',
+  email: 'alexandra@example.com',
+  firebaseId: null,
+  firstName: 'Alexandra',
+  lastName: 'Morrison',
 };
 
 export const mockMetrics = {

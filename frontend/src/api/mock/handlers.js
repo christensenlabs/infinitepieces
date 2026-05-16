@@ -46,7 +46,7 @@ import {
 } from './appData';
 
 export const handlers = {
-  'GET:/user/me': () => mockUser,
+  'GET:/users/self': () => mockUser,
   'GET:/metrics': () => mockMetrics,
   'GET:/shifts': () => mockShifts,
   'GET:/notifications': () => mockNotifications,

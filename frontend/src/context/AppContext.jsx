@@ -1,9 +1,8 @@
 import { createContext, useContext, useCallback, useState, useEffect } from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { useApiData } from '../hooks/useApiData';
-import { fetchCurrentUser } from '../api/user';
 import { fetchNotifications } from '../api/notifications';
-import { onAuthChange, signOut } from '../lib/firebase';
+import { onAuthChange, signOut, auth } from '../lib/firebase';
 
 const AppContext = createContext(null);
 
@@ -12,21 +11,39 @@ export function AppProvider({ children }) {
   const [showSettings, setShowSettings] = useState(false);
   const [firebaseUser, setFirebaseUser] = useState(null);
   const [authLoading, setAuthLoading] = useState(true);
+  const [user, setUser] = useState(null);
+  const [forbidden, setForbidden] = useState(false);
 
   useEffect(() => {
-    return onAuthChange(async (user) => {
-      setFirebaseUser(user);
+    return onAuthChange(async (fbUser) => {
+      setFirebaseUser(fbUser);
       setAuthLoading(false);
-      if (user) {
-        const token = await user.getIdToken();
+      setForbidden(false);
+      if (fbUser) {
+        const token = await fbUser.getIdToken();
         document.cookie = `SESSION=${token}; path=/; max-age=3600; SameSite=Strict`;
+        try {
+          const res = await fetch('/api/users/self', {
+            headers: { Authorization: `Bearer ${token}` },
+          });
+          if (res.ok) {
+            setUser(await res.json());
+          } else if (res.status === 403) {
+            setUser(null);
+            setForbidden(true);
+          } else {
+            setUser(null);
+          }
+        } catch {
+          setUser(null);
+        }
       } else {
         document.cookie = 'SESSION=; path=/; max-age=0';
+        setUser(null);
       }
     });
   }, []);
 
-  const { data: user } = useApiData(fetchCurrentUser);
   const { data: notifications } = useApiData(fetchNotifications);
 
   const openSettings = useCallback(() => setShowSettings(true), []);
@@ -38,8 +55,10 @@ export function AppProvider({ children }) {
         apiKey,
         setApiKey,
         user,
+        setUser,
         firebaseUser,
         authLoading,
+        forbidden,
         signOut,
         notifications,
         showSettings,

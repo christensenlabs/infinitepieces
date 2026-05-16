@@ -21,7 +21,7 @@ class UsersDaoTest
   @Autowired
   constructor(
     private val dsl: DSLContext,
-    private val usersDao: UsersDao,
+    private val userDao: UserDao,
   ) {
     @BeforeEach
     fun cleanup() {
@@ -47,7 +47,7 @@ class UsersDaoTest
     @Test
     fun `selectByUserId returns user when found`() {
       val id = insertUser("alice@example.com", "firebase-123")
-      val user = usersDao.selectByUserId(id)
+      val user = userDao.selectByUserId(id)
 
       assertNotNull(user)
       assertEquals(id, user.userId)
@@ -57,7 +57,7 @@ class UsersDaoTest
 
     @Test
     fun `selectByUserId returns null for nonexistent user`() {
-      val user = usersDao.selectByUserId(UUID.randomUUID())
+      val user = userDao.selectByUserId(UUID.randomUUID())
 
       assertNull(user)
     }
@@ -65,7 +65,7 @@ class UsersDaoTest
     @Test
     fun `selectByUserId excludes soft-deleted users`() {
       val id = insertUser("deleted@example.com", deletedAt = OffsetDateTime.now())
-      val user = usersDao.selectByUserId(id)
+      val user = userDao.selectByUserId(id)
 
       assertNull(user)
     }
@@ -73,7 +73,7 @@ class UsersDaoTest
     @Test
     fun `selectByUserId returns user with null firebaseId`() {
       val id = insertUser("nofirebase@example.com")
-      val user = usersDao.selectByUserId(id)
+      val user = userDao.selectByUserId(id)
 
       assertNotNull(user)
       assertNull(user.firebaseId)

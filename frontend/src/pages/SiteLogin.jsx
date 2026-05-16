@@ -10,14 +10,14 @@ export default function SiteLogin() {
   const { firebaseUser, authLoading } = useApp();
 
   if (authLoading) return null;
-  if (firebaseUser) return <Navigate to="/role-select" replace />;
+  if (firebaseUser) return <Navigate to="/dashboard" replace />;
 
   const handleGoogleSignIn = async () => {
     setLoading(true);
     setError(null);
     try {
       await signInWithGoogle();
-      navigate('/role-select');
+      navigate('/dashboard');
     } catch (err) {
       if (err.code !== 'auth/popup-closed-by-user') {
         setError('Sign-in failed. Please try again.');

@@ -54,7 +54,7 @@ class FirebaseAuthFilter(
   private val firebaseAuth: FirebaseAuth?,
   private val objectMapper: ObjectMapper,
   private val props: InfinitePiecesProps,
-  private val usersDao: com.infinitepieces.database.UsersDao,
+  private val userDao: com.infinitepieces.database.UserDao,
 ) : OncePerRequestFilter() {
   private val log = LoggerFactory.getLogger(FirebaseAuthFilter::class.java)
 
@@ -71,7 +71,7 @@ class FirebaseAuthFilter(
         writeJsonError(response, 401, "Unauthorized")
         return
       }
-      val dbUser = usersDao.selectByEmail(firebaseUser.email)
+      val dbUser = userDao.selectByEmail(firebaseUser.email)
       if (dbUser == null) {
         // Valid Firebase token but no user in our database
         writeJsonError(response, 403, "User Forbidden")

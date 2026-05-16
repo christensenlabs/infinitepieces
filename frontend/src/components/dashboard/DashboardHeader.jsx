@@ -35,12 +35,12 @@ export default function DashboardHeader({ user, onOpenCopilot }) {
 
         <div className="flex items-center gap-2 border-l border-slate-200 pl-6 cursor-pointer">
           <Avatar
-            initials={user?.initials ?? 'AM'}
+            initials={user?.firstName && user?.lastName ? `${user.firstName[0]}${user.lastName[0]}` : '??'}
             bgClass="bg-blue-100"
             textClass="text-blue-700"
           />
           <span className="text-sm font-bold text-brand hidden sm:block">
-            {user?.name ?? 'Loading...'}
+            {user?.firstName && user?.lastName ? `${user.firstName} ${user.lastName}` : user?.email ?? 'Loading...'}
           </span>
           <Icons.ChevronDown className="w-3 h-3 text-slate-400" />
         </div>

@@ -1,6 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useApp } from '../context/AppContext';
 
-const Navbar = () => (
+const Navbar = () => {
+  const { user } = useApp();
+  const navigate = useNavigate();
+
+  return (
   <nav className="fixed top-0 w-full z-50 bg-brand-dark/80 backdrop-blur-md border-b border-white/5">
     <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
       <div className="flex items-center gap-3">
@@ -23,11 +29,11 @@ const Navbar = () => (
         </a>
 
         <div className="flex items-center gap-4 ml-4">
-          <a
-            href="/dashboard"
+          <button
+            onClick={() => navigate(user ? '/dashboard' : '/login')}
             className="text-white hover:text-accent transition flex items-center gap-2"
           >
-            Provider Login{' '}
+            {user ? 'Dashboard' : 'Provider Login'}{' '}
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 strokeLinecap="round"
@@ -36,7 +42,7 @@ const Navbar = () => (
                 d="M14 5l7 7m0 0l-7 7m7-7H3"
               />
             </svg>
-          </a>
+          </button>
           <button className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2.5 rounded-full transition shadow-[0_0_15px_rgba(37,99,235,0.5)]">
             Book a Demo
           </button>
@@ -44,6 +50,7 @@ const Navbar = () => (
       </div>
     </div>
   </nav>
-);
+  );
+};
 
 export default Navbar;

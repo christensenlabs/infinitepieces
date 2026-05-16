@@ -1,5 +1,5 @@
 import { api } from './client';
 
 export function fetchCurrentUser() {
-  return api.get('/user/me');
+  return api.get('/users/self');
 }

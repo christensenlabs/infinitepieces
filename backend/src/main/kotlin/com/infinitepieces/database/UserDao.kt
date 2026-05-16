@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository
 import java.util.UUID
 
 @Repository
-class UsersDao(
+class UserDao(
   private val dsl: DSLContext,
 ) {
   private val domainSelect =
@@ -15,6 +15,8 @@ class UsersDao(
       USERS.USER_ID,
       USERS.EMAIL,
       USERS.FIREBASE_ID,
+      USERS.FIRST_NAME,
+      USERS.LAST_NAME,
     )
 
   fun selectByUserId(userId: UUID): User? =
@@ -31,5 +33,15 @@ class UsersDao(
       .from(USERS)
       .where(USERS.EMAIL.eq(email))
       .and(USERS.DELETED_AT.isNull)
+      .fetchOneInto(User::class.java)
+
+  fun updateName(userId: UUID, firstName: String?, lastName: String?): User? =
+    dsl
+      .update(USERS)
+      .set(USERS.FIRST_NAME, firstName)
+      .set(USERS.LAST_NAME, lastName)
+      .where(USERS.USER_ID.eq(userId))
+      .and(USERS.DELETED_AT.isNull)
+      .returning(domainSelect)
       .fetchOneInto(User::class.java)
 }

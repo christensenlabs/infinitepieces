@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Icons } from '../Icons';
 import NavLink from '../ui/NavLink';
 import Avatar from '../ui/Avatar';
@@ -13,6 +14,7 @@ const NAV_ITEMS = [
 ];
 
 export default function Sidebar({ user, notificationCount, onNavigateHub, onOpenSettings, onOpenApp }) {
+  const navigate = useNavigate();
   return (
     <aside className="w-64 bg-brand-deep flex flex-col h-full shrink-0 relative z-20 shadow-2xl">
       {/* Logo */}
@@ -65,18 +67,20 @@ export default function Sidebar({ user, notificationCount, onNavigateHub, onOpen
           </div>
         </div>
 
-        <div className="flex items-center justify-between px-2 cursor-pointer hover:bg-white/5 p-2 rounded-lg transition-colors">
+        <div
+          onClick={() => navigate('/profile')}
+          className="flex items-center justify-between px-2 cursor-pointer hover:bg-white/5 p-2 rounded-lg transition-colors"
+        >
           <div className="flex items-center gap-3">
-            <Avatar initials={user?.initials ?? 'AM'} />
+            <Avatar initials={user?.firstName && user?.lastName ? `${user.firstName[0]}${user.lastName[0]}` : '??'} />
             <div>
-              <p className="text-xs font-bold text-white">{user?.name ?? 'Loading...'}</p>
-              <p className="text-[10px] text-slate-400 flex items-center gap-1">
-                <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />{' '}
-                {user?.status === 'online' ? 'Online' : 'Offline'}
+              <p className="text-xs font-bold text-white">
+                {user?.firstName && user?.lastName ? `${user.firstName} ${user.lastName}` : user?.email ?? 'Loading...'}
               </p>
+              <p className="text-[10px] text-slate-400">{user?.email ?? ''}</p>
             </div>
           </div>
-          <Icons.Logout className="w-4 h-4 text-slate-500" />
+          <Icons.Settings className="w-4 h-4 text-slate-500" />
         </div>
       </div>
     </aside>
