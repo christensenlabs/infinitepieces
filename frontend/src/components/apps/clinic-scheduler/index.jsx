@@ -256,7 +256,7 @@ export default function ClinicSchedulerApp({ apiKey }) {
   };
 
   return (
-    <div className="min-h-screen flex font-sans bg-gray-100">
+    <div className="min-h-screen flex font-sans bg-sched-bg">
       <style>{`
         .fade-in { animation: fadeIn 0.3s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
@@ -264,8 +264,8 @@ export default function ClinicSchedulerApp({ apiKey }) {
         @keyframes zoomIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
         .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #233554; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #2e4370; }
       `}</style>
 
       {/* --- ADMIN LOGIN MODAL --- */}
@@ -295,12 +295,12 @@ export default function ClinicSchedulerApp({ apiKey }) {
       <div className="flex-1 flex flex-col min-w-0 h-screen overflow-hidden">
 
         {/* TOP BAR */}
-        <header className="bg-white border-b border-slate-200 px-4 sm:px-6 py-4 flex items-center justify-between shadow-sm z-10 shrink-0">
+        <header className="bg-sched-header border-b border-sched-border px-4 sm:px-6 py-4 flex items-center justify-between z-10 shrink-0">
           <div className="flex items-center space-x-4">
-            <button onClick={() => setIsSidebarOpen(true)} className="lg:hidden text-slate-600 hover:text-slate-900">
+            <button onClick={() => setIsSidebarOpen(true)} className="lg:hidden text-slate-400 hover:text-white">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
-            <h2 className="text-lg sm:text-xl font-bold text-brand tracking-tight">Scheduling Operations</h2>
+            <h2 className="text-lg sm:text-xl font-bold text-white tracking-tight">Scheduling Operations</h2>
           </div>
           <div className="flex items-center space-x-5">
             <button
@@ -314,7 +314,7 @@ export default function ClinicSchedulerApp({ apiKey }) {
         </header>
 
         {/* WORKSPACE AREA */}
-        <main className="flex-1 overflow-y-auto p-4 sm:p-6 bg-slate-50 flex flex-col custom-scrollbar">
+        <main className="flex-1 overflow-y-auto p-4 sm:p-6 bg-sched-bg flex flex-col custom-scrollbar">
           <div className="max-w-[1600px] w-full mx-auto flex-1 flex flex-col space-y-6 min-h-0">
 
             {activeTab === 'schedule' && (

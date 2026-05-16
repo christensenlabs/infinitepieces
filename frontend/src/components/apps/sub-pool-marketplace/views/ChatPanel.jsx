@@ -3,7 +3,7 @@ import ChatMessage from '../components/ChatMessage';
 
 export default function ChatPanel({ chats, chatInput, onChatInputChange, onSendMessage, chatEndRef }) {
   return (
-    <div className="w-full md:w-[380px] md:h-full bg-brand-panel border-t md:border-t-0 md:border-l border-white/5 flex flex-col shrink-0 z-20 shadow-2xl relative h-64 md:h-auto">
+    <div className="w-full md:w-[380px] md:h-full bg-pool-panel border-t md:border-t-0 md:border-l border-white/5 flex flex-col shrink-0 z-20 shadow-2xl relative h-64 md:h-auto">
       <div className="p-5 border-b border-white/5 flex items-center gap-3 shrink-0 bg-black/20">
         <MessageSquare className="text-cyan-400" size={18} />
         <h2 className="font-black text-white text-sm uppercase tracking-widest">Live Feed</h2>

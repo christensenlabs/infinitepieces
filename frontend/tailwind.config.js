@@ -30,6 +30,18 @@ export default {
           border: '#233554',
           dark: '#061224',
         },
+        // Clinic Scheduler dark navy palette
+        sched: {
+          bg: '#0b132b',
+          panel: '#1b2838',
+          header: '#162032',
+          border: '#233554',
+        },
+        // SubPool Marketplace dark cyberpunk palette
+        pool: {
+          bg: '#040811',
+          panel: '#0A1220',
+        },
       },
     },
   },

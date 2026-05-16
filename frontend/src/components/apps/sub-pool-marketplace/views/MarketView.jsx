@@ -17,25 +17,25 @@ export default function MarketView({
   onScanMarket
 }) {
   return (
-    <div className="flex-1 flex flex-col min-w-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-900/10 via-brand-dark to-brand-dark relative z-10">
+    <div className="flex-1 flex flex-col min-w-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-900/10 via-pool-bg to-pool-bg relative z-10">
 
       {/* Market Stats Bar */}
       <div className="p-4 sm:p-6 shrink-0 grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="bg-brand-panel border border-white/5 p-4 rounded-2xl flex items-center gap-4">
+        <div className="bg-pool-panel border border-white/5 p-4 rounded-2xl flex items-center gap-4">
           <div className="w-10 h-10 bg-rose-500/20 text-rose-400 rounded-full hidden sm:flex items-center justify-center"><Activity size={20} /></div>
           <div>
             <p className="text-[10px] text-slate-400 uppercase tracking-widest font-bold mb-1">Open Shifts</p>
             <p className="text-xl sm:text-2xl font-black text-white leading-none">{availableShifts.length}</p>
           </div>
         </div>
-        <div className="bg-brand-panel border border-white/5 p-4 rounded-2xl flex items-center gap-4">
+        <div className="bg-pool-panel border border-white/5 p-4 rounded-2xl flex items-center gap-4">
           <div className="w-10 h-10 bg-emerald-500/20 text-emerald-400 rounded-full hidden sm:flex items-center justify-center"><CheckCircle size={20} /></div>
           <div>
             <p className="text-[10px] text-slate-400 uppercase tracking-widest font-bold mb-1">Claimed Today</p>
             <p className="text-xl sm:text-2xl font-black text-white leading-none">{claimedShifts.length}</p>
           </div>
         </div>
-        <div className="bg-brand-panel border border-white/5 p-4 rounded-2xl flex items-center gap-4 hidden sm:flex">
+        <div className="bg-pool-panel border border-white/5 p-4 rounded-2xl flex items-center gap-4 hidden sm:flex">
           <div className="w-10 h-10 bg-accent-gold/20 text-accent-gold rounded-full flex items-center justify-center"><DollarSign size={20} /></div>
           <div>
             <p className="text-[10px] text-slate-400 uppercase tracking-widest font-bold mb-1">Bounties Paid</p>

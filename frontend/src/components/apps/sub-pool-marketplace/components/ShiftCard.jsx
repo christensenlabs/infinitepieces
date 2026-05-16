@@ -7,10 +7,10 @@ import {
 
 export default function ShiftCard({ shift, activeRole, defaultBounty, config, onClaim, onBoost, onAIAction }) {
   return (
-    <div className="bg-brand-panel border border-white/10 hover:border-cyan-500/30 rounded-2xl p-5 shadow-lg transition-all fade-in flex flex-col">
+    <div className="bg-pool-panel border border-white/10 hover:border-cyan-500/30 rounded-2xl p-5 shadow-lg transition-all fade-in flex flex-col">
       <div className="flex justify-between items-start mb-4">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center shrink-0">
+          <div className="w-12 h-12 bg-pool-bg rounded-xl flex items-center justify-center shrink-0">
             {shift.location?.toLowerCase().includes('clinic') ? <Shield className="text-blue-400" /> : <Car className="text-emerald-400" />}
           </div>
           <div>
@@ -45,7 +45,7 @@ export default function ShiftCard({ shift, activeRole, defaultBounty, config, on
             </>
           ) : activeRole === 'bcba' ? (
             <>
-              <button onClick={() => onClaim(shift, false)} className="flex-1 bg-cyan-500 hover:bg-cyan-400 text-brand-dark font-black py-2.5 rounded-xl text-xs uppercase tracking-widest transition-colors flex items-center justify-center gap-2">
+              <button onClick={() => onClaim(shift, false)} className="flex-1 bg-cyan-500 hover:bg-cyan-400 text-pool-bg font-black py-2.5 rounded-xl text-xs uppercase tracking-widest transition-colors flex items-center justify-center gap-2">
                 <Zap size={14}/> Claim 1:1
               </button>
               <button onClick={() => onClaim(shift, true)} className="flex-1 bg-purple-500/20 hover:bg-purple-500/30 border border-purple-500/50 text-purple-400 font-black py-2.5 rounded-xl text-[10px] uppercase tracking-widest transition-colors flex items-center justify-center gap-1">
@@ -53,7 +53,7 @@ export default function ShiftCard({ shift, activeRole, defaultBounty, config, on
               </button>
             </>
           ) : (
-            <button onClick={() => onClaim(shift, false)} className="w-full bg-emerald-500 hover:bg-emerald-400 text-brand-dark font-black py-2.5 rounded-xl text-xs uppercase tracking-widest transition-colors shadow-[0_0_15px_rgba(16,185,129,0.3)] flex items-center justify-center gap-2">
+            <button onClick={() => onClaim(shift, false)} className="w-full bg-emerald-500 hover:bg-emerald-400 text-pool-bg font-black py-2.5 rounded-xl text-xs uppercase tracking-widest transition-colors shadow-[0_0_15px_rgba(16,185,129,0.3)] flex items-center justify-center gap-2">
               <Zap size={14}/> Claim Shift & Bounty
             </button>
           )}

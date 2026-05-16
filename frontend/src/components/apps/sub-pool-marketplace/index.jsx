@@ -150,7 +150,7 @@ export default function SubPoolMarketPlace({ apiKey }) {
   const claimedShifts = shifts.filter(s => s.status === 'claimed');
 
   return (
-    <div className="h-screen bg-brand-dark flex flex-col font-sans text-slate-200 overflow-hidden selection:bg-cyan-500/30">
+    <div className="h-screen bg-pool-bg flex flex-col font-sans text-slate-200 overflow-hidden selection:bg-cyan-500/30">
 
       <style>{`
         .fade-in { animation: fadeIn 0.3s ease-out forwards; }
@@ -162,7 +162,7 @@ export default function SubPoolMarketPlace({ apiKey }) {
       `}</style>
 
       {/* TOP NAVIGATION */}
-      <header className="h-16 bg-brand-panel border-b border-white/5 flex items-center justify-between px-6 shrink-0 z-20">
+      <header className="h-16 bg-pool-panel border-b border-white/5 flex items-center justify-between px-6 shrink-0 z-20">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center border border-cyan-500/50 shadow-[0_0_10px_rgba(0,229,255,0.2)]">
             <TrendingUp size={18} />

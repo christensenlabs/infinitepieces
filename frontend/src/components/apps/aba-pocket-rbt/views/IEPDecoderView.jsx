@@ -16,7 +16,7 @@ export default function IEPDecoderView({ iepForm, setIepForm, onGenerate }) {
         <label className="block text-sm font-bold text-slate-700 mb-1.5">Therapy or IEP Goal</label>
         <VoiceTextArea placeholder="e.g., 'The student will independently mand for preferred items using 3-word phrases in 8/10 opportunities...'" value={iepForm.goal} onChange={e => setIepForm({...iepForm, goal: e.target.value})} rows={5} />
       </div>
-      <button onClick={() => onGenerate('iep')} className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 hover:scale-[1.02] text-white rounded-xl font-bold transition-all mt-6 shadow-md">Decode Goal</button>
+      <button onClick={() => onGenerate('iep')} className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 hover:scale-[1.02] text-white rounded-xl font-bold transition-all mt-6 shadow-md">✨ Decode Goal</button>
     </>
   );
 }

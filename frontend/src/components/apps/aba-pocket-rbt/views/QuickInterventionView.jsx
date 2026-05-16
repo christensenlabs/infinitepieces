@@ -11,7 +11,7 @@ export default function QuickInterventionView({ quickIntForm, setQuickIntForm, o
       </div>
       <h3 className="font-bold text-lg mb-2">Target Behavior</h3>
       <VoiceTextArea placeholder="Behavior topography... (e.g. throwing blocks)" value={quickIntForm.behavior} onChange={e => setQuickIntForm({...quickIntForm, behavior: e.target.value})} />
-      <button onClick={() => onGenerate('quick')} className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 hover:scale-[1.02] text-white rounded-xl font-bold transition-all mt-4">Generate Strategy</button>
+      <button onClick={() => onGenerate('quick')} className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 hover:scale-[1.02] text-white rounded-xl font-bold transition-all mt-4">✨ Generate Strategy</button>
     </>
   );
 }

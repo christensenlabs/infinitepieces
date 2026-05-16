@@ -43,7 +43,7 @@ export default function ProgramMentorView({ mentorForm, setMentorForm, clientInt
         <VoiceTextArea placeholder="Client preferences..." value={mentorForm.interests} onChange={e => setMentorForm({...mentorForm, interests: e.target.value})} rows={2} />
       </div>
 
-      <button onClick={() => onGenerate('mentor')} className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 hover:scale-[1.02] text-white rounded-xl font-bold transition-all mt-6 shadow-md">Get Implementation Ideas</button>
+      <button onClick={() => onGenerate('mentor')} className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 hover:scale-[1.02] text-white rounded-xl font-bold transition-all mt-6 shadow-md">✨ Get Implementation Ideas</button>
     </>
   );
 }

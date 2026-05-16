@@ -18,7 +18,7 @@ export default function ABAnalyzerView({ abForm, setAbForm, onGenerate }) {
         <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1.5">Behavior (B)</label>
         <VoiceTextArea placeholder="Specific topography observed?" value={abForm.behavior} onChange={e => setAbForm({...abForm, behavior: e.target.value})} />
       </div>
-      <button onClick={() => onGenerate('ab')} className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 hover:scale-[1.02] text-white rounded-xl font-bold transition-all mt-4">Analyze Consequence</button>
+      <button onClick={() => onGenerate('ab')} className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 hover:scale-[1.02] text-white rounded-xl font-bold transition-all mt-4">✨ Analyze Consequence</button>
     </>
   );
 }

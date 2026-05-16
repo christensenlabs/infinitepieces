@@ -14,7 +14,7 @@ export default function PlayIdeasView({ playForm, setPlayForm, onGenerate }) {
         <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1.5">Client Interests</label>
         <VoiceInput placeholder="e.g. cars, trains..." value={playForm.interests} onChange={e => setPlayForm({...playForm, interests: e.target.value})} />
       </div>
-      <button onClick={() => onGenerate('play')} className="w-full py-4 bg-yellow-500 hover:bg-yellow-600 hover:scale-[1.02] text-white rounded-xl font-bold transition-all mt-4">Get Play Ideas</button>
+      <button onClick={() => onGenerate('play')} className="w-full py-4 bg-yellow-500 hover:bg-yellow-600 hover:scale-[1.02] text-white rounded-xl font-bold transition-all mt-4">✨ Get Play Ideas</button>
     </>
   );
 }

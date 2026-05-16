@@ -3,7 +3,7 @@ import { Zap, Users } from 'lucide-react';
 export default function ChatMessage({ chat }) {
   return (
     <div className="flex gap-3 fade-in">
-      <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 border shadow-md ${chat.isSystem ? 'bg-black border-cyan-500/50 text-cyan-400' : 'bg-slate-800 border-white/10 text-white'}`}>
+      <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 border shadow-md ${chat.isSystem ? 'bg-black border-cyan-500/50 text-cyan-400' : 'bg-pool-bg border-white/10 text-white'}`}>
         {chat.isSystem ? <Zap size={14} /> : <Users size={14} />}
       </div>
       <div>

@@ -18,11 +18,11 @@ export default function Sidebar({
   return (
     <>
       {/* Mobile Sidebar Overlay */}
-      {isSidebarOpen && <div className="fixed inset-0 bg-slate-900/50 z-20 lg:hidden" onClick={() => setIsSidebarOpen(false)} />}
+      {isSidebarOpen && <div className="fixed inset-0 bg-sched-bg/80 z-20 lg:hidden" onClick={() => setIsSidebarOpen(false)} />}
 
-      <div className={`fixed inset-y-0 left-0 w-[260px] bg-brand text-slate-300 flex flex-col shadow-2xl z-30 transition-transform duration-300 lg:relative lg:translate-x-0 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-        <div className="p-5 border-b border-white/10 flex justify-between items-center">
-          <button className="flex-1 flex items-center justify-between text-sm bg-white/5 border border-white/10 px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors mr-2">
+      <div className={`fixed inset-y-0 left-0 w-[260px] bg-sched-header border-r border-sched-border text-slate-300 flex flex-col shadow-2xl z-30 transition-transform duration-300 lg:relative lg:translate-x-0 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+        <div className="p-5 border-b border-sched-border flex justify-between items-center">
+          <button className="flex-1 flex items-center justify-between text-sm bg-sched-bg/50 border border-sched-border px-4 py-3 rounded-lg text-white hover:bg-sched-bg/80 transition-colors mr-2">
             <div className="flex flex-col text-left">
               <span className="font-bold">Enterprise Admin</span>
               <span className="text-xs text-slate-400 mt-0.5">Primary Clinic</span>
@@ -45,8 +45,8 @@ export default function Sidebar({
               }}
               className={`w-full flex items-center justify-between px-4 py-3 rounded-lg transition-all text-sm font-medium ${
                 activeTab === item.id
-                ? 'bg-brand-navy text-yellow-400 border-l-4 border-yellow-400 shadow-md'
-                : 'text-slate-300 hover:bg-white/5 hover:text-white border-l-4 border-transparent'
+                ? 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30'
+                : 'text-slate-400 hover:text-white hover:bg-sched-bg/50 border border-transparent'
               }`}
             >
               <div className="flex items-center space-x-4">
@@ -61,9 +61,9 @@ export default function Sidebar({
           ))}
         </nav>
 
-        <div className="p-4 border-t border-white/10 bg-brand-dark flex items-center space-x-3 shrink-0">
-          <div className="w-10 h-10 rounded-full bg-slate-600 overflow-hidden flex-shrink-0 border-2 border-slate-700">
-             <div className="w-full h-full flex items-center justify-center text-xs font-bold text-white bg-indigo-600">
+        <div className="p-4 border-t border-sched-border bg-sched-bg flex items-center space-x-3 shrink-0">
+          <div className="w-10 h-10 rounded-full bg-sched-panel overflow-hidden flex-shrink-0 border-2 border-sched-border">
+             <div className="w-full h-full flex items-center justify-center text-xs font-bold text-white bg-indigo-700">
                {isAdminAuthenticated ? 'AD' : 'UI'}
              </div>
           </div>

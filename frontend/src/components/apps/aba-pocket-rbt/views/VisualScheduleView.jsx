@@ -23,7 +23,7 @@ export default function VisualScheduleView({ scheduleForm, setScheduleForm, onGe
           <VoiceInput placeholder="e.g., 5..." value={scheduleForm.age} onChange={e => setScheduleForm({...scheduleForm, age: e.target.value})} />
         </div>
       </div>
-      <button onClick={() => onGenerate('schedule')} className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 hover:scale-[1.02] text-white rounded-xl font-bold transition-all mt-6 shadow-md">Generate Visual Schedule</button>
+      <button onClick={() => onGenerate('schedule')} className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 hover:scale-[1.02] text-white rounded-xl font-bold transition-all mt-6 shadow-md">✨ Generate Visual Schedule</button>
     </>
   );
 }

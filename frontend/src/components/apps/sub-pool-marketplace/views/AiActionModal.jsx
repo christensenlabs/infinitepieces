@@ -5,7 +5,7 @@ export default function AiActionModal({ aiActionState, onClose, renderMarkdown }
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 fade-in">
-      <div className="bg-brand-panel border border-cyan-500/30 rounded-3xl w-full max-w-lg shadow-[0_0_40px_rgba(0,229,255,0.15)] overflow-hidden flex flex-col">
+      <div className="bg-pool-panel border border-cyan-500/30 rounded-3xl w-full max-w-lg shadow-[0_0_40px_rgba(0,229,255,0.15)] overflow-hidden flex flex-col">
         <div className="flex justify-between items-center p-6 border-b border-white/10 bg-black/20">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center">
@@ -28,9 +28,9 @@ export default function AiActionModal({ aiActionState, onClose, renderMarkdown }
               <p className="text-slate-400 font-bold uppercase tracking-widest text-xs animate-pulse">Synthesizing Insights...</p>
             </div>
           ) : (
-            <div className="bg-slate-900/50 border border-slate-700/50 rounded-2xl p-6">
+            <div className="bg-black/30 border border-white/10 rounded-2xl p-6">
               {aiActionState.shift && (
-                <div className="flex items-center gap-2 mb-4 pb-4 border-b border-slate-700/50">
+                <div className="flex items-center gap-2 mb-4 pb-4 border-b border-white/10">
                   <FileText size={16} className="text-slate-500" />
                   <span className="text-slate-300 text-sm font-medium">Context: {aiActionState.shift.clientName || 'Unknown'} • {aiActionState.shift.location}</span>
                 </div>

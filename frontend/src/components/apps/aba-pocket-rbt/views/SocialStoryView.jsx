@@ -27,7 +27,7 @@ export default function SocialStoryView({ storyForm, setStoryForm, onGenerate })
         <label className="block text-sm font-bold text-slate-700 mb-1.5">Story Topic / Event</label>
         <VoiceTextArea placeholder="e.g., Going to the dentist, losing a board game..." value={storyForm.topic} onChange={e => setStoryForm({...storyForm, topic: e.target.value})} rows={3} />
       </div>
-      <button onClick={() => onGenerate('story')} className="w-full py-4 bg-orange-500 hover:bg-orange-600 hover:scale-[1.02] text-white rounded-xl font-bold transition-all mt-6 shadow-md">Generate Social Story</button>
+      <button onClick={() => onGenerate('story')} className="w-full py-4 bg-orange-500 hover:bg-orange-600 hover:scale-[1.02] text-white rounded-xl font-bold transition-all mt-6 shadow-md">✨ Generate Social Story</button>
     </>
   );
 }

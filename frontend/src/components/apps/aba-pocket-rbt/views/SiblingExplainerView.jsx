@@ -23,7 +23,7 @@ export default function SiblingExplainerView({ siblingForm, setSiblingForm, onGe
           <VoiceInput placeholder="e.g., 8..." value={siblingForm.siblingAge} onChange={e => setSiblingForm({...siblingForm, siblingAge: e.target.value})} />
         </div>
       </div>
-      <button onClick={() => onGenerate('sibling')} className="w-full py-4 bg-rose-600 hover:bg-rose-700 hover:scale-[1.02] text-white rounded-xl font-bold transition-all mt-6 shadow-md">Generate Explanation Script</button>
+      <button onClick={() => onGenerate('sibling')} className="w-full py-4 bg-rose-600 hover:bg-rose-700 hover:scale-[1.02] text-white rounded-xl font-bold transition-all mt-6 shadow-md">✨ Generate Explanation Script</button>
     </>
   );
 }
