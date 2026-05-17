@@ -138,5 +138,5 @@ resource "aws_ecs_service" "backend" {
     container_port   = var.app_port
   }
 
-  depends_on = [aws_lb_listener.http]
+  depends_on = [aws_lb_listener.https]
 }

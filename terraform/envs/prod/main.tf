@@ -17,8 +17,9 @@ module "env" {
   alb_sg_id          = data.terraform_remote_state.shared.outputs.alb_sg_id
   route53_zone_id    = data.terraform_remote_state.shared.outputs.route53_zone_id
 
-  domain_name    = "infinitepieces.christensenlabs.com"
-  image_tag      = "latest"
+  domain_name     = "infinitepieces.christensenlabs.com"
+  api_domain_name = "api.infinitepieces.christensenlabs.com"
+  image_tag       = "latest"
   spring_profile  = "prod"
 
   db_app_password   = random_password.app.result

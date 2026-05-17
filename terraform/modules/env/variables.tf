@@ -36,6 +36,11 @@ variable "domain_name" {
   type        = string
 }
 
+variable "api_domain_name" {
+  description = "Domain for ALB TLS certificate (used by CloudFront origin)"
+  type        = string
+}
+
 variable "image_tag" {
   description = "ECR image tag to deploy (e.g. latest, dev)"
   type        = string
