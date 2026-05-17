@@ -1,3 +1,4 @@
+local_image := "infinitepieces-backend"
 ecr_repo := "infinitepieces-backend"
 aws_region := "us-east-1"
 
@@ -21,9 +22,13 @@ lint-fix:
 jooq:
     ./gradlew generateJooq
 
-# Build Docker image (runs JOOQ codegen first, then builds inside Docker)
+# Build Docker image for local dev (native platform)
 docker-build: jooq
-    docker build -t {{ecr_repo}} .
+    docker build -t {{local_image}} .
+
+# Build Docker image for AWS (linux/amd64 for ECS Fargate)
+docker-build-aws: jooq
+    docker build --platform linux/amd64 -t {{ecr_repo}} .
 
 # Run in Docker locally (detached, on the project network)
 docker-up: docker-build
@@ -36,16 +41,21 @@ docker-up: docker-build
         $(if [ -n "$GOOGLE_APPLICATION_CREDENTIALS" ] && [ -f "$GOOGLE_APPLICATION_CREDENTIALS" ]; then echo "-e GOOGLE_APPLICATION_CREDENTIALS=/firebase/service-account.json -v $GOOGLE_APPLICATION_CREDENTIALS:/firebase/service-account.json:ro"; fi) \
         -v $(pwd)/../database/migrations:/migrations:ro \
         -e SPRING_FLYWAY_LOCATIONS=filesystem:/migrations \
-        {{ecr_repo}}
+        {{local_image}}
     @echo "==> Backend running at http://localhost:8080 (docker stop $CLABS_INFINITEPIECES_PROJECT_NAME-backend to stop)"
 
 # Deploy to ECS (build, push to ECR, force new deployment)
-deploy: docker-build
-    @echo "==> Logging into ECR..."
+# Usage: just deploy <env>
+deploy env: docker-build-aws
+    #!/usr/bin/env bash
+    set -euo pipefail
+    TAG="{{ if env == "prod" { "latest" } else { env } }}"
+    SERVICE="{{ if env == "prod" { "infinitepieces-backend" } else { "infinitepieces-" + env + "-backend" } }}"
+    echo "==> Logging into ECR..."
     aws ecr get-login-password --region {{aws_region}} | docker login --username AWS --password-stdin $CLABS_AWS_ACCOUNT_ID.dkr.ecr.{{aws_region}}.amazonaws.com
-    @echo "==> Tagging and pushing image..."
-    docker tag {{ecr_repo}}:latest $CLABS_AWS_ACCOUNT_ID.dkr.ecr.{{aws_region}}.amazonaws.com/{{ecr_repo}}:latest
-    docker push $CLABS_AWS_ACCOUNT_ID.dkr.ecr.{{aws_region}}.amazonaws.com/{{ecr_repo}}:latest
-    @echo "==> Forcing new ECS deployment..."
-    aws ecs update-service --cluster infinitepieces --service infinitepieces-backend --force-new-deployment --region {{aws_region}} > /dev/null
-    @echo "==> Backend deploy complete!"
+    echo "==> Tagging and pushing image as $TAG..."
+    docker tag {{ecr_repo}}:latest $CLABS_AWS_ACCOUNT_ID.dkr.ecr.{{aws_region}}.amazonaws.com/{{ecr_repo}}:$TAG
+    docker push $CLABS_AWS_ACCOUNT_ID.dkr.ecr.{{aws_region}}.amazonaws.com/{{ecr_repo}}:$TAG
+    echo "==> Forcing new ECS deployment for $SERVICE..."
+    aws ecs update-service --cluster infinitepieces --service $SERVICE --force-new-deployment --region {{aws_region}} > /dev/null
+    echo "==> Backend deploy complete ($TAG → $SERVICE)!"

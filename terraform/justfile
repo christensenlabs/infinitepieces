@@ -1,11 +1,21 @@
-# Preview infrastructure changes
-plan:
-    tofu plan
+# Plan shared infrastructure
+shared-plan:
+    cd shared && tofu plan
 
-# Apply infrastructure changes
-apply:
-    tofu apply
+# Apply shared infrastructure
+shared-apply:
+    cd shared && tofu apply
 
-# Destroy infrastructure (use with caution)
-destroy:
-    tofu destroy
+# Plan a specific environment
+plan env:
+    cd envs/{{env}} && tofu plan
+
+# Apply a specific environment
+apply env:
+    cd envs/{{env}} && tofu apply
+
+# Convenience aliases
+dev-plan: (plan "dev")
+dev-apply: (apply "dev")
+prod-plan: (plan "prod")
+prod-apply: (apply "prod")

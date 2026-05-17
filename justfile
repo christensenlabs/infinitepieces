@@ -34,5 +34,8 @@ docker-reset: network-up
     just database::reset database::docker-up backend::docker-up
 
 # Deploy everything (frontend + backend) to AWS
-deploy-all: frontend::deploy backend::deploy
-    @echo "==> Full deploy complete!"
+# Usage: just deploy-all <env>
+deploy-all env:
+    just frontend::deploy {{env}}
+    just backend::deploy {{env}}
+    @echo "==> Full deploy complete ({{env}})!"

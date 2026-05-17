@@ -7,9 +7,14 @@ build:
     npm run build
 
 # Deploy to S3 + CloudFront
-deploy: build
-    @echo "==> Syncing dist/ to S3 bucket $CLABS_INFINITEPIECES_BUCKET..."
-    aws s3 sync dist s3://$CLABS_INFINITEPIECES_BUCKET --delete
-    @echo "==> Invalidating CloudFront distribution $CLABS_INFINITEPIECES_CLOUDFRONT_DISTRIBUTION_ID..."
-    aws cloudfront create-invalidation --distribution-id $CLABS_INFINITEPIECES_CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
-    @echo "==> Frontend deploy complete!"
+# Usage: just deploy <env>
+deploy env: build
+    #!/usr/bin/env bash
+    set -euo pipefail
+    BUCKET=$(cd ../terraform/envs/{{env}} && tofu output -raw s3_bucket)
+    DIST_ID=$(cd ../terraform/envs/{{env}} && tofu output -raw cloudfront_distribution_id)
+    echo "==> Syncing dist/ to S3 bucket $BUCKET..."
+    aws s3 sync dist s3://$BUCKET --delete
+    echo "==> Invalidating CloudFront distribution $DIST_ID..."
+    aws cloudfront create-invalidation --distribution-id $DIST_ID --paths "/*"
+    echo "==> Frontend deploy complete ({{env}})!"

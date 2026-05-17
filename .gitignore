@@ -12,6 +12,11 @@ out/
 
 tylers-code/
 
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+
 # Environment files
 .env
 .env.local
