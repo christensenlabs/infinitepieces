@@ -10,10 +10,6 @@ output "site_url" {
   value = module.env.site_url
 }
 
-output "api_url" {
-  value = module.env.api_url
-}
-
 output "rds_endpoint" {
   value = module.env.rds_endpoint
 }
@@ -28,5 +24,10 @@ output "ecs_service_name" {
 
 output "db_password" {
   value     = module.env.db_password
+  sensitive = true
+}
+
+output "readonly_password" {
+  value     = random_password.readonly.result
   sensitive = true
 }

@@ -4,8 +4,3 @@ cors:
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/infinitepieces
-    username: infinitepieces_app
-    password: ${CLABS_INFINITEPIECES_DB_PASSWORD}
-  flyway:
-    user: infinitepieces_admin
-    password: ${CLABS_INFINITEPIECES_DB_PASSWORD}

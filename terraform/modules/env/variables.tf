@@ -36,11 +36,6 @@ variable "domain_name" {
   type        = string
 }
 
-variable "api_domain_name" {
-  description = "API domain (e.g. api.infinitepieces.christensenlabs.com)"
-  type        = string
-}
-
 variable "image_tag" {
   description = "ECR image tag to deploy (e.g. latest, dev)"
   type        = string
@@ -75,4 +70,18 @@ variable "ecs_memory" {
 variable "ecs_desired_count" {
   type    = number
   default = 1
+}
+
+variable "db_app_password" {
+  description = "Password for the infinitepieces_app DB role"
+  type        = string
+  sensitive   = true
+  default     = null
+}
+
+variable "db_admin_password" {
+  description = "Password for the infinitepieces_admin DB role"
+  type        = string
+  sensitive   = true
+  default     = null
 }

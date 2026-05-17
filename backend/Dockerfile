@@ -1,11 +1,12 @@
 # ---- Build stage ----
 FROM amazoncorretto:21-alpine AS build
 WORKDIR /app
-COPY gradle gradle
-COPY gradlew build.gradle.kts settings.gradle.kts ./
+COPY backend/gradle gradle
+COPY backend/gradlew backend/build.gradle.kts backend/settings.gradle.kts ./
 RUN --mount=type=cache,target=/root/.gradle ./gradlew dependencies --no-daemon
-COPY src src
-COPY build/generated-src/jooq build/generated-src/jooq
+COPY backend/src src
+COPY database/migrations src/main/resources/db/migrations
+COPY backend/build/generated-src/jooq build/generated-src/jooq
 RUN --mount=type=cache,target=/root/.gradle ./gradlew bootJarOnly --no-daemon
 
 # ---- Runtime stage ----

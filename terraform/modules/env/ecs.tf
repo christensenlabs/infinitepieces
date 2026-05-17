@@ -94,9 +94,9 @@ resource "aws_ecs_task_definition" "backend" {
       { name = "SPRING_PROFILES_ACTIVE", value = var.spring_profile },
       { name = "SPRING_DATASOURCE_URL", value = "jdbc:postgresql://${aws_db_instance.main.endpoint}/${aws_db_instance.main.db_name}" },
       { name = "SPRING_DATASOURCE_USERNAME", value = "infinitepieces_app" },
-      { name = "SPRING_DATASOURCE_PASSWORD", value = random_password.db.result },
-      { name = "SPRING_FLYWAY_USER", value = "infinitepieces" },
-      { name = "SPRING_FLYWAY_PASSWORD", value = random_password.db.result },
+      { name = "SPRING_DATASOURCE_PASSWORD", value = coalesce(var.db_app_password, random_password.db.result) },
+      { name = "SPRING_FLYWAY_USER", value = "infinitepieces_admin" },
+      { name = "SPRING_FLYWAY_PASSWORD", value = coalesce(var.db_admin_password, random_password.db.result) },
       { name = "S3_STORAGE_BUCKET", value = aws_s3_bucket.storage.id },
     ]
 
@@ -138,5 +138,5 @@ resource "aws_ecs_service" "backend" {
     container_port   = var.app_port
   }
 
-  depends_on = [aws_lb_listener.https]
+  depends_on = [aws_lb_listener.http]
 }

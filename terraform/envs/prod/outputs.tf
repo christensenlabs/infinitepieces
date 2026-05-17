@@ -10,10 +10,6 @@ output "site_url" {
   value = module.env.site_url
 }
 
-output "api_url" {
-  value = module.env.api_url
-}
-
 output "rds_endpoint" {
   value = module.env.rds_endpoint
 }

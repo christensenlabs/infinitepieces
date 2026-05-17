@@ -31,7 +31,7 @@ resource "aws_security_group" "ecs" {
 }
 
 ################################################################################
-# RDS — only reachable from this environment's ECS tasks
+# RDS — reachable from this environment's ECS tasks and operator IP
 ################################################################################
 
 resource "aws_security_group" "rds" {
@@ -44,6 +44,15 @@ resource "aws_security_group" "rds" {
     to_port         = 5432
     protocol        = "tcp"
     security_groups = [aws_security_group.ecs.id]
+  }
+
+  # Daniel's home IP — update if it changes
+  ingress {
+    description = "Postgres from operator IP"
+    from_port   = 5432
+    to_port     = 5432
+    protocol    = "tcp"
+    cidr_blocks = ["173.206.251.57/32"]
   }
 
   tags = {

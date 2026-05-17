@@ -2,8 +2,11 @@ server:
   port: 8080
 
 spring:
+  datasource:
+    username: infinitepieces_app
+    password: 'changeme'
   flyway:
-    locations: filesystem:../database/migrations
+    locations: classpath:db/migrations
 
 infinitepieces:
   firebase:

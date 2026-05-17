@@ -17,8 +17,10 @@ module "env" {
   alb_sg_id          = data.terraform_remote_state.shared.outputs.alb_sg_id
   route53_zone_id    = data.terraform_remote_state.shared.outputs.route53_zone_id
 
-  domain_name     = "dev.infinitepieces.christensenlabs.com"
-  api_domain_name = "dev-api.infinitepieces.christensenlabs.com"
-  image_tag       = "dev"
+  domain_name    = "dev.infinitepieces.christensenlabs.com"
+  image_tag      = "dev"
   spring_profile  = "dev"
+
+  db_app_password   = random_password.app.result
+  db_admin_password = random_password.admin.result
 }

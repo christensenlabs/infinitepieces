@@ -13,14 +13,14 @@ output "site_url" {
   value       = "https://${var.domain_name}"
 }
 
-output "api_url" {
-  description = "Backend API URL"
-  value       = "https://${var.api_domain_name}"
+output "rds_endpoint" {
+  description = "RDS Postgres endpoint (host:port)"
+  value       = aws_db_instance.main.endpoint
 }
 
-output "rds_endpoint" {
-  description = "RDS Postgres endpoint"
-  value       = aws_db_instance.main.endpoint
+output "rds_host" {
+  description = "RDS Postgres hostname"
+  value       = aws_db_instance.main.address
 }
 
 output "storage_bucket" {

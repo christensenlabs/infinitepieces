@@ -1,12 +1,2 @@
 cors:
   allowed-origins: "https://infinitepieces.christensenlabs.com"
-
-spring:
-  datasource:
-    url: ${SPRING_DATASOURCE_URL}
-    username: infinitepieces_app
-    password: ${SPRING_DATASOURCE_APP_PASSWORD}
-  flyway:
-    user: infinitepieces_admin
-    password: ${SPRING_DATASOURCE_ADMIN_PASSWORD}
-    locations: classpath:db/migrations

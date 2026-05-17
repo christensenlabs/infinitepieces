@@ -24,11 +24,11 @@ jooq:
 
 # Build Docker image for local dev (native platform)
 docker-build: jooq
-    docker build -t {{local_image}} .
+    docker build -t {{local_image}} -f Dockerfile ..
 
 # Build Docker image for AWS (linux/amd64 for ECS Fargate)
 docker-build-aws: jooq
-    docker build --platform linux/amd64 -t {{ecr_repo}} .
+    docker build --platform linux/amd64 -t {{ecr_repo}} -f Dockerfile ..
 
 # Run in Docker locally (detached, on the project network)
 docker-up: docker-build
