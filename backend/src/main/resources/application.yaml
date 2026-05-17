@@ -5,6 +5,12 @@ spring:
   datasource:
     username: infinitepieces_app
     password: 'changeme'
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      connection-timeout: 5000
+      idle-timeout: 300000
+      max-lifetime: 600000
   flyway:
     locations: classpath:db/migrations
 

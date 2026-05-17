@@ -95,6 +95,7 @@ resource "aws_ecs_task_definition" "backend" {
       { name = "SPRING_DATASOURCE_URL", value = "jdbc:postgresql://${aws_db_instance.main.endpoint}/${aws_db_instance.main.db_name}" },
       { name = "SPRING_DATASOURCE_USERNAME", value = "infinitepieces_app" },
       { name = "SPRING_DATASOURCE_PASSWORD", value = coalesce(var.db_app_password, random_password.db.result) },
+      { name = "SPRING_FLYWAY_URL", value = "jdbc:postgresql://${aws_db_instance.main.endpoint}/${aws_db_instance.main.db_name}" },
       { name = "SPRING_FLYWAY_USER", value = "infinitepieces_admin" },
       { name = "SPRING_FLYWAY_PASSWORD", value = coalesce(var.db_admin_password, random_password.db.result) },
       { name = "S3_STORAGE_BUCKET", value = aws_s3_bucket.storage.id },
@@ -124,7 +125,8 @@ resource "aws_ecs_service" "backend" {
   cluster         = var.ecs_cluster_id
   task_definition = aws_ecs_task_definition.backend.arn
   desired_count   = var.ecs_desired_count
-  launch_type     = "FARGATE"
+  launch_type            = "FARGATE"
+  enable_execute_command = true
 
   network_configuration {
     subnets          = var.public_subnet_ids
