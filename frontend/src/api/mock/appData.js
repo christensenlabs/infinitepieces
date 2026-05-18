@@ -469,3 +469,251 @@ export const mockAuthWarRoomData = [
   { id: 5, name: 'Lucas H.', code: '97153', total: 80, used: 55, expire: '2 Months', status: 'good', velocity: 0.88 },
   { id: 6, name: 'Sophia P.', code: '97153', total: 120, used: 70, expire: '3 Months', status: 'under', velocity: 0.74 },
 ];
+
+// ── Clinical QA Chart Audit ──
+export const mockChartAuditQueue = [
+  {
+    id: 'qa-001',
+    client: 'Client A',
+    owner: 'BCBA A',
+    noteType: 'Session Note',
+    score: 72,
+    severity: 'high',
+    status: 'Needs revision',
+    flags: ['Missing ABC context', 'Caregiver involvement not documented', 'Subjective phrasing'],
+    evidence: 'Note says "client was upset" without observable description or antecedent/context.',
+    lastUpdated: 'Today, 10:42 AM',
+  },
+  {
+    id: 'qa-002',
+    client: 'Client B',
+    owner: 'BCBA A',
+    noteType: 'Program Review',
+    score: 84,
+    severity: 'medium',
+    status: 'Review recommended',
+    flags: ['Mastery criteria missing', 'No maintenance schedule'],
+    evidence: 'Target has progress data but no clear mastery threshold or maintenance plan attached.',
+    lastUpdated: 'Yesterday, 4:13 PM',
+  },
+  {
+    id: 'qa-003',
+    client: 'Client C',
+    owner: 'BCBA B',
+    noteType: 'SOAP Draft',
+    score: 94,
+    severity: 'low',
+    status: 'Audit-ready',
+    flags: ['Minor formatting issue'],
+    evidence: 'Objective data and plan are present; formatting standardization recommended before export.',
+    lastUpdated: '2 days ago',
+  },
+];
+
+export const mockChartAuditStats = {
+  chartsInQA: 18,
+  highPriority: 4,
+  avgQAScore: 86,
+  auditPackageReady: 11,
+};
+
+export const mockRemediationChecklist = [
+  'Replace subjective language with observable behavior.',
+  'Add antecedent, behavior, and consequence context if clinically relevant.',
+  'Confirm note statements match captured session data.',
+  'Document caregiver involvement or why it was not applicable.',
+  'Confirm BCBA review/signature before payer-facing export.',
+];
+
+// ── Intake, Assessment & Treatment Plan Builder ──
+export const mockIntakeCases = [
+  { id: 'int-001', client: 'Client A', stage: 'Assessment', days: 8, payer: 'Demo Payer A', priority: 'high', missing: ['Caregiver consent', 'Baseline probe set'] },
+  { id: 'int-002', client: 'Client B', stage: 'Treatment Plan Review', days: 21, payer: 'Demo Payer B', priority: 'medium', missing: ['Medical necessity summary'] },
+  { id: 'int-003', client: 'Client C', stage: 'Waitlist', days: 3, payer: 'Private Pay Demo', priority: 'low', missing: ['Initial screening'] },
+];
+
+export const mockIntakeStages = ['Referral', 'Eligibility', 'Consent', 'Assessment', 'Baseline', 'Plan Review', 'Active'];
+
+export const mockAssessmentDomains = [
+  { domain: 'Communication', probes: 18, complete: 12, note: 'Mand, tact, listener response, AAC/GLP supports.' },
+  { domain: 'Social & Play', probes: 12, complete: 6, note: 'Joint attention, turn taking, play expansion.' },
+  { domain: 'Adaptive Skills', probes: 10, complete: 4, note: 'Daily living skills and routines.' },
+  { domain: 'Behavior Reduction', probes: 8, complete: 5, note: 'ABC patterns, replacement responses, safety planning.' },
+];
+
+export const mockPlanSections = [
+  'Medical necessity narrative',
+  'Recommended service intensity',
+  'Caregiver priorities and participation',
+  'Baseline summary by domain',
+  'Measurable treatment goals',
+  'Generalization and maintenance plan',
+  'Discharge/transition criteria',
+];
+
+export const mockIntakeStats = {
+  openReferrals: 14,
+  plansReady: 5,
+  consentGaps: 3,
+};
+
+// ── Competency & Credential Vault ──
+export const mockCredentialStaff = [
+  {
+    id: 'staff-a',
+    name: 'RBT A',
+    role: 'RBT',
+    status: 'Blocked',
+    cprDays: 18,
+    bacbDays: 42,
+    backgroundDays: 310,
+    hipaaTrainingDays: 9,
+    clientCompetency: 68,
+    payerEligible: false,
+    blockers: ['CPR expires within 30 days', 'Client A competency below threshold'],
+  },
+  {
+    id: 'staff-b',
+    name: 'RBT B',
+    role: 'RBT',
+    status: 'Eligible',
+    cprDays: 220,
+    bacbDays: 190,
+    backgroundDays: 500,
+    hipaaTrainingDays: 130,
+    clientCompetency: 94,
+    payerEligible: true,
+    blockers: [],
+  },
+  {
+    id: 'staff-c',
+    name: 'BCBA A',
+    role: 'BCBA',
+    status: 'Watch',
+    cprDays: 44,
+    bacbDays: 28,
+    backgroundDays: 250,
+    hipaaTrainingDays: 63,
+    clientCompetency: 100,
+    payerEligible: true,
+    blockers: ['BACB registration renewal due within 30 days'],
+  },
+];
+
+export const mockCredentialStats = {
+  activeStaff: 32,
+  expiring30Days: 6,
+  blockedShifts: 4,
+  competencyComplete: '88%',
+};
+
+// ── HIPAA Trust Center & Security Admin ──
+export const mockSecurityEvents = [
+  { id: 'evt-001', type: 'Client record access', actor: 'BCBA A', target: 'Client A', time: '10:42 AM', risk: 'low', detail: 'Viewed active treatment plan from assigned caseload.' },
+  { id: 'evt-002', type: 'Failed login', actor: 'Unknown user', target: 'Portal', time: '10:28 AM', risk: 'medium', detail: '3 failed attempts from unrecognized device fingerprint.' },
+  { id: 'evt-003', type: 'Export requested', actor: 'Admin A', target: 'Audit package', time: '09:55 AM', risk: 'medium', detail: 'De-identified audit export queued for supervisor review.' },
+  { id: 'evt-004', type: 'Shared device auto-logout', actor: 'RBT A', target: 'Clinic Tablet 04', time: '09:31 AM', risk: 'low', detail: 'Idle timeout purged active client/session context.' },
+];
+
+export const mockDeviceSessions = [
+  { id: 'dev-01', device: 'Clinic Tablet 04', user: 'RBT A', status: 'Auto-logged out', lastSeen: '9:31 AM', posture: 'Shared device' },
+  { id: 'dev-02', device: 'Admin Laptop 02', user: 'Admin A', status: 'Active', lastSeen: 'Now', posture: 'Managed workstation' },
+  { id: 'dev-03', device: 'Unknown Browser', user: 'Failed login', status: 'Blocked', lastSeen: '10:28 AM', posture: 'Unrecognized' },
+];
+
+export const mockResponseChecklist = [
+  { id: 1, label: 'Identify affected records and users', done: true },
+  { id: 2, label: 'Preserve audit logs and access evidence', done: true },
+  { id: 3, label: 'Disable suspected sessions or credentials', done: false },
+  { id: 4, label: 'Notify privacy/security lead for review', done: false },
+  { id: 5, label: 'Document determination and follow-up actions', done: false },
+];
+
+export const mockTrustCenterStats = {
+  securityPosture: 91,
+  failedLogins: 3,
+  activeSessions: 18,
+  exportsToday: 2,
+};
+
+// ── API / Integration Hub ──
+export const mockIntegrations = [
+  { id: 'office-ally', name: 'Office Ally Clearinghouse', category: 'Claims', status: 'Sandbox ready', icon: 'FileCode2', color: 'cyan', next: 'Map payer IDs and service codes' },
+  { id: 'availity', name: 'Availity', category: 'Eligibility / Claims', status: 'Planned', icon: 'Cloud', color: 'slate', next: 'Contracting and API review' },
+  { id: 'quickbooks', name: 'QuickBooks Payroll', category: 'Accounting', status: 'Needs approval', icon: 'WalletCards', color: 'gold', next: 'Configure locked timesheet export' },
+  { id: 'workspace', name: 'Google Workspace', category: 'Identity / Mail', status: 'Connected in demo', icon: 'KeyRound', color: 'emerald', next: 'Backend service-account review' },
+  { id: 'm365', name: 'Microsoft 365', category: 'Identity / Mail', status: 'Planned', icon: 'PlugZap', color: 'slate', next: 'Microsoft Graph backend function' },
+];
+
+export const mockIntegrationJobs = [
+  { id: 'job-001', name: '837P claim batch export', target: 'Clearinghouse sandbox', status: 'Ready for test', count: 42, risk: 'low' },
+  { id: 'job-002', name: 'Locked timesheet sync', target: 'Payroll staging', status: 'Mapping needed', count: 18, risk: 'medium' },
+  { id: 'job-003', name: 'Eligibility check queue', target: 'Payer API', status: 'Blocked: credentials', count: 7, risk: 'high' },
+  { id: 'job-004', name: '835 remittance parser', target: 'Revenue ops', status: 'Design review', count: 0, risk: 'medium' },
+];
+
+export const mockServiceCodeMappings = [
+  { service: 'Direct therapy', code: '97153', payer: 'Demo Payer A', rule: 'Session note signed + timer validated', ready: true },
+  { service: 'Supervision', code: '97155', payer: 'Demo Payer A', rule: 'BCBA credential active + auth remaining', ready: true },
+  { service: 'Caregiver training', code: '97156', payer: 'Demo Payer B', rule: 'Caregiver attendance + plan linked', ready: false },
+];
+
+export const mockIntegrationStats = {
+  connectedCount: 2,
+  pendingMappings: 7,
+  failedJobs: 1,
+  lastSuccessfulSync: '2h',
+};
+
+// ── De-identified Outcomes Registry ──
+export const mockRegistryJobs = [
+  { id: 'reg-001', cohort: 'Early Communication Growth', records: 128, status: 'Ready for governance review', risk: 'low', consent: '94%', kAnon: 12, domain: 'Communication' },
+  { id: 'reg-002', cohort: 'Replacement Behavior Trends', records: 73, status: 'Suppression needed', risk: 'medium', consent: '88%', kAnon: 6, domain: 'Behavior Reduction' },
+  { id: 'reg-003', cohort: 'Caregiver Generalization', records: 24, status: 'Consent incomplete', risk: 'high', consent: '61%', kAnon: 4, domain: 'Generalization' },
+];
+
+export const mockRegistryTransformations = [
+  { name: 'Direct identifier removal', done: true, detail: 'Names, addresses, phone numbers, emails, IDs removed.' },
+  { name: 'Date shifting / age banding', done: true, detail: 'Dates converted to relative windows and age bands.' },
+  { name: 'Small-cell suppression', done: false, detail: 'Cohorts below threshold require suppression or merge.' },
+  { name: 'Consent/IRB governance check', done: false, detail: 'Registry export requires governance approval workflow.' },
+];
+
+export const mockCohortMetrics = [
+  { label: 'Communication targets', value: 43, trend: '+12%', tone: 'cyan' },
+  { label: 'Mastered targets', value: 31, trend: '+8%', tone: 'emerald' },
+  { label: 'Stagnant targets', value: 7, trend: '-4%', tone: 'amber' },
+  { label: 'Excluded records', value: 19, trend: 'consent / small cell', tone: 'rose' },
+];
+
+export const mockRegistryStats = {
+  consentBlocked: 41,
+  smallCellRisks: 6,
+  governancePackets: 3,
+};
+
+// ── Infinite Comms (Messages) ──
+export const mockCommsUsers = {
+  admin: { uid: 'u1', name: 'Admin A', role: 'Administrator', init: 'AA' },
+  bcba: { uid: 'u2', name: 'BCBA A', role: 'BCBA', init: 'BA' },
+  rbt: { uid: 'u3', name: 'RBT A', role: 'RBT', init: 'RA' },
+};
+
+export const mockCommsChannels = [
+  { id: 'c1', name: 'clinic-announcements', type: 'general', iconType: 'Hash', isSecure: false, unread: 2, desc: 'General clinic updates. NO PHI.' },
+  { id: 'c2', name: 'bcba-clinical-review', type: 'role', iconType: 'Lock', isSecure: true, unread: 0, desc: 'BCBA-only clinical strategy discussions.' },
+  { id: 'c3', name: 'client-a-care-team', type: 'client', iconType: 'Shield', isSecure: true, linkedClient: 'Client A', unread: 5, desc: 'Secure care team thread for Client A.' },
+  { id: 'c4', name: 'client-b-care-team', type: 'client', iconType: 'Shield', isSecure: true, linkedClient: 'Client B', unread: 0, desc: 'Secure care team thread for Client B.' },
+  { id: 'c5', name: 'subpool-marketplace', type: 'general', iconType: 'Hash', isSecure: false, unread: 1, desc: 'Shift coverage requests.' },
+];
+
+export const mockCommsMessages = {
+  'c3': [
+    { id: 'm1', sender: 'System Engine', role: 'OS', time: '09:00 AM', body: 'Client A Care Team channel created. Audit logging enabled.', isSystem: true },
+    { id: 'm2', sender: 'BCBA A', role: 'BCBA', time: '09:15 AM', body: 'I have updated the BIP for Client A. Please review the new token board before the 10 AM session.', isUrgent: false, reqAck: true, acks: [] },
+    { id: 'm3', sender: 'RBT A', role: 'RBT', time: '09:20 AM', body: 'Reviewed. The new visual schedules look great. Ready for session.', isUrgent: false, reqAck: false, acks: [] },
+  ],
+  'c1': [
+    { id: 'm4', sender: 'Admin A', role: 'Administrator', time: '08:00 AM', body: 'Reminder: The clinic will close at 3 PM tomorrow for staff training. Please ensure all sessions are wrapped up by 2:45 PM.', isUrgent: true, reqAck: false, acks: [] },
+  ],
+};

@@ -43,6 +43,31 @@ import {
   mockOutcomesStagnantTargets,
   mockAacConfig,
   mockAuthWarRoomData,
+  mockChartAuditQueue,
+  mockChartAuditStats,
+  mockRemediationChecklist,
+  mockIntakeCases,
+  mockIntakeStages,
+  mockAssessmentDomains,
+  mockPlanSections,
+  mockIntakeStats,
+  mockCredentialStaff,
+  mockCredentialStats,
+  mockSecurityEvents,
+  mockDeviceSessions,
+  mockResponseChecklist,
+  mockTrustCenterStats,
+  mockIntegrations,
+  mockIntegrationJobs,
+  mockServiceCodeMappings,
+  mockIntegrationStats,
+  mockRegistryJobs,
+  mockRegistryTransformations,
+  mockCohortMetrics,
+  mockRegistryStats,
+  mockCommsUsers,
+  mockCommsChannels,
+  mockCommsMessages,
 } from './appData';
 
 export const handlers = {
@@ -89,4 +114,43 @@ export const handlers = {
   'GET:/apps/outcomes/stagnant-targets': () => mockOutcomesStagnantTargets,
   'GET:/apps/aac/config': () => mockAacConfig,
   'GET:/apps/auth-war-room/data': () => mockAuthWarRoomData,
+
+  // ── Chart Audit ──
+  'GET:/apps/chart-audit/queue': () => mockChartAuditQueue,
+  'GET:/apps/chart-audit/stats': () => mockChartAuditStats,
+  'GET:/apps/chart-audit/remediation': () => mockRemediationChecklist,
+
+  // ── Intake Builder ──
+  'GET:/apps/intake/cases': () => mockIntakeCases,
+  'GET:/apps/intake/stages': () => mockIntakeStages,
+  'GET:/apps/intake/domains': () => mockAssessmentDomains,
+  'GET:/apps/intake/plan-sections': () => mockPlanSections,
+  'GET:/apps/intake/stats': () => mockIntakeStats,
+
+  // ── Credential Vault ──
+  'GET:/apps/credentials/staff': () => mockCredentialStaff,
+  'GET:/apps/credentials/stats': () => mockCredentialStats,
+
+  // ── Trust Center ──
+  'GET:/apps/trust-center/events': () => mockSecurityEvents,
+  'GET:/apps/trust-center/devices': () => mockDeviceSessions,
+  'GET:/apps/trust-center/response-checklist': () => mockResponseChecklist,
+  'GET:/apps/trust-center/stats': () => mockTrustCenterStats,
+
+  // ── Integration Hub ──
+  'GET:/apps/integrations/catalog': () => mockIntegrations,
+  'GET:/apps/integrations/jobs': () => mockIntegrationJobs,
+  'GET:/apps/integrations/mappings': () => mockServiceCodeMappings,
+  'GET:/apps/integrations/stats': () => mockIntegrationStats,
+
+  // ── Outcomes Registry ──
+  'GET:/apps/registry/cohorts': () => mockRegistryJobs,
+  'GET:/apps/registry/transformations': () => mockRegistryTransformations,
+  'GET:/apps/registry/metrics': () => mockCohortMetrics,
+  'GET:/apps/registry/stats': () => mockRegistryStats,
+
+  // ── Infinite Comms ──
+  'GET:/apps/comms/users': () => mockCommsUsers,
+  'GET:/apps/comms/channels': () => mockCommsChannels,
+  'GET:/apps/comms/messages': () => mockCommsMessages,
 };

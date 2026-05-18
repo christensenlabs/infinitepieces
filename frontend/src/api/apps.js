@@ -68,3 +68,42 @@ export const fetchAacConfig = () => api.get('/apps/aac/config');
 
 // ── Auth War Room ──
 export const fetchAuthWarRoomData = () => api.get('/apps/auth-war-room/data');
+
+// ── Clinical QA Chart Audit ──
+export const fetchChartAuditQueue = () => api.get('/apps/chart-audit/queue');
+export const fetchChartAuditStats = () => api.get('/apps/chart-audit/stats');
+export const fetchRemediationChecklist = () => api.get('/apps/chart-audit/remediation');
+
+// ── Intake Builder ──
+export const fetchIntakeCases = () => api.get('/apps/intake/cases');
+export const fetchIntakeStages = () => api.get('/apps/intake/stages');
+export const fetchAssessmentDomains = () => api.get('/apps/intake/domains');
+export const fetchPlanSections = () => api.get('/apps/intake/plan-sections');
+export const fetchIntakeStats = () => api.get('/apps/intake/stats');
+
+// ── Competency & Credential Vault ──
+export const fetchCredentialStaff = () => api.get('/apps/credentials/staff');
+export const fetchCredentialStats = () => api.get('/apps/credentials/stats');
+
+// ── HIPAA Trust Center ──
+export const fetchSecurityEvents = () => api.get('/apps/trust-center/events');
+export const fetchDeviceSessions = () => api.get('/apps/trust-center/devices');
+export const fetchResponseChecklist = () => api.get('/apps/trust-center/response-checklist');
+export const fetchTrustCenterStats = () => api.get('/apps/trust-center/stats');
+
+// ── API / Integration Hub ──
+export const fetchIntegrationCatalog = () => api.get('/apps/integrations/catalog');
+export const fetchIntegrationJobs = () => api.get('/apps/integrations/jobs');
+export const fetchServiceCodeMappings = () => api.get('/apps/integrations/mappings');
+export const fetchIntegrationStats = () => api.get('/apps/integrations/stats');
+
+// ── De-identified Outcomes Registry ──
+export const fetchRegistryCohorts = () => api.get('/apps/registry/cohorts');
+export const fetchRegistryTransformations = () => api.get('/apps/registry/transformations');
+export const fetchCohortMetrics = () => api.get('/apps/registry/metrics');
+export const fetchRegistryStats = () => api.get('/apps/registry/stats');
+
+// ── Infinite Comms ──
+export const fetchCommsUsers = () => api.get('/apps/comms/users');
+export const fetchCommsChannels = () => api.get('/apps/comms/channels');
+export const fetchCommsMessages = () => api.get('/apps/comms/messages');

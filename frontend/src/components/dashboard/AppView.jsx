@@ -19,6 +19,13 @@ import RiskGovernanceHub from '../apps/risk-governance-hub';
 import OutcomesIntelligence from '../apps/outcomes-intelligence';
 import GestaltAAC from '../apps/gestalt-aac';
 import AuthWarRoom from '../apps/auth-war-room';
+import ChartAudit from '../apps/chart-audit';
+import IntakeBuilder from '../apps/intake-builder';
+import CompetencyCredentialVault from '../apps/credential-vault';
+import HIPAATrustCenter from '../apps/trust-center';
+import APIIntegrationHub from '../apps/integration-hub';
+import DeidentifiedOutcomesRegistry from '../apps/outcomes-registry';
+import InfiniteComms from '../apps/infinite-comms';
 
 const APP_COMPONENTS = {
   'Scheduling': ClinicSchedulerApp,
@@ -38,6 +45,13 @@ const APP_COMPONENTS = {
   'Outcomes Intelligence': OutcomesIntelligence,
   'Gestalt AAC': GestaltAAC,
   'Auth War Room': AuthWarRoom,
+  'Chart Audit': ChartAudit,
+  'Intake Builder': IntakeBuilder,
+  'Credential Vault': CompetencyCredentialVault,
+  'Trust Center': HIPAATrustCenter,
+  'Integration Hub': APIIntegrationHub,
+  'Outcomes Registry': DeidentifiedOutcomesRegistry,
+  'Messages': InfiniteComms,
 };
 
 export default function AppView({ appName, onClose }) {

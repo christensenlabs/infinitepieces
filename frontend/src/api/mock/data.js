@@ -88,4 +88,11 @@ export const mockApps = [
   { key: 'outcomes', title: 'Outcomes', icon: 'Analytics', appName: 'Outcomes Intelligence' },
   { key: 'aac', title: 'Gestalt AAC', icon: 'Message', appName: 'Gestalt AAC' },
   { key: 'authwarroom', title: 'Auth War Room', icon: 'Analytics', appName: 'Auth War Room' },
+  { key: 'chartaudit', title: 'Chart Audit', icon: 'Shield', appName: 'Chart Audit' },
+  { key: 'intake', title: 'Intake Builder', icon: 'Apps', appName: 'Intake Builder' },
+  { key: 'credentials', title: 'Credential Vault', icon: 'Shield', appName: 'Credential Vault' },
+  { key: 'trustcenter', title: 'Trust Center', icon: 'Shield', appName: 'Trust Center' },
+  { key: 'integrations', title: 'Integration Hub', icon: 'Bolt', appName: 'Integration Hub' },
+  { key: 'registry', title: 'Outcomes Registry', icon: 'Analytics', appName: 'Outcomes Registry' },
+  { key: 'comms', title: 'Messages', icon: 'Message', appName: 'Messages' },
 ];
