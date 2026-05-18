@@ -37,7 +37,8 @@ docker-up: docker-build
         --network ${CLABS_INFINITEPIECES_PROJECT_NAME}_default \
         -e SPRING_DATASOURCE_URL=jdbc:postgresql://$CLABS_INFINITEPIECES_PROJECT_NAME-postgres:5432/infinitepieces \
         -e SPRING_FLYWAY_URL=jdbc:postgresql://$CLABS_INFINITEPIECES_PROJECT_NAME-postgres:5432/infinitepieces \
-        -e CLABS_INFINITEPIECES_DB_PASSWORD=$CLABS_INFINITEPIECES_DB_PASSWORD \
+        -e SPRING_DATASOURCE_PASSWORD=$CLABS_INFINITEPIECES_DB_PASSWORD \
+        -e SPRING_FLYWAY_PASSWORD=$CLABS_INFINITEPIECES_DB_PASSWORD \
         $(if [ -n "$GOOGLE_APPLICATION_CREDENTIALS" ] && [ -f "$GOOGLE_APPLICATION_CREDENTIALS" ]; then echo "-e GOOGLE_APPLICATION_CREDENTIALS=/firebase/service-account.json -v $GOOGLE_APPLICATION_CREDENTIALS:/firebase/service-account.json:ro"; fi) \
         -v $(pwd)/../database/migrations:/migrations:ro \
         -e SPRING_FLYWAY_LOCATIONS=filesystem:/migrations \
